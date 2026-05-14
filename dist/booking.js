@@ -48,12 +48,71 @@
     return PS_BASE + '?' + params.toString();
   }
 
+  // ---------- ROUTING --------------------------------------------------------
+  // Path of the dedicated booking page. Change here if the slug ever moves.
+  const BOOKING_PATH = '/bestill-time';
+
+  // Texts that should always route to the booking page, exact-match
+  // (case + diacritics insensitive, trimmed). Keep short and conservative
+  // so we never hijack prose links that happen to contain these words.
+  const BOOKING_KEYWORDS = [
+    'bestill time',
+    'bestill',
+    'ledige timer',
+    'se ledige timer',
+    'booking',
+    'book time',
+    'book',
+  ];
+
+  function normalize(s) {
+    return (s || '')
+      .replace(/ /g, ' ')
+      .trim()
+      .toLowerCase();
+  }
+
+  function isBookingText(txt) {
+    return BOOKING_KEYWORDS.indexOf(normalize(txt)) !== -1;
+  }
+
+  function routeBookingLinks() {
+    // <a> tags — rewrite href in place
+    document.querySelectorAll('a').forEach(function (a) {
+      if (a.dataset.nbRouted) return;
+      if (!isBookingText(a.textContent)) return;
+      a.setAttribute('href', BOOKING_PATH);
+      a.removeAttribute('target');
+      a.dataset.nbRouted = '1';
+    });
+
+    // <button>, role="button", or anything with matching text that isn't an <a>
+    document.querySelectorAll('button, [role="button"]').forEach(function (b) {
+      if (b.dataset.nbRouted) return;
+      if (b.tagName === 'A') return;
+      if (!isBookingText(b.textContent)) return;
+      b.dataset.nbRouted = '1';
+      b.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        window.location.href = BOOKING_PATH;
+      }, true);
+    });
+  }
+
+  // ---------- BODY CLASS SYNC ------------------------------------------------
+  function syncBodyClass() {
+    const onBookingPage = !!document.getElementById('nb-booking');
+    document.body.classList.toggle('nb-booking-page', onBookingPage);
+  }
+
   // ---------- MOUNT ----------------------------------------------------------
   function mountIfNeeded() {
+    syncBodyClass();
+    routeBookingLinks();
     const host = document.getElementById('nb-booking');
     if (!host || host.dataset.nbMounted) return;
     host.dataset.nbMounted = '1';
-    document.body.classList.add('nb-booking-page');
     render(host);
   }
 
@@ -174,4 +233,17 @@
   }
   document.addEventListener('mercury:load', mountIfNeeded);
   window.addEventListener('popstate', () => setTimeout(mountIfNeeded, 50));
+
+  // Squarespace sometimes injects nav/footer content asynchronously after
+  // first paint. Watch the DOM for newly-added link/button text and re-route
+  // — keeps things working through cookie banners, lazy nav, etc.
+  if ('MutationObserver' in window) {
+    const obs = new MutationObserver(function () {
+      routeBookingLinks();
+    });
+    const start = function () {
+      if (document.body) obs.observe(document.body, { childList: true, subtree: true });
+    };
+    if (document.body) start(); else document.addEventListener('DOMContentLoaded', start);
+  }
 })();

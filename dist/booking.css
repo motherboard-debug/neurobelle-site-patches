@@ -25,6 +25,25 @@ body.nb-booking-page main {
   background: var(--nb-beige) !important;
 }
 
+/* Hide Squarespace site chrome (nav header + announcement bar) only on the
+   booking page so the flow feels app-like and uncluttered. The body class
+   nb-booking-page is toggled on/off by booking.js depending on whether the
+   page contains <div id="nb-booking">, so other pages are unaffected. */
+body.nb-booking-page #header,
+body.nb-booking-page header.Header,
+body.nb-booking-page .Header,
+body.nb-booking-page .header-announcement-bar-wrapper,
+body.nb-booking-page .sqs-announcement-bar-dropzone {
+  display: none !important;
+}
+
+/* And reclaim the vertical space the fixed/sticky header was reserving. */
+body.nb-booking-page #page,
+body.nb-booking-page #siteWrapper {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
 #nb-booking {
   max-width: 820px;
   margin: 32px auto 80px;
