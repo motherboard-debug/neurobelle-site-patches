@@ -127,6 +127,13 @@
     'button.btn',
     'a.sqs-custom-cart',
     '[data-test="continue-to-cart"]',
+    // Commerce — add-to-cart button on product pages
+    '.sqs-add-to-cart-button',
+    // Commerce — product cards on the /services-store listing
+    'a.product-list-item-link',
+    // Commerce — buy-now / checkout buttons if they appear
+    '.sqs-buy-now-button',
+    '.sqs-checkout-button',
   ].join(',');
 
   const BUTTON_SKIP_TEXTS = [
@@ -149,21 +156,34 @@
     return BUTTON_SKIP_TEXTS.indexOf(txt) !== -1;
   }
 
+  function hijackEvent(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (typeof e.stopImmediatePropagation === 'function') {
+      e.stopImmediatePropagation();
+    }
+    window.location.href = BOOKING_PATH;
+  }
+
   function redirectAllButtons() {
     document.querySelectorAll(BUTTON_SELECTOR).forEach(function (el) {
       if (el.dataset.nbRedirected) return;
       if (shouldSkipButton(el)) return;
 
       if (el.tagName === 'A') {
+        // Anchor: rewrite href AND also capture clicks (Squarespace Commerce
+        // sometimes intercepts clicks on product cards via JS instead of
+        // letting the browser follow the href).
         el.setAttribute('href', BOOKING_PATH);
         el.removeAttribute('target');
-      } else {
-        el.addEventListener('click', function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-          window.location.href = BOOKING_PATH;
-        }, true);
       }
+
+      // For every matched element: install pointerdown + click handlers in
+      // capture phase so we run BEFORE Squarespace's own add-to-cart logic.
+      // pointerdown fires earlier than click and beats most SPA frameworks.
+      el.addEventListener('pointerdown', hijackEvent, true);
+      el.addEventListener('click', hijackEvent, true);
+
       el.dataset.nbRedirected = '1';
     });
   }
