@@ -52,28 +52,41 @@
   // Path of the dedicated booking page. Change here if the slug ever moves.
   const BOOKING_PATH = '/bestill-time';
 
-  // Texts that should always route to the booking page, exact-match
-  // (case + diacritics insensitive, trimmed). Keep short and conservative
-  // so we never hijack prose links that happen to contain these words.
-  const BOOKING_KEYWORDS = [
-    'bestill time',
-    'bestill',
-    'ledige timer',
-    'se ledige timer',
-    'booking',
-    'book time',
-    'book',
+  // Texts that should route to the booking page. Two strategies:
+  //
+  //   1. EXACT match (after normalization) — short, unambiguous CTAs.
+  //   2. SUBSTRING match — only for short link/button text (≤ 40 chars).
+  //      Catches "Bestill time her", "Book din time", etc. without
+  //      hijacking prose that mentions "booking" in passing.
+  const BOOKING_EXACT = [
+    'bestill time', 'bestill', 'ledige timer', 'se ledige timer',
+    'booking', 'book time', 'book', 'bestill her', 'bestill time her',
+    'book din time', 'book your appointment',
   ];
+  const BOOKING_CONTAINS = [
+    'bestill time', 'bestill her', 'bestill din time',
+    'ledige timer', 'book time', 'book din time',
+  ];
+  const MAX_SUBSTRING_LEN = 40;
 
   function normalize(s) {
     return (s || '')
-      .replace(/ /g, ' ')
+      .replace(/\s+/g, ' ')
+      .replace(/[.!?]+$/g, '')
       .trim()
       .toLowerCase();
   }
 
   function isBookingText(txt) {
-    return BOOKING_KEYWORDS.indexOf(normalize(txt)) !== -1;
+    const n = normalize(txt);
+    if (!n) return false;
+    if (BOOKING_EXACT.indexOf(n) !== -1) return true;
+    if (n.length <= MAX_SUBSTRING_LEN) {
+      for (let i = 0; i < BOOKING_CONTAINS.length; i++) {
+        if (n.indexOf(BOOKING_CONTAINS[i]) !== -1) return true;
+      }
+    }
+    return false;
   }
 
   function routeBookingLinks() {
