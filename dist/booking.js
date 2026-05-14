@@ -113,6 +113,61 @@
     });
   }
 
+  // ---------- AGGRESSIVE BUTTON REDIRECT -------------------------------------
+  // Every button-styled element on the site routes to /bestill-time, except:
+  //   - "Om oss" / "Lær mer" / "Les mer" / "Tilbake" (informational CTAs)
+  //   - Elements inside our own booking widget (#nb-booking)
+  //   - Main nav menu items (so site navigation still works)
+  const BUTTON_SELECTOR = [
+    '.sqs-block-button-element',
+    '.sqs-button-element--primary',
+    '.sqs-button-element--secondary',
+    '.sqs-button-element--tertiary',
+    'a.btn',
+    'button.btn',
+    'a.sqs-custom-cart',
+    '[data-test="continue-to-cart"]',
+  ].join(',');
+
+  const BUTTON_SKIP_TEXTS = [
+    'om oss', 'lær mer', 'laer mer', 'les mer',
+    'mer info', 'tilbake', 'hopp til innhold',
+  ];
+
+  function isProtectedRegion(el) {
+    if (!el) return false;
+    if (el.closest('#nb-booking')) return true;
+    if (el.closest('.header-nav-list .header-nav-item')) return true;
+    if (el.closest('.header-menu-nav-list')) return true;
+    return false;
+  }
+
+  function shouldSkipButton(el) {
+    if (isProtectedRegion(el)) return true;
+    const txt = normalize(el.textContent);
+    if (!txt) return false;                    // empty text (e.g. cart icon) → still route
+    return BUTTON_SKIP_TEXTS.indexOf(txt) !== -1;
+  }
+
+  function redirectAllButtons() {
+    document.querySelectorAll(BUTTON_SELECTOR).forEach(function (el) {
+      if (el.dataset.nbRedirected) return;
+      if (shouldSkipButton(el)) return;
+
+      if (el.tagName === 'A') {
+        el.setAttribute('href', BOOKING_PATH);
+        el.removeAttribute('target');
+      } else {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          window.location.href = BOOKING_PATH;
+        }, true);
+      }
+      el.dataset.nbRedirected = '1';
+    });
+  }
+
   // ---------- BODY CLASS SYNC ------------------------------------------------
   function syncBodyClass() {
     const onBookingPage = !!document.getElementById('nb-booking');
@@ -138,6 +193,7 @@
   function mountIfNeeded() {
     syncBodyClass();
     routeBookingLinks();
+    redirectAllButtons();
     const host = document.getElementById('nb-booking');
     if (!host) return;
     relocateBookingDiv(host);
@@ -270,6 +326,7 @@
   if ('MutationObserver' in window) {
     const obs = new MutationObserver(function () {
       routeBookingLinks();
+      redirectAllButtons();
     });
     const start = function () {
       if (document.body) obs.observe(document.body, { childList: true, subtree: true });
