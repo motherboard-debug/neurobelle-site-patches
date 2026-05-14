@@ -119,12 +119,29 @@
     document.body.classList.toggle('nb-booking-page', onBookingPage);
   }
 
+  // If the user pasted <div id="nb-booking"></div> into a Squarespace HEADER
+  // injection (instead of a Code Block on the page), the browser hoists the
+  // stray div out of <head> to the very start of <body>, which leaves the
+  // real page <main> element empty and reserving viewport height. Move the
+  // div into <main> so the page flows naturally and the footer sits flush.
+  function relocateBookingDiv(host) {
+    const target =
+      document.querySelector('main#page article#sections') ||
+      document.querySelector('main#page') ||
+      document.querySelector('main');
+    if (target && !target.contains(host)) {
+      target.appendChild(host);
+    }
+  }
+
   // ---------- MOUNT ----------------------------------------------------------
   function mountIfNeeded() {
     syncBodyClass();
     routeBookingLinks();
     const host = document.getElementById('nb-booking');
-    if (!host || host.dataset.nbMounted) return;
+    if (!host) return;
+    relocateBookingDiv(host);
+    if (host.dataset.nbMounted) return;
     host.dataset.nbMounted = '1';
     render(host);
   }

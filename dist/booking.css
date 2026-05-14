@@ -65,6 +65,26 @@ body.nb-booking-page .page-section {
   padding-bottom: 24px !important;
 }
 
+/* The page's <main> wrapper (`#page` / `#siteWrapper`) gets a viewport-tall
+   min-height from Squarespace's stylesheets to keep short pages from looking
+   stranded. On the booking page that produces a huge empty void between the
+   widget and the footer — disable it so the layout collapses to content. */
+body.nb-booking-page #siteWrapper,
+body.nb-booking-page main#page,
+body.nb-booking-page main.container,
+body.nb-booking-page article.sections,
+body.nb-booking-page #sections {
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+/* The article inside <main> can also carry inline height styles in some
+   Squarespace themes. Make sure it stays content-sized. */
+body.nb-booking-page main#page > article:empty,
+body.nb-booking-page main#page > article.sections:not(:has(*)) {
+  display: none !important;
+}
+
 #nb-booking {
   max-width: 820px;
   margin: 32px auto 80px;
