@@ -1,0 +1,279 @@
+/* ============================================================
+   Neurobelle — Booking page v2 (PatientSky integration)
+   Mode 1: Service landing in our design → PatientSky iframe slides in.
+   Mounts into any page containing: <div id="nb-booking"></div>
+   ============================================================ */
+
+:root {
+  --nb-plum: #4a1f3d;
+  --nb-plum-dark: #36152d;
+  --nb-plum-soft: #6b3357;
+  --nb-beige: #f5ead7;
+  --nb-beige-deep: #ecdcc0;
+  --nb-cream: #fbf6ec;
+  --nb-ink: #2a1424;
+  --nb-muted: #7a6675;
+  --nb-line: #e7d8be;
+  --nb-accent: #c89b6b;
+  --nb-radius: 14px;
+  --nb-shadow: 0 2px 8px rgba(74,31,61,0.06), 0 12px 32px rgba(74,31,61,0.08);
+}
+
+body.nb-booking-page,
+body.nb-booking-page #siteWrapper,
+body.nb-booking-page main {
+  background: var(--nb-beige) !important;
+}
+
+#nb-booking {
+  max-width: 820px;
+  margin: 32px auto 80px;
+  padding: 0 18px;
+  color: var(--nb-ink);
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+/* ---------- Hero / intro ---------- */
+.nb-hero {
+  text-align: center;
+  margin: 0 0 28px;
+}
+.nb-hero__title {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--nb-plum);
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+.nb-hero__sub {
+  font-size: 15.5px;
+  color: var(--nb-muted);
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ---------- Clinic strip ---------- */
+.nb-clinic {
+  background: var(--nb-cream);
+  border: 1px solid var(--nb-line);
+  border-radius: var(--nb-radius);
+  padding: 16px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  align-items: center;
+  justify-content: center;
+  font-size: 14.5px;
+  color: var(--nb-muted);
+  margin-bottom: 24px;
+  box-shadow: var(--nb-shadow);
+}
+.nb-clinic__row { display: inline-flex; align-items: center; gap: 8px; }
+.nb-clinic__row svg { opacity: 0.7; flex: 0 0 16px; }
+
+/* ---------- Service grid ---------- */
+.nb-section-h {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--nb-muted);
+  margin: 0 0 12px 4px;
+}
+
+.nb-services {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.nb-service {
+  background: var(--nb-cream);
+  border: 1px solid var(--nb-line);
+  border-radius: var(--nb-radius);
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: all 180ms ease;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+.nb-service:hover {
+  border-color: var(--nb-plum-soft);
+  transform: translateY(-2px);
+  box-shadow: var(--nb-shadow);
+}
+.nb-service.is-active {
+  background: var(--nb-plum);
+  border-color: var(--nb-plum);
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(74,31,61,0.22);
+}
+.nb-service.is-active .nb-service__sub,
+.nb-service.is-active .nb-service__price { color: var(--nb-beige); }
+
+.nb-service__name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--nb-plum);
+}
+.nb-service.is-active .nb-service__name { color: #fff; }
+
+.nb-service__sub {
+  font-size: 13.5px;
+  color: var(--nb-muted);
+  margin-bottom: 12px;
+  min-height: 1.4em;
+}
+
+.nb-service__footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.nb-service__duration {
+  font-size: 12.5px;
+  color: var(--nb-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.nb-service.is-active .nb-service__duration { color: var(--nb-beige); }
+.nb-service__price {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--nb-accent);
+}
+
+/* ---------- Continue / CTA ---------- */
+.nb-cta-wrap {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
+.nb-cta {
+  background: var(--nb-plum);
+  color: var(--nb-beige);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 15.5px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 180ms ease;
+  opacity: 0.45;
+  pointer-events: none;
+  box-shadow: 0 8px 22px rgba(74,31,61,0.18);
+}
+.nb-cta.is-ready {
+  opacity: 1;
+  pointer-events: auto;
+}
+.nb-cta.is-ready:hover {
+  transform: translateY(-1px);
+  background: var(--nb-plum-dark);
+  color: #fff;
+}
+.nb-cta__arrow { transition: transform 200ms ease; }
+.nb-cta.is-ready:hover .nb-cta__arrow { transform: translateX(3px); }
+
+/* ---------- PatientSky iframe pane ---------- */
+.nb-frame-wrap {
+  margin-top: 32px;
+  background: var(--nb-cream);
+  border-radius: var(--nb-radius);
+  border: 1px solid var(--nb-line);
+  box-shadow: var(--nb-shadow);
+  overflow: hidden;
+  display: none;
+}
+.nb-frame-wrap.is-visible {
+  display: block;
+  animation: nb-slidein 320ms ease both;
+}
+@keyframes nb-slidein {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.nb-frame-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--nb-plum);
+  color: #fff;
+  font-size: 14px;
+}
+.nb-frame-bar__title { display: flex; flex-direction: column; gap: 2px; }
+.nb-frame-bar__title strong { font-weight: 600; }
+.nb-frame-bar__title span { font-size: 12.5px; color: var(--nb-beige); opacity: 0.85; }
+.nb-frame-bar__close {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  transition: background 140ms ease;
+}
+.nb-frame-bar__close:hover { background: rgba(255,255,255,0.22); }
+
+.nb-frame {
+  width: 100%;
+  height: 820px;
+  border: 0;
+  display: block;
+  background: var(--nb-cream);
+}
+
+.nb-frame-fallback {
+  padding: 32px 28px;
+  text-align: center;
+  color: var(--nb-ink);
+}
+.nb-frame-fallback h4 {
+  color: var(--nb-plum);
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+.nb-frame-fallback p {
+  color: var(--nb-muted);
+  font-size: 14.5px;
+  margin: 0 0 18px;
+}
+.nb-frame-fallback a.nb-cta {
+  text-decoration: none;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---------- Proto banner ---------- */
+.nb-proto-banner {
+  background: var(--nb-plum-dark);
+  color: var(--nb-beige);
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 13px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  letter-spacing: 0.02em;
+}
+.nb-proto-banner strong { color: #fff; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+  .nb-hero__title { font-size: 24px; }
+  .nb-services { grid-template-columns: 1fr; }
+  .nb-frame { height: 640px; }
+  .nb-clinic { font-size: 13.5px; padding: 14px 16px; }
+}
