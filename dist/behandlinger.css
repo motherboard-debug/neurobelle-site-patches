@@ -25,6 +25,42 @@ body.nb-behandlinger-page main {
   background: var(--nbb-beige) !important;
 }
 
+/* Hide Squarespace site chrome (nav header + announcement bar) only on the
+   behandlinger page, so the catalog reads cleanly without the nav overlap.
+   body class nb-behandlinger-page is toggled on/off by behandlinger.js. */
+body.nb-behandlinger-page #header,
+body.nb-behandlinger-page header.Header,
+body.nb-behandlinger-page .Header,
+body.nb-behandlinger-page .header-announcement-bar-wrapper,
+body.nb-behandlinger-page .sqs-announcement-bar-dropzone {
+  display: none !important;
+}
+
+/* Reclaim vertical space the header was reserving. */
+body.nb-behandlinger-page #page,
+body.nb-behandlinger-page #siteWrapper {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Squarespace fluid-engine grid → block layout, so empty grid rows
+   don't push the footer down below the catalog. */
+body.nb-behandlinger-page [data-fluid-engine="true"] {
+  display: block !important;
+  grid-template-rows: none !important;
+  grid-template-columns: none !important;
+}
+body.nb-behandlinger-page [data-fluid-engine="true"] > [class*="fe-block"] {
+  grid-area: auto !important;
+  display: block !important;
+}
+body.nb-behandlinger-page section[data-test="page-section"],
+body.nb-behandlinger-page .page-section {
+  min-height: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 24px !important;
+}
+
 #nb-behandlinger {
   max-width: 1080px;
   margin: 32px auto 80px;
