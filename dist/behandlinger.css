@@ -1,0 +1,395 @@
+/* ============================================================
+   Neurobelle — Behandlinger (treatments catalog) page
+   Mounts into any page containing: <div id="nb-behandlinger"></div>
+   Loaded via Squarespace header injection, served by jsDelivr.
+   ============================================================ */
+
+:root {
+  --nbb-plum: #4a1f3d;
+  --nbb-plum-dark: #36152d;
+  --nbb-plum-soft: #6b3357;
+  --nbb-beige: #f5ead7;
+  --nbb-beige-deep: #ecdcc0;
+  --nbb-cream: #fbf6ec;
+  --nbb-ink: #2a1424;
+  --nbb-muted: #7a6675;
+  --nbb-line: #e7d8be;
+  --nbb-accent: #c89b6b;
+  --nbb-radius: 14px;
+  --nbb-shadow: 0 2px 8px rgba(74,31,61,0.06), 0 12px 32px rgba(74,31,61,0.08);
+}
+
+body.nb-behandlinger-page,
+body.nb-behandlinger-page #siteWrapper,
+body.nb-behandlinger-page main {
+  background: var(--nbb-beige) !important;
+}
+
+#nb-behandlinger {
+  max-width: 1080px;
+  margin: 32px auto 80px;
+  padding: 0 18px;
+  color: var(--nbb-ink);
+  font-family: inherit;
+  line-height: 1.55;
+}
+
+/* ---------- Hero ---------- */
+.nbb-hero {
+  text-align: center;
+  margin: 0 0 36px;
+}
+.nbb-hero__title {
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--nbb-plum);
+  letter-spacing: -0.01em;
+  margin: 0 0 10px;
+}
+.nbb-hero__sub {
+  font-size: 16px;
+  color: var(--nbb-muted);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ---------- Category tabs ---------- */
+.nbb-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 0 28px;
+}
+.nbb-tab {
+  background: var(--nbb-cream);
+  border: 1px solid var(--nbb-line);
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--nbb-plum);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 160ms ease;
+}
+.nbb-tab:hover {
+  border-color: var(--nbb-plum-soft);
+  transform: translateY(-1px);
+}
+.nbb-tab.is-active {
+  background: var(--nbb-plum);
+  color: var(--nbb-beige);
+  border-color: var(--nbb-plum);
+  box-shadow: 0 6px 14px rgba(74,31,61,0.18);
+}
+
+/* ---------- Grid ---------- */
+.nbb-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.nbb-card {
+  background: var(--nbb-cream);
+  border: 1px solid var(--nbb-line);
+  border-radius: var(--nbb-radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 200ms ease;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  padding: 0;
+}
+.nbb-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--nbb-plum-soft);
+  box-shadow: var(--nbb-shadow);
+}
+.nbb-card__img-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--nbb-beige-deep);
+}
+.nbb-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 400ms ease;
+}
+.nbb-card:hover .nbb-card__img { transform: scale(1.03); }
+
+.nbb-card__body {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.nbb-card__title {
+  font-size: 16.5px;
+  font-weight: 600;
+  color: var(--nbb-plum);
+  margin: 0 0 6px;
+  line-height: 1.3;
+}
+.nbb-card__tagline {
+  font-size: 13.5px;
+  color: var(--nbb-muted);
+  margin: 0 0 14px;
+  flex: 1;
+}
+.nbb-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 13px;
+}
+.nbb-card__duration {
+  color: var(--nbb-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 11.5px;
+}
+.nbb-card__price {
+  color: var(--nbb-accent);
+  font-weight: 600;
+  font-size: 15.5px;
+}
+.nbb-card__doctors {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--nbb-line);
+  font-size: 12px;
+  color: var(--nbb-muted);
+}
+
+/* ---------- Detail panel (inline, expands under card row) ---------- */
+.nbb-detail {
+  grid-column: 1 / -1;
+  background: var(--nbb-cream);
+  border: 1px solid var(--nbb-line);
+  border-radius: var(--nbb-radius);
+  box-shadow: var(--nbb-shadow);
+  padding: 32px 36px;
+  margin-top: 8px;
+  animation: nbb-slidein 280ms ease both;
+}
+@keyframes nbb-slidein {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.nbb-detail__header {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 28px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+.nbb-detail__img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  object-fit: cover;
+  background: var(--nbb-beige-deep);
+}
+.nbb-detail__head h2 {
+  font-size: 26px;
+  color: var(--nbb-plum);
+  margin: 0 0 8px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.nbb-detail__tagline {
+  font-size: 15px;
+  color: var(--nbb-muted);
+  margin: 0 0 18px;
+  font-style: italic;
+}
+.nbb-detail__meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 22px;
+  font-size: 13.5px;
+  background: var(--nbb-beige);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+}
+.nbb-detail__meta dt {
+  color: var(--nbb-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+  margin: 0;
+}
+.nbb-detail__meta dd {
+  margin: 2px 0 0;
+  color: var(--nbb-ink);
+  font-weight: 500;
+}
+.nbb-detail__meta dd.is-price {
+  color: var(--nbb-accent);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.nbb-detail__body h3 {
+  font-size: 15px;
+  color: var(--nbb-plum);
+  margin: 22px 0 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.nbb-detail__body p {
+  font-size: 15px;
+  color: var(--nbb-ink);
+  margin: 0 0 14px;
+  line-height: 1.65;
+}
+
+.nbb-detail__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--nbb-line);
+}
+.nbb-cta {
+  background: var(--nbb-plum);
+  color: var(--nbb-beige);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 15.5px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 180ms ease;
+  box-shadow: 0 8px 22px rgba(74,31,61,0.18);
+  font-family: inherit;
+}
+.nbb-cta:hover {
+  background: var(--nbb-plum-dark);
+  color: #fff;
+  transform: translateY(-1px);
+}
+.nbb-cta__arrow { transition: transform 200ms ease; }
+.nbb-cta:hover .nbb-cta__arrow { transform: translateX(3px); }
+
+.nbb-close {
+  background: transparent;
+  border: 1px solid var(--nbb-line);
+  color: var(--nbb-muted);
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 160ms ease;
+}
+.nbb-close:hover {
+  border-color: var(--nbb-plum-soft);
+  color: var(--nbb-plum);
+}
+
+/* ---------- Umbrella variants (multi-treatment cards) ---------- */
+.nbb-detail__intro {
+  font-size: 15px;
+  color: var(--nbb-ink);
+  margin: 14px 0 0;
+}
+.nbb-variants-h {
+  font-size: 13px;
+  color: var(--nbb-plum);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  margin: 26px 0 14px;
+}
+.nbb-variants {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  margin: 0 0 8px;
+}
+.nbb-variant {
+  background: #fff;
+  border: 1px solid var(--nbb-line);
+  border-radius: 12px;
+  padding: 18px 18px 16px;
+  display: flex;
+  flex-direction: column;
+}
+.nbb-variant__title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--nbb-plum);
+  margin: 0 0 4px;
+}
+.nbb-variant__tagline {
+  font-size: 13px;
+  color: var(--nbb-muted);
+  font-style: italic;
+  margin: 0 0 10px;
+}
+.nbb-variant__lead {
+  font-size: 14px;
+  color: var(--nbb-ink);
+  margin: 0 0 14px;
+  flex: 1;
+  line-height: 1.55;
+}
+.nbb-variant__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 13px;
+  color: var(--nbb-muted);
+  margin-bottom: 6px;
+}
+.nbb-variant__price {
+  color: var(--nbb-accent);
+  font-weight: 600;
+  font-size: 15.5px;
+}
+.nbb-variant__doc {
+  font-size: 12.5px;
+  color: var(--nbb-muted);
+  padding-bottom: 14px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--nbb-line);
+}
+.nbb-cta--sm {
+  padding: 10px 18px;
+  font-size: 13.5px;
+  align-self: flex-start;
+  box-shadow: 0 4px 12px rgba(74,31,61,0.14);
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 880px) {
+  .nbb-grid { grid-template-columns: repeat(2, 1fr); }
+  .nbb-detail__header { grid-template-columns: 1fr; }
+  .nbb-detail { padding: 24px 22px; }
+  .nbb-detail__head h2 { font-size: 22px; }
+}
+@media (max-width: 540px) {
+  .nbb-hero__title { font-size: 28px; }
+  .nbb-grid { grid-template-columns: 1fr; gap: 14px; }
+  .nbb-tabs { gap: 6px; }
+  .nbb-tab { padding: 8px 14px; font-size: 13.5px; }
+  .nbb-detail__meta { grid-template-columns: 1fr; }
+}
