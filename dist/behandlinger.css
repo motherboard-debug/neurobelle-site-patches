@@ -415,6 +415,31 @@ body.nb-behandlinger-page .page-section {
   box-shadow: 0 4px 12px rgba(74,31,61,0.14);
 }
 
+.nbb-variant__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+/* Secondary text link — "Les mer" pattern, sits next to Bestill CTA */
+.nbb-link {
+  color: var(--nbb-plum);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 4px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 160ms ease;
+}
+.nbb-link:hover { border-bottom-color: var(--nbb-plum); }
+.nbb-link svg { width: 14px; height: 14px; }
+.nbb-link--sm { font-size: 13px; }
+
 /* ---------- Mobile ---------- */
 @media (max-width: 880px) {
   .nbb-grid { grid-template-columns: repeat(2, 1fr); }
