@@ -8,9 +8,10 @@
    ============================================================ */
 (function () {
   function injectBackLink() {
-    // Don't inject on /behandlinger (it IS the catalog)
+    // Don't inject on the catalog page (it IS the catalog) — Kaviyan renamed
+    // /behandlinger to /bestill-time URL on 2026-05-20, so the catalog lives there now.
     const path = location.pathname.replace(/\/$/, '');
-    if (path === '/behandlinger' || path === '') return;
+    if (path === '/bestill-time' || path === '/behandlinger' || path === '') return;
 
     // Don't re-inject if already there
     if (document.querySelector('.nb-back-to-catalog')) return;
@@ -26,7 +27,7 @@
     if (isHomepage) return;
 
     const a = document.createElement('a');
-    a.href = '/behandlinger';
+    a.href = '/bestill-time';
     a.className = 'nb-back-to-catalog';
     a.textContent = '← Se alle behandlinger';
     main.appendChild(a);

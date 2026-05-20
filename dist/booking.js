@@ -50,7 +50,7 @@
 
   // ---------- ROUTING --------------------------------------------------------
   // Path of the dedicated booking page. Change here if the slug ever moves.
-  const BOOKING_PATH = '/behandlinger';
+  const BOOKING_PATH = '/bestill-time';
 
   // Texts that should route to the booking page. Two strategies:
   //

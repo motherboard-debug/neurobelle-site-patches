@@ -446,7 +446,7 @@
     const items = flatServices().map(s => ({
       '@type': 'MedicalProcedure',
       name: s.title,
-      url: 'https://www.neurobelleklinikk.com/behandlinger#' + s.slug,
+      url: 'https://www.neurobelleklinikk.com/bestill-time#' + s.slug,
       description: s.lead || '',
       bodyLocation: s.category === 'nevrologi' ? 'Nervesystem' : (s.category === 'estetikk' ? 'Hud' : undefined),
     }));
