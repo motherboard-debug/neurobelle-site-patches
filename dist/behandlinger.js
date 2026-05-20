@@ -30,6 +30,45 @@
     { id: 'digital',     label: 'Digital' },
   ];
 
+  // ---------- LANDING PAGES --------------------------------------------------
+  // Each variant slug → the existing Squarespace landing page that goes deeper
+  // on the treatment. Renders as "Les mer →" inside the detail/variant card.
+  const LANDING_PAGE = {
+    // Allmennlege variants → GP landing page
+    'lege-konsultasjon': '/legekonsultasjon-oslo',
+    'legetime-utvidet': '/legekonsultasjon-oslo',
+    'arlig-helsesjekk': '/legekonsultasjon-oslo',
+    'kontroll-og-oppflgingskonsultasjon-fysisk-oppmte': '/legekonsultasjon-oslo',
+    // Vekt variants → vektreduksjon landing
+    'vekt-oppstartspakke': '/vektreduksjon-oslo',
+    'vekt-3-maaneders-program': '/vektreduksjon-oslo',
+    // Legeattester (single) → attester landing
+    'legeattester': '/attester',
+    // Nevrologi variants → nevrologisk utredning landing
+    'nevrologisk-undersokelse-oslo': '/generell-nevrologisk-utredning',
+    'nevrologisk-oppfolgning-fysisk': '/generell-nevrologisk-utredning',
+    'nevrologisk-oppfolgning-video': '/generell-nevrologisk-utredning',
+    'parkinson-vurdering': '/generell-nevrologisk-utredning',
+    'tremor-vurdering': '/generell-nevrologisk-utredning',
+    'second-opinion-nevrolog': '/generell-nevrologisk-utredning',
+    // Hodepine variants → hodepine/migrene landing
+    'hodepine-migrene-utredning-oslo': '/hodepine-migrene-oslo',
+    'hodepine-konsultasjon': '/hodepine-migrene-oslo',
+    // Estetikk variants → estetisk klinikk landing
+    'rynkebehandling-oslo': '/estetisk-klinikk-oslo',
+    'filler-behandling-oslo': '/estetisk-klinikk-oslo',
+    'mesoterapi-oslo': '/estetisk-klinikk-oslo',
+    'tradloft-oslo': '/estetisk-klinikk-oslo',
+    'hyperhidrose-behandling-oslo': '/estetisk-klinikk-oslo',
+    // Digital konsultasjon variants → reseptfornyelse landing
+    'lege-pa-video': '/resept-fornyelse',
+    'rask-resept-digital': '/resept-fornyelse',
+    'reseptfornyelse-video': '/resept-fornyelse',
+    // Vaksiner (single) → vaksiner landing
+    'vaksiner': '/vaksiner',
+  };
+  function landingPage(svc) { return LANDING_PAGE[svc.slug] || null; }
+
   // ---------- SERVICES (7 cards, with umbrellas for grouped treatments) ------
   // Top-level entries are either single services (price/duration/lead/sections)
   // or umbrellas (fromPrice/intro/variants[]).
@@ -575,6 +614,7 @@
               Bestill time
               <span class="nbb-cta__arrow">${ARROW}</span>
             </a>
+            ${landingPage(s) ? `<a class="nbb-link" href="${landingPage(s)}">Les mer ${ARROW}</a>` : ''}
             <button type="button" class="nbb-close" id="nbb-detail-close">Lukk</button>
           </div>
         </article>
@@ -605,10 +645,13 @@
                   <span class="nbb-variant__price">${escape(v.price)}</span>
                 </div>
                 <div class="nbb-variant__doc">${escape(doctorLine(v))}</div>
-                <a class="nbb-cta nbb-cta--sm" href="${bookingUrl(v)}" target="_blank" rel="noopener">
-                  Bestill ${escape(v.title.toLowerCase())}
-                  <span class="nbb-cta__arrow">${ARROW}</span>
-                </a>
+                <div class="nbb-variant__actions">
+                  <a class="nbb-cta nbb-cta--sm" href="${bookingUrl(v)}" target="_blank" rel="noopener">
+                    Bestill ${escape(v.title.toLowerCase())}
+                    <span class="nbb-cta__arrow">${ARROW}</span>
+                  </a>
+                  ${landingPage(v) ? `<a class="nbb-link nbb-link--sm" href="${landingPage(v)}">Les mer ${ARROW}</a>` : ''}
+                </div>
               </div>
             `).join('')}
           </div>
