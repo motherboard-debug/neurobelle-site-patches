@@ -372,7 +372,26 @@
   }
 
   function bookingUrl(svc) {
-    return `/bestill-time?service=${encodeURIComponent(svc.slug)}`;
+    // Until PatientSky provider ID is wired up, route booking via email to post@.
+    // Patient clicks "Bestill X" → email client opens with pre-filled subject + body.
+    // Lands in post@neurobelleklinikk.com inbox, gets labeled by the hourly triage cron,
+    // and we follow up with confirmation + PatientSky link.
+    const subject = `Timebestilling: ${svc.title}`;
+    const body = [
+      'Hei!',
+      '',
+      `Jeg ønsker å bestille time for: ${svc.title}`,
+      `Varighet: ${svc.duration || '—'}`,
+      svc.price ? `Pris: ${svc.price}` : null,
+      '',
+      'Mine ønsker:',
+      '- Foretrukken dato/tid:',
+      '- Telefon (valgfritt):',
+      '- Eventuell tilleggsinformasjon:',
+      '',
+      'Mvh',
+    ].filter(Boolean).join('\n');
+    return `mailto:post@neurobelleklinikk.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
   function escape(s) {
