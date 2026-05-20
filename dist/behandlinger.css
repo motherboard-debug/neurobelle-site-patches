@@ -368,6 +368,15 @@ body.nb-behandlinger-page .page-section {
   padding: 18px 18px 16px;
   display: flex;
   flex-direction: column;
+  /* Subtle elevation from the umbrella's cream background */
+  box-shadow: 0 1px 3px rgba(74,31,61,0.04);
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+@media (hover: hover) {
+  .nbb-variant:hover {
+    box-shadow: 0 6px 18px rgba(74,31,61,0.08);
+    transform: translateY(-1px);
+  }
 }
 .nbb-variant__title {
   font-size: 17px;
@@ -470,4 +479,33 @@ body.nb-behandlinger-page .page-section {
   .nbb-tabs { gap: 6px; }
   .nbb-tab { padding: 8px 14px; font-size: 13.5px; }
   .nbb-detail__meta { grid-template-columns: 1fr; }
+  /* Variant cards: single column, primary CTA full-width, Les mer stacks below */
+  .nbb-variants { grid-template-columns: 1fr; gap: 14px; }
+  .nbb-variant { padding: 18px 18px 16px; }
+  .nbb-variant__lead { font-size: 14.5px; }
+  .nbb-variant__doc { font-size: 13px; padding-bottom: 12px; margin-bottom: 14px; }
+  .nbb-variant__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .nbb-cta--sm {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 18px;
+    font-size: 14.5px;
+    min-height: 46px;
+    align-self: stretch;
+  }
+  .nbb-link--sm {
+    text-align: center;
+    align-self: center;
+    padding: 6px 4px;
+  }
+}
+
+@media (max-width: 420px) {
+  .nbb-variant { padding: 16px 16px 14px; }
+  .nbb-variant__title { font-size: 16.5px; }
+  .nbb-variant__tagline { font-size: 12.5px; margin-bottom: 8px; }
 }
