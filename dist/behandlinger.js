@@ -371,27 +371,17 @@
     return 'Behandles av en av våre leger — Giti, Ardavan eller Kaviyan';
   }
 
+  // PatientSky booking — Neurobelle Klinikk
+  // serviceProviderId from PatientSky admin > Innstillinger > Ekstern bookingside.
+  // Patient clicks variant CTA → opens PatientSky's hosted booking widget in a new tab.
+  const PS_PROVIDER_ID = '98b4722e-3418-11f1-a9b0-12f246543b9f';
+  const PS_BASE = 'https://psno-patient-platform-fe.svc.pasientsky.no/embedded/planner/booking';
+
   function bookingUrl(svc) {
-    // Until PatientSky provider ID is wired up, route booking via email to post@.
-    // Patient clicks "Bestill X" → email client opens with pre-filled subject + body.
-    // Lands in post@neurobelleklinikk.com inbox, gets labeled by the hourly triage cron,
-    // and we follow up with confirmation + PatientSky link.
-    const subject = `Timebestilling: ${svc.title}`;
-    const body = [
-      'Hei!',
-      '',
-      `Jeg ønsker å bestille time for: ${svc.title}`,
-      `Varighet: ${svc.duration || '—'}`,
-      svc.price ? `Pris: ${svc.price}` : null,
-      '',
-      'Mine ønsker:',
-      '- Foretrukken dato/tid:',
-      '- Telefon (valgfritt):',
-      '- Eventuell tilleggsinformasjon:',
-      '',
-      'Mvh',
-    ].filter(Boolean).join('\n');
-    return `mailto:post@neurobelleklinikk.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const params = new URLSearchParams({ serviceProviderId: PS_PROVIDER_ID });
+    // If a variant has a PatientSky timeslotTypeId, pre-select that service inside PatientSky
+    if (svc.psTimeslotTypeId) params.set('timeslotType', svc.psTimeslotTypeId);
+    return PS_BASE + '?' + params.toString();
   }
 
   function escape(s) {
@@ -581,7 +571,7 @@
           </div>
 
           <div class="nbb-detail__actions">
-            <a class="nbb-cta" href="${bookingUrl(s)}">
+            <a class="nbb-cta" href="${bookingUrl(s)}" target="_blank" rel="noopener">
               Bestill time
               <span class="nbb-cta__arrow">${ARROW}</span>
             </a>
@@ -615,7 +605,7 @@
                   <span class="nbb-variant__price">${escape(v.price)}</span>
                 </div>
                 <div class="nbb-variant__doc">${escape(doctorLine(v))}</div>
-                <a class="nbb-cta nbb-cta--sm" href="${bookingUrl(v)}">
+                <a class="nbb-cta nbb-cta--sm" href="${bookingUrl(v)}" target="_blank" rel="noopener">
                   Bestill ${escape(v.title.toLowerCase())}
                   <span class="nbb-cta__arrow">${ARROW}</span>
                 </a>
