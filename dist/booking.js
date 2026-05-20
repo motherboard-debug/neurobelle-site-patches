@@ -117,6 +117,8 @@
   // Every button-styled element on the site routes to /bestill-time, except:
   //   - "Om oss" / "Lær mer" / "Les mer" / "Tilbake" (informational CTAs)
   //   - Elements inside our own booking widget (#nb-booking)
+  //   - Elements inside the /behandlinger catalog (#nb-behandlinger) — its
+  //     own variant CTAs go straight to PatientSky, must not be hijacked
   //   - Main nav menu items (so site navigation still works)
   const BUTTON_SELECTOR = [
     '.sqs-block-button-element',
@@ -144,6 +146,7 @@
   function isProtectedRegion(el) {
     if (!el) return false;
     if (el.closest('#nb-booking')) return true;
+    if (el.closest('#nb-behandlinger')) return true;
     if (el.closest('.header-nav-list .header-nav-item')) return true;
     if (el.closest('.header-menu-nav-list')) return true;
     return false;
