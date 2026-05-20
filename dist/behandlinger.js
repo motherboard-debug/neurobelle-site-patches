@@ -287,12 +287,12 @@
         {
           slug: 'rynkebehandling-oslo',
           title: 'Rynkebehandling',
-          tagline: 'Diskret og naturlig resultat med botox',
+          tagline: 'Diskret og naturlig resultat med medikamentell behandling',
           price: '2 000,-',
           duration: '30 min',
           doctors: ['ardavan', 'kaviyan'],
           image: 'https://images.squarespace-cdn.com/content/v1/6934b929cc2a590e91870ba8/d93a15b8-7b40-43b5-b6a1-d88af9944b56/Estetikk+jpg..jpg',
-          lead: 'Rynkebehandling med botulinumtoksin (botox) for mimiske rynker i panne, mellom øynene og rundt øynene. Et naturlig, friskt uttrykk — uten å endre ansiktstrekkene dine. Konsultasjon og behandling i samme time.',
+          lead: 'Medikamentell rynkebehandling for mimiske rynker i panne, mellom øynene og rundt øynene. Et naturlig, friskt uttrykk — uten å endre ansiktstrekkene dine. Konsultasjon og behandling i samme time.',
         },
         {
           slug: 'filler-behandling-oslo',
@@ -332,7 +332,7 @@
           duration: '30 min',
           doctors: ['ardavan', 'kaviyan'],
           image: 'https://images.squarespace-cdn.com/content/v1/6934b929cc2a590e91870ba8/d417211a-f048-438b-ab56-91701275241d/Untitled.jpg',
-          lead: 'Effektiv behandling av plagsom svette i armhuler med botulinumtoksin (botox). Virkning fra ca. 1 uke, varer typisk 6–9 måneder. Trygt og godt dokumentert.',
+          lead: 'Effektiv medikamentell behandling av plagsom svette i armhuler. Virkning fra ca. 1 uke, varer typisk 6–9 måneder. Trygt og godt dokumentert.',
         },
       ],
     },
