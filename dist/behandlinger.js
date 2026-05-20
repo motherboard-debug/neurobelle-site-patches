@@ -542,9 +542,12 @@
       const open = state.openSlug ? SERVICES.find(s => s.slug === state.openSlug) : null;
 
       $grid.innerHTML = list.map(s => `
-        <button type="button" class="nbb-card" data-slug="${s.slug}" id="card-${s.slug}">
+        <button type="button" class="nbb-card" data-slug="${s.slug}" id="card-${s.slug}"
+                aria-expanded="${state.openSlug === s.slug ? 'true' : 'false'}"
+                aria-controls="detail-${s.slug}"
+                aria-label="${escape(s.title)} — ${s.variants ? 'fra ' + s.fromPrice : s.price}. Trykk for å se detaljer og bestille.">
           <div class="nbb-card__img-wrap">
-            <img class="nbb-card__img" src="${img(s.image)}" alt="${escape(s.title)}" loading="lazy">
+            <img class="nbb-card__img" src="${img(s.image)}" alt="" loading="lazy">
           </div>
           <div class="nbb-card__body">
             <h3 class="nbb-card__title">${escape(s.title)}</h3>
@@ -585,11 +588,11 @@
 
     function renderSingle(s) {
       return `
-        <article class="nbb-detail" id="${s.slug}">
+        <article class="nbb-detail" id="detail-${s.slug}" role="region" aria-labelledby="detail-${s.slug}-h">
           <div class="nbb-detail__header">
             <img class="nbb-detail__img" src="${img(s.image)}" alt="${escape(s.title)}">
             <div class="nbb-detail__head">
-              <h2>${escape(s.h2)}</h2>
+              <h2 id="detail-${s.slug}-h">${escape(s.h2)}</h2>
               <p class="nbb-detail__tagline">${escape(s.tagline)}</p>
               <dl class="nbb-detail__meta">
                 <div><dt>Varighet</dt><dd>${escape(s.duration)}</dd></div>
@@ -610,12 +613,13 @@
           </div>
 
           <div class="nbb-detail__actions">
-            <a class="nbb-cta" href="${bookingUrl(s)}" target="_blank" rel="noopener">
+            <a class="nbb-cta" href="${bookingUrl(s)}" target="_blank" rel="noopener"
+               aria-label="Bestill ${escape(s.title.toLowerCase())} via PatientSky, åpnes i ny fane">
               Bestill time
-              <span class="nbb-cta__arrow">${ARROW}</span>
+              <span class="nbb-cta__arrow" aria-hidden="true">${ARROW}</span>
             </a>
-            ${landingPage(s) ? `<a class="nbb-link" href="${landingPage(s)}">Les mer ${ARROW}</a>` : ''}
-            <button type="button" class="nbb-close" id="nbb-detail-close">Lukk</button>
+            ${landingPage(s) ? `<a class="nbb-link" href="${landingPage(s)}" aria-label="Les mer om ${escape(s.title.toLowerCase())}">Les mer <span aria-hidden="true">${ARROW}</span></a>` : ''}
+            <button type="button" class="nbb-close" id="nbb-detail-close" aria-label="Lukk detaljvisning">Lukk</button>
           </div>
         </article>
       `;
@@ -623,11 +627,11 @@
 
     function renderUmbrella(s) {
       return `
-        <article class="nbb-detail nbb-detail--umbrella" id="${s.slug}">
+        <article class="nbb-detail nbb-detail--umbrella" id="detail-${s.slug}" role="region" aria-labelledby="detail-${s.slug}-h">
           <div class="nbb-detail__header">
             <img class="nbb-detail__img" src="${img(s.image)}" alt="${escape(s.title)}">
             <div class="nbb-detail__head">
-              <h2>${escape(s.h2)}</h2>
+              <h2 id="detail-${s.slug}-h">${escape(s.h2)}</h2>
               <p class="nbb-detail__tagline">${escape(s.tagline)}</p>
               <p class="nbb-detail__intro">${escape(s.intro)}</p>
             </div>
@@ -646,22 +650,35 @@
                 </div>
                 <div class="nbb-variant__doc">${escape(doctorLine(v))}</div>
                 <div class="nbb-variant__actions">
-                  <a class="nbb-cta nbb-cta--sm" href="${bookingUrl(v)}" target="_blank" rel="noopener">
+                  <a class="nbb-cta nbb-cta--sm" href="${bookingUrl(v)}" target="_blank" rel="noopener"
+                     aria-label="Bestill ${escape(v.title.toLowerCase())} via PatientSky, åpnes i ny fane">
                     Bestill ${escape(v.title.toLowerCase())}
-                    <span class="nbb-cta__arrow">${ARROW}</span>
+                    <span class="nbb-cta__arrow" aria-hidden="true">${ARROW}</span>
                   </a>
-                  ${landingPage(v) ? `<a class="nbb-link nbb-link--sm" href="${landingPage(v)}">Les mer ${ARROW}</a>` : ''}
+                  ${landingPage(v) ? `<a class="nbb-link nbb-link--sm" href="${landingPage(v)}" aria-label="Les mer om ${escape(v.title.toLowerCase())}">Les mer <span aria-hidden="true">${ARROW}</span></a>` : ''}
                 </div>
               </div>
             `).join('')}
           </div>
 
           <div class="nbb-detail__actions">
-            <button type="button" class="nbb-close" id="nbb-detail-close">Lukk</button>
+            <button type="button" class="nbb-close" id="nbb-detail-close" aria-label="Lukk detaljvisning">Lukk</button>
           </div>
         </article>
       `;
     }
+
+    // Keyboard support: Escape closes any open detail panel
+    host.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && state.openSlug) {
+        const cardId = 'card-' + state.openSlug;
+        state.openSlug = null;
+        paintGrid();
+        // Return focus to the card the user came from
+        const card = host.querySelector('#' + cardId);
+        if (card) card.focus();
+      }
+    });
 
     paintTabs();
     paintGrid();

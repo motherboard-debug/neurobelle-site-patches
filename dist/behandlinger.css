@@ -440,6 +440,23 @@ body.nb-behandlinger-page .page-section {
 .nbb-link svg { width: 14px; height: 14px; }
 .nbb-link--sm { font-size: 13px; }
 
+/* ---------- Accessibility: keyboard focus indicators ---------- */
+.nbb-card:focus-visible,
+.nbb-tab:focus-visible,
+.nbb-cta:focus-visible,
+.nbb-link:focus-visible,
+.nbb-close:focus-visible {
+  outline: 3px solid var(--nbb-plum);
+  outline-offset: 3px;
+  border-radius: var(--nbb-radius);
+}
+/* Remove default focus ring only when we have :focus-visible (mouse users don't see it) */
+.nbb-card:focus:not(:focus-visible),
+.nbb-tab:focus:not(:focus-visible),
+.nbb-cta:focus:not(:focus-visible) {
+  outline: none;
+}
+
 /* ---------- Mobile ---------- */
 @media (max-width: 880px) {
   .nbb-grid { grid-template-columns: repeat(2, 1fr); }
