@@ -1,0 +1,14 @@
+name = "neurobelle-bridge"
+main = "worker.js"
+compatibility_date = "2026-05-01"
+
+# Public URL after deploy: https://neurobelle-bridge.<your-cf-subdomain>.workers.dev
+# Optional: bind a custom domain like bridge.neurobelleklinikk.com via Cloudflare dashboard.
+
+[vars]
+# Non-secret vars (override per env if needed). Secrets are set via:
+#   wrangler secret put TELEGRAM_BOT_TOKEN
+#   wrangler secret put AGENT_TOKEN
+INBOX_EMAIL = "motherboard@neurobelleklinikk.com"
+EMAIL_FROM = "motherboard@neurobelleklinikk.com"
+EMAIL_FROM_NAME = "Neurobelle Klinikk"
