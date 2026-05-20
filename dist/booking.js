@@ -50,7 +50,7 @@
 
   // ---------- ROUTING --------------------------------------------------------
   // Path of the dedicated booking page. Change here if the slug ever moves.
-  const BOOKING_PATH = '/bestill-time';
+  const BOOKING_PATH = '/behandlinger';
 
   // Texts that should route to the booking page. Two strategies:
   //
@@ -114,7 +114,7 @@
   }
 
   // ---------- AGGRESSIVE BUTTON REDIRECT -------------------------------------
-  // Every button-styled element on the site routes to /bestill-time, except:
+  // Every button-styled element on the site routes to /behandlinger, except:
   //   - "Om oss" / "Lær mer" / "Les mer" / "Tilbake" (informational CTAs)
   //   - Elements inside our own booking widget (#nb-booking)
   //   - Elements inside the /behandlinger catalog (#nb-behandlinger) — its
