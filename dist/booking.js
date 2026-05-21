@@ -93,6 +93,7 @@
     // <a> tags — rewrite href in place
     document.querySelectorAll('a').forEach(function (a) {
       if (a.dataset.nbRouted) return;
+      if (isProtectedRegion(a)) return;            // skip catalog + booking widget + nav (was previously only in redirectAllButtons)
       if (!isBookingText(a.textContent)) return;
       a.setAttribute('href', BOOKING_PATH);
       a.removeAttribute('target');
@@ -103,6 +104,7 @@
     document.querySelectorAll('button, [role="button"]').forEach(function (b) {
       if (b.dataset.nbRouted) return;
       if (b.tagName === 'A') return;
+      if (isProtectedRegion(b)) return;            // same protection as <a> branch above
       if (!isBookingText(b.textContent)) return;
       b.dataset.nbRouted = '1';
       b.addEventListener('click', function (e) {
