@@ -449,6 +449,17 @@ body.nb-behandlinger-page .page-section {
 .nbb-link svg { width: 14px; height: 14px; }
 .nbb-link--sm { font-size: 13px; }
 
+/* No-show fee notice — muted, sits under actions */
+.nbb-detail__noshow {
+  font-size: 12.5px;
+  color: var(--nbb-muted);
+  font-style: italic;
+  margin: 16px 0 0;
+  padding-top: 12px;
+  border-top: 1px dashed var(--nbb-line);
+  text-align: center;
+}
+
 /* ---------- Accessibility: keyboard focus indicators ---------- */
 .nbb-card:focus-visible,
 .nbb-tab:focus-visible,

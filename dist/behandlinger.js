@@ -621,6 +621,7 @@
             ${landingPage(s) ? `<a class="nbb-link" href="${landingPage(s)}" aria-label="Les mer om ${escape(s.title.toLowerCase())}">Les mer <span aria-hidden="true">${ARROW}</span></a>` : ''}
             <button type="button" class="nbb-close" id="nbb-detail-close" aria-label="Lukk detaljvisning">Lukk</button>
           </div>
+          <p class="nbb-detail__noshow">Sen avbestilling (mindre enn 24 timer før timen) eller manglende oppmøte: 350,- gebyr.</p>
         </article>
       `;
     }
@@ -664,6 +665,7 @@
           <div class="nbb-detail__actions">
             <button type="button" class="nbb-close" id="nbb-detail-close" aria-label="Lukk detaljvisning">Lukk</button>
           </div>
+          <p class="nbb-detail__noshow">Sen avbestilling (mindre enn 24 timer før timen) eller manglende oppmøte: 350,- gebyr.</p>
         </article>
       `;
     }
