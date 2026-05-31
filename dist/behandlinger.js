@@ -16,9 +16,8 @@
 
   // ---------- DOCTORS --------------------------------------------------------
   const DOCTORS = {
-    giti:    { id: 'giti',    name: 'Dr. Giti Sabalani',  role: 'Allmennlege' },
     ardavan: { id: 'ardavan', name: 'Dr. Ardavan Karimi', role: 'Spesialist i nevrologi og estetisk medisin' },
-    kaviyan: { id: 'kaviyan', name: 'Dr. Kaviyan Karimi', role: 'Lege, estetisk medisin og digital konsultasjon' },
+    kaviyan: { id: 'kaviyan', name: 'Dr. Kaviyan Karimi', role: 'Allmennlege, estetisk medisin og digital konsultasjon' },
   };
 
   // ---------- CATEGORIES -----------------------------------------------------
@@ -91,7 +90,7 @@
           tagline: 'Grundig vurdering av alminnelige helseplager',
           price: '450,-',
           duration: '20 min',
-          doctors: ['giti', 'ardavan', 'kaviyan'],
+          doctors: ['kaviyan'],
           image: 'https://images.squarespace-cdn.com/content/v1/6934b929cc2a590e91870ba8/082ef587-2688-4c78-8e68-018b209e5ce0/sjekk.jpg',
           lead: 'Vurdering hos lege for alminnelige helseplager — forkjølelse, hudplager, mageplager, kroniske tilstander, og det meste som ellers håndteres hos fastlegen. Inkluderer eventuell resept, henvisning eller prøvetaking.',
         },
@@ -101,7 +100,7 @@
           tagline: 'Lengre time for sammensatte plager',
           price: '800,-',
           duration: '30 min',
-          doctors: ['giti', 'ardavan', 'kaviyan'],
+          doctors: ['kaviyan'],
           image: 'https://images.squarespace-cdn.com/content/v1/6934b929cc2a590e91870ba8/082ef587-2688-4c78-8e68-018b209e5ce0/sjekk.jpg',
           lead: 'En lengre konsultasjon (30 min) for sammensatte plager, kompleks sykehistorie, eller når du trenger ekstra tid hos legen. Skriftlig oppsummering inkludert.',
         },
@@ -111,7 +110,7 @@
           tagline: 'Grundig gjennomgang av din helse',
           price: '900,-',
           duration: '45 min',
-          doctors: ['giti'],
+          doctors: ['kaviyan'],
           image: 'https://images.squarespace-cdn.com/content/v1/6934b929cc2a590e91870ba8/19e20bc8-8e76-4456-8186-e8a0b2bdd0d1/sjekk.jpg',
           lead: 'Blodprøver, blodtrykk, BMI, puls + gjennomgang av søvn, kosthold, mosjon og stressnivå. Du går herfra med skriftlig oppsummering og konkrete anbefalinger.',
         },
@@ -121,7 +120,7 @@
           tagline: 'Oppfølging av kronisk tilstand eller pågående behandling',
           price: '1 000,-',
           duration: '30 min',
-          doctors: ['giti'],
+          doctors: ['kaviyan'],
           image: 'https://images.squarespace-cdn.com/content/v1/6934b929cc2a590e91870ba8/6b1f86e1-d5a7-4f6f-8a3d-a78d171ba5b0/nevro+und+2.jpg',
           lead: 'For deg som er under utredning eller behandling for en kjent tilstand — diabetes, høyt blodtrykk, kronisk smerte, post-operativ oppfølging eller annen pågående plan. Vi gjennomgår status, justerer plan og resepter ved behov.',
         },
@@ -144,7 +143,7 @@
           tagline: 'Kartlegging + individuell plan',
           price: '700,-',
           duration: '45 min',
-          doctors: ['giti', 'ardavan', 'kaviyan'],
+          doctors: ['kaviyan'],
           image: 'overvekt.jpg',
           lead: 'Grundig kartlegging av vektutvikling, kosthold, aktivitetsnivå, søvn og eventuelle underliggende medisinske årsaker. Inkluderer blodprøver ved behov og skriftlig plan med oppfølgingsanbefaling.',
         },
@@ -154,7 +153,7 @@
           tagline: 'Strukturert oppfølging over 3 måneder',
           price: '3 000,-',
           duration: 'Program 3 mnd',
-          doctors: ['giti', 'ardavan', 'kaviyan'],
+          doctors: ['kaviyan'],
           image: 'overvekt.jpg',
           lead: 'Førstekonsultasjon + 3 oppfølgingstimer (video eller fysisk), løpende justering av plan og vurdering av medisinsk behandling om aktuelt. For deg som vil ha tett støtte over tid for varig resultat.',
         },
@@ -168,7 +167,7 @@
       category: 'allmennlege',
       price: '450,-',
       duration: '20 min',
-      doctors: ['giti', 'ardavan', 'kaviyan'],
+      doctors: ['kaviyan'],
       image: 'henvisning.jpg',
       lead: 'Vi utsteder legeattester for skole, arbeid, idrett, forsikring og andre dokumentasjonsbehov. Vurderingen gjøres etter konsultasjon — noen attester krever fysisk oppmøte, andre kan ordnes digitalt.',
       sections: {
@@ -355,7 +354,7 @@
           tagline: 'Konsultasjon med lege der du er',
           price: '300,-',
           duration: '15 min',
-          doctors: ['giti', 'ardavan', 'kaviyan'],
+          doctors: ['kaviyan'],
           image: 'https://images.squarespace-cdn.com/content/v1/6934b929cc2a590e91870ba8/2746a2ff-381f-4372-9bb3-f411f3c8f774/hjemme+.jpg',
           lead: 'Få vurdering, råd eller behandling fra lege via sikker videokonsultasjon. Praktisk hjemmefra, på reise eller på jobb. Egnet for det meste som ikke krever fysisk undersøkelse.',
         },
@@ -365,7 +364,7 @@
           tagline: 'For deg som vet hva du trenger',
           price: '300,-',
           duration: '10 min',
-          doctors: ['giti', 'ardavan', 'kaviyan'],
+          doctors: ['kaviyan'],
           image: 'https://images.squarespace-cdn.com/content/v1/6934b929cc2a590e91870ba8/35da8243-1f19-44c6-b699-b96911f42539/hjemme+.jpg',
           lead: 'Kort, fokusert konsultasjon ved kjent problemstilling — rask vurdering, kort attest, eller spørsmål til lege. Ofte digital, kan også gjøres fysisk.',
         },
@@ -375,7 +374,7 @@
           tagline: 'Trygg fornyelse av faste medisiner',
           price: '300,-',
           duration: '10 min',
-          doctors: ['giti', 'ardavan', 'kaviyan'],
+          doctors: ['kaviyan'],
           image: 'resept.jpg',
           lead: 'Kort videokonsultasjon for fornyelse av resepter på medisiner du allerede bruker fast. Gjelder ikke A- og B-preparater eller helt nye medisiner.',
         },
@@ -389,7 +388,7 @@
       category: 'digital',
       price: '300,-',
       duration: '10 min digital',
-      doctors: ['giti', 'ardavan', 'kaviyan'],
+      doctors: ['kaviyan'],
       image: 'vaksine.jpg',
       lead: 'Digital legekonsultasjon for resept på vaksiner — HPV, reise (TBE, Hep A/B, kombinasjonsvaksine), sesong (influensa), forebygging (herpes zoster, pneumokokker) — samt oppfølging av pågående allergi-injeksjoner. Vaksinen settes hos samarbeidsapotek mot et lite administrasjonsgebyr.',
       sections: {
@@ -407,7 +406,7 @@
     if (ds.length === 0) return '';
     if (ds.length === 1) return `Behandles av ${ds[0].name}, ${ds[0].role.toLowerCase()}`;
     if (ds.length === 2) return `Behandles av ${ds[0].name} eller ${ds[1].name}`;
-    return 'Behandles av en av våre leger — Giti, Ardavan eller Kaviyan';
+    return 'Behandles av en av våre leger — Ardavan eller Kaviyan';
   }
 
   // PatientSky booking — Neurobelle Klinikk
