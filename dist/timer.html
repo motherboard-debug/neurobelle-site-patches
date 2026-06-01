@@ -7,7 +7,7 @@
 <style>
   :root{--orange:#df7f4a;--orange-d:#bd6531;--bg:#f4ece1;--cream:#fdfaf5;--peach:#fbe2cd;--ink:#2a2420;--ink-soft:#6b5d52;--mint:#cbe6d8;--mint-d:#224038;--line:#e8dccc}
   *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--ink);padding:34px 18px;min-height:100vh}
+  body{font-family:'Montserrat',sans-serif;background:transparent;color:var(--ink);padding:6px 18px 22px;min-height:0}
   .wrap{max-width:680px;margin:0 auto}
   .topbar{display:flex;align-items:center;gap:14px;margin-bottom:6px;min-height:38px}
   .back{background:#fff;border:1px solid var(--line);border-radius:99px;padding:9px 18px;font-weight:600;font-size:14px;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
@@ -38,7 +38,6 @@
   <div class="topbar"><button class="back" id="back" onclick="goBack()"><i data-lucide="arrow-left"></i> Tilbake</button><span class="wm">Neurobelle<span class="d">.</span></span></div>
   <h1 id="title">Hva trenger du hjelp med?</h1>
   <div class="crumb" id="crumb"></div>
-  <div class="note">PROTOTYPE — ekte PatientSky-lenker. Velg «Første ledige» eller en behandler.</div>
   <div id="list"></div>
   <div class="start" id="startinfo"></div>
 </div>
@@ -113,6 +112,7 @@ const TREE={label:'Hva trenger du hjelp med?', items:[
 let path=[];
 function current(){return path.length? path[path.length-1] : TREE;}
 function provOf(it){return {t:it.t,price:it.price,ic:it.ic,ts:it.ts,beh:it.beh||[],ae:it.ae,_prov:1};}
+function postHeight(){try{var h=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);parent.postMessage({type:'resizeExternalBooking',height:h},'*');}catch(e){}}
 function avatar(info){return `<div class="ic ${info.c||'c-peach'}">${info.img?`<img src="${info.img}" alt="${info.n}">`:`<span class="ini">${info.i||''}</span>`}</div>`;}
 function render(){
   const node=current();
@@ -138,6 +138,7 @@ function render(){
   });
   if(window.lucide) lucide.createIcons();
   window.scrollTo(0,0);
+  postHeight(); setTimeout(postHeight,400);
 }
 function renderProv(t){
   document.getElementById('title').textContent=t.t;
@@ -169,6 +170,7 @@ function renderProv(t){
   }
   if(window.lucide) lucide.createIcons();
   window.scrollTo(0,0);
+  postHeight(); setTimeout(postHeight,400);
 }
 function goBack(){ if(path.length){ path.pop(); render(); } else { window.open(SITE_URL,'_top'); } }
 // Dyplenking: meny.html?go=<slug>  (hopp rett til kategori eller tjeneste)
