@@ -1,0 +1,186 @@
+<!doctype html><html lang="nb"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurobelle — Bestill time</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  :root{--orange:#df7f4a;--orange-d:#bd6531;--bg:#f4ece1;--cream:#fdfaf5;--peach:#fbe2cd;--ink:#2a2420;--ink-soft:#6b5d52;--mint:#cbe6d8;--mint-d:#224038;--line:#e8dccc}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--ink);padding:34px 18px;min-height:100vh}
+  .wrap{max-width:680px;margin:0 auto}
+  .topbar{display:flex;align-items:center;gap:14px;margin-bottom:6px;min-height:38px}
+  .back{background:#fff;border:1px solid var(--line);border-radius:99px;padding:9px 18px;font-weight:600;font-size:14px;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+  .back svg{width:16px;height:16px}
+  .wm{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;margin-left:auto}.wm .d{color:var(--orange)}
+  h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:38px;line-height:1.1;margin:14px 0 4px}
+  .crumb{color:var(--ink-soft);font-size:13.5px;margin-bottom:22px;min-height:18px}
+  .note{background:#fff4e9;border:1px dashed var(--orange);border-radius:12px;padding:11px 16px;font-size:12.5px;color:var(--orange-d);margin-bottom:20px;text-align:center}
+  .card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px 20px;margin-bottom:14px;display:flex;align-items:center;gap:20px;cursor:pointer;transition:.15s;text-decoration:none;color:var(--ink)}
+  .card:hover{background:var(--mint);border-color:#a9d4c0;transform:translateX(2px)}
+  .ic{flex:0 0 72px;width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--orange-d);overflow:hidden}
+  .ic svg{width:32px;height:32px;stroke-width:1.75}
+  .ic img{width:100%;height:100%;object-fit:cover}
+  .ic .ini{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:30px;color:var(--orange-d)}
+  .c-peach{background:var(--peach)} .c-mint{background:#d8efe4} .c-cream{background:#f6e8d6} .c-rose{background:#f7ddd8}
+  .lbl{flex:1}
+  .lbl .t{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:25px;line-height:1.1}
+  .lbl .s{font-size:13.5px;color:var(--ink-soft);margin-top:3px}
+  .card:hover .lbl .s{color:var(--mint-d)}
+  .chev{color:var(--orange);display:flex} .chev svg{width:22px;height:22px}
+  .leaf .chev{color:var(--ink-soft)}
+  .pricetag{font-weight:700;font-size:15px;color:var(--ink);white-space:nowrap}
+  .subhead{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);text-align:center;margin:16px 0 10px}
+  .card.fa{background:var(--mint);border-color:#a9d4c0}
+  .card.fa .ic{background:#fff}
+</style></head>
+<body><div class="wrap">
+  <div class="topbar"><button class="back" id="back" onclick="goBack()"><i data-lucide="arrow-left"></i> Tilbake</button><span class="wm">Neurobelle<span class="d">.</span></span></div>
+  <h1 id="title">Hva trenger du hjelp med?</h1>
+  <div class="crumb" id="crumb"></div>
+  <div class="note">PROTOTYPE — ekte PatientSky-lenker. Velg «Første ledige» eller en behandler.</div>
+  <div id="list"></div>
+  <div class="start" id="startinfo"></div>
+</div>
+<script>
+const SITE_URL='https://neurobelleklinikk.com';
+// ===== PatientSky booking =====
+const PS='https://psno-patient-platform-fe.svc.pasientsky.no/embedded/planner/booking';
+const SP='98b4722e-3418-11f1-a9b0-12f246543b9f';
+const CAL={Kaviyan:'3b98f044-5455-11f1-a5c7-be30137fbe21',Giti:'1fc0692e-5455-11f1-8c5d-7e82c1ba4ae2',Ardavan:'fe7adc9a-5454-11f1-b67f-2655119da7d2'};
+// Behandlere — sett img til en bilde-URL når du har foto, så byttes ikonet ut automatisk
+const BEH={
+  Kaviyan:{n:'Dr. Kaviyan Karimi',s:'Allmennlege',c:'c-peach',i:'K',img:''},
+  Giti:{n:'Dr. Giti Sabalani',s:'Allmennspesialist',c:'c-mint',i:'G',img:''},
+  Ardavan:{n:'Dr. Ardavan Karimi',s:'Nevrolog',c:'c-cream',i:'A',img:''}
+};
+function psUrl(ts,beh){let u=PS+'?serviceProviderId='+SP+'&timeslotType='+ts;if(beh&&CAL[beh])u+='&calendarId='+CAL[beh];return u;}
+const COLORS=['c-peach','c-mint','c-cream','c-rose'];
+
+const TREE={label:'Hva trenger du hjelp med?', items:[
+  {ic:'zap',t:'Rask hjelp',hidden:1,s:'Resept uten time — svar på noen spørsmål',slug:'rask-hjelp',kids:[
+    {ic:'droplet',t:'Urinveisinfeksjon',leaf:'screening',cond:'uvi'},
+    {ic:'flower-2',t:'Allergi',leaf:'screening',cond:'allergi'},
+    {ic:'pill',t:'Prevensjon',leaf:'screening',cond:'prevensjon'},
+    {ic:'syringe',t:'Vaksiner',s:'Influensa, hepatitt, TBE m.m.',slug:'vaksiner',leaf:'screening',cond:'vaksine'},
+  ]},
+  {ic:'stethoscope',t:'Allmennlege',s:'Vanlig lege — video eller oppmøte',slug:'allmennlege',kids:[
+    {ic:'video',t:'Digital (video)',clr:'c-mint',slug:'digital',kids:[
+      {ic:'video',t:'Legetime på video',price:'300 kr',slug:'legetime-video',ts:'39638706-550b-11f1-a128-fe2ac7c79aa2',beh:['Kaviyan','Giti']},
+      {ic:'zap',t:'Rask konsultasjon',price:'300 kr',slug:'rask-konsultasjon',ts:'60a4f138-550b-11f1-9c3f-be30137fbe21',beh:['Kaviyan','Giti']},
+      {ic:'pill',t:'Reseptfornyelse (video)',price:'300 kr',slug:'reseptfornyelse',ts:'7bb46d50-550b-11f1-a832-d6c5ed9ae184',beh:['Kaviyan','Giti','Ardavan']},
+    ]},
+    {ic:'building-2',t:'Fysisk oppmøte',clr:'c-peach',slug:'fysisk',kids:[
+      {ic:'stethoscope',t:'Lege konsultasjon',price:'450 kr',slug:'lege-konsultasjon',ts:'9d4f4e0a-5509-11f1-9abe-62401fc95a39',beh:['Kaviyan','Giti']},
+      {ic:'user-round',t:'Allmennspesialist',price:'850 kr',slug:'allmennspesialist',ts:'9bb66094-550c-11f1-8ced-d6c5ed9ae184',beh:['Giti']},
+      {ic:'clipboard-list',t:'Årlig helsesjekk',price:'1 500 kr',slug:'arlig-helsesjekk',ts:'f361eae2-550d-11f1-bc76-d6c5ed9ae184',beh:['Giti']},
+      {ic:'repeat',t:'Kontroll og oppfølging',price:'1 000 kr',slug:'kontroll',ts:'087c80ea-550e-11f1-bea8-fe2ac7c79aa2',beh:['Ardavan']},
+      {ic:'file-text',t:'Legeattester',price:'450 kr',slug:'legeattester',ts:'4ed116fe-550a-11f1-b2c8-d6c5ed9ae184',beh:['Kaviyan','Giti']},
+    ]},
+    {ic:'scale',t:'Vekt og livsstil',clr:'c-cream',slug:'vekt',kids:[
+      {ic:'scale',t:'Oppstart',price:'1 100 kr',slug:'vekt-oppstart',ts:'cd7619b4-550a-11f1-a9cf-7e82c1ba4ae2',beh:['Kaviyan','Giti']},
+      {ic:'calendar-range',t:'3-måneders program',price:'5 500 kr',slug:'vekt-3mnd',ts:'1a9fb646-550b-11f1-9284-d6c5ed9ae184',beh:['Kaviyan']},
+    ]},
+  ]},
+  {ic:'brain',t:'Nevrologi',s:'Hos nevrolog-spesialist',slug:'nevrologi',kids:[
+    {ic:'activity',t:'Hodepine og migrene',slug:'hodepine',kids:[
+      {ic:'building-2',t:'Førstegangsutredning',price:'3 000 kr',slug:'hodepine-forstegang',ts:'dd9a3a04-550b-11f1-9b8b-c2a3d44e2214',beh:['Kaviyan','Ardavan']},
+      {ic:'stethoscope',t:'Oppfølging',price:'1 500 kr',slug:'hodepine-oppfolging',ts:'3655cec4-550c-11f1-8a50-82117ec75726',beh:['Kaviyan','Ardavan']},
+    ]},
+    {ic:'brain',t:'Nevrologisk utredning',price:'2 500 kr',slug:'nevrologisk-utredning',ts:'1f72fb44-550e-11f1-862c-d6c5ed9ae184',beh:['Ardavan']},
+    {ic:'activity',t:'Parkinson-vurdering',price:'3 200 kr',slug:'parkinson',ts:'4d7be5f0-550e-11f1-b9eb-c2a3d44e2214',beh:['Ardavan']},
+    {ic:'activity',t:'Tremor-vurdering',price:'3 200 kr',slug:'tremor',ts:'5f905cda-550e-11f1-9105-fe2ac7c79aa2',beh:['Ardavan']},
+    {ic:'video',t:'Oppfølging (video)',price:'1 000 kr',slug:'nevro-oppfolging-video',ts:'40b6e7ac-550e-11f1-a98e-82117ec75726',beh:['Ardavan']},
+    {ic:'stethoscope',t:'Oppfølging (fysisk)',price:'1 500 kr',slug:'nevro-oppfolging-fysisk',ts:'3177826a-550e-11f1-be84-2655119da7d2',beh:['Ardavan']},
+    {ic:'file-text',t:'Second opinion',price:'3 000 kr',slug:'second-opinion',ts:'76b07c74-550e-11f1-8dbe-2655119da7d2',beh:['Ardavan']},
+  ]},
+  {ic:'sparkles',t:'Estetikk',s:'Estetisk medisin — velg din behandler',slug:'estetikk',kids:[
+    {ic:'droplet',t:'Rynkebehandling',slug:'rynkebehandling',kids:[
+      {ic:'target',t:'1 sone',price:'fra 2 000 kr',ae:1,ts:'e11f6f5c-550e-11f1-a1e1-66fb28478fcb',beh:['Kaviyan','Ardavan']},
+      {ic:'target',t:'2 soner',price:'fra 2 000 kr',ae:1,ts:'e11f6f5c-550e-11f1-a1e1-66fb28478fcb',beh:['Kaviyan','Ardavan']},
+      {ic:'target',t:'3 soner',price:'fra 2 000 kr',ae:1,ts:'e11f6f5c-550e-11f1-a1e1-66fb28478fcb',beh:['Kaviyan','Ardavan']},
+    ]},
+    {ic:'syringe',t:'Filler',slug:'filler',kids:[
+      {ic:'smile',t:'Ansikt',price:'fra 3 000 kr',ae:1,ts:'bbf66870-550e-11f1-b480-82117ec75726',beh:['Ardavan']},
+      {ic:'smile',t:'Lepper',price:'fra 3 000 kr',ae:1,ts:'bbf66870-550e-11f1-b480-82117ec75726',beh:['Ardavan']},
+    ]},
+    {ic:'sparkles',t:'Mesoterapi',price:'1 500 kr',slug:'mesoterapi',ae:1,ts:'0125df7a-550f-11f1-a89a-d6c5ed9ae184',beh:['Ardavan']},
+    {ic:'droplets',t:'Hyperhidrose',price:'2 800 kr',slug:'hyperhidrose',ae:1,ts:'7574182c-550c-11f1-93dd-7e82c1ba4ae2',beh:['Kaviyan','Ardavan']},
+    {ic:'waves',t:'Trådløft',price:'12 000 kr',slug:'tradloft',ae:1,ts:'c5b26ae4-550e-11f1-8592-7e82c1ba4ae2',beh:['Ardavan']},
+  ]},
+]};
+
+let path=[];
+function current(){return path.length? path[path.length-1] : TREE;}
+function provOf(it){return {t:it.t,price:it.price,ic:it.ic,ts:it.ts,beh:it.beh||[],ae:it.ae,_prov:1};}
+function avatar(info){return `<div class="ic ${info.c||'c-peach'}">${info.img?`<img src="${info.img}" alt="${info.n}">`:`<span class="ini">${info.i||''}</span>`}</div>`;}
+function render(){
+  const node=current();
+  if(node._prov){return renderProv(node);}
+  document.getElementById('title').textContent=node.label||node.t;
+  document.getElementById('back').innerHTML='<i data-lucide="arrow-left"></i> '+(path.length?'Tilbake':'Til nettsiden');
+  document.getElementById('crumb').textContent=path.map(n=>n.t).join('  ›  ');
+  const list=document.getElementById('list'); list.innerHTML='';
+  document.getElementById('startinfo').className='start';
+  (node.items||node.kids||[]).filter(it=>!it.hidden).forEach((it,i)=>{
+    const isService=!!it.ts;
+    const drill=!!it.kids||isService;
+    const el=document.createElement(drill?'div':'a');
+    el.className='card'+(drill?'':' leaf');
+    if(!drill && it.leaf==='screening') el.href='../async-prototype/screening.html?t='+it.cond;
+    el.innerHTML=`<div class="ic ${it.clr||COLORS[i%4]}"><i data-lucide="${it.ic}"></i></div>
+      <div class="lbl"><div class="t">${it.t}</div>${it.s?`<div class="s">${it.s}</div>`:''}</div>
+      ${it.price?`<div class="pricetag">${it.price}</div>`:''}
+      <div class="chev"><i data-lucide="${drill?'chevron-right':'arrow-right'}"></i></div>`;
+    if(it.kids){ el.onclick=()=>{path.push(it);render();}; }
+    else if(isService){ el.onclick=()=>{path.push(provOf(it));render();}; }
+    list.appendChild(el);
+  });
+  if(window.lucide) lucide.createIcons();
+  window.scrollTo(0,0);
+}
+function renderProv(t){
+  document.getElementById('title').textContent=t.t;
+  document.getElementById('back').innerHTML='<i data-lucide="arrow-left"></i> Tilbake';
+  document.getElementById('crumb').textContent=path.map(n=>n.t).join('  ›  ');
+  const list=document.getElementById('list'); document.getElementById('startinfo').className='start';
+  list.innerHTML='';
+  const multi=t.beh.length>1;
+  const faShown=multi||t.beh.length===0;
+  if(faShown){
+    const fa=document.createElement('a'); fa.className='card fa'; fa.href=psUrl(t.ts);
+    fa.innerHTML=`<div class="ic c-mint"><i data-lucide="zap"></i></div>
+      <div class="lbl"><div class="t">${t.beh.length?'Første ledige time':'Se ledige tider'}</div><div class="s">${t.beh.length?'Raskest mulig — hos den som er ledig først':'Velg tidspunkt'}</div></div>
+      ${t.price?`<div class="pricetag">${t.price}</div>`:''}
+      <div class="chev"><i data-lucide="arrow-right"></i></div>`;
+    list.appendChild(fa);
+  }
+  if(t.beh.length){
+    if(t.beh.length>1){ const lab=document.createElement('div'); lab.className='subhead'; lab.textContent=faShown?'eller velg behandler':'velg behandler'; list.appendChild(lab); }
+    t.beh.forEach((b)=>{
+      const info=BEH[b]||{n:b,s:'Lege',i:b[0]};
+      const el=document.createElement('a'); el.className='card leaf'; el.href=psUrl(t.ts,b);
+      el.innerHTML=`${avatar(info)}
+        <div class="lbl"><div class="t">${info.n}</div><div class="s">${info.s}</div></div>
+        ${t.price?`<div class="pricetag">${t.price}</div>`:''}
+        <div class="chev"><i data-lucide="arrow-right"></i></div>`;
+      list.appendChild(el);
+    });
+  }
+  if(window.lucide) lucide.createIcons();
+  window.scrollTo(0,0);
+}
+function goBack(){ if(path.length){ path.pop(); render(); } else { window.open(SITE_URL,'_top'); } }
+// Dyplenking: meny.html?go=<slug>  (hopp rett til kategori eller tjeneste)
+function findChain(slug,node,chain){node=node||TREE;chain=chain||[];for(const it of (node.items||node.kids||[])){const c=chain.concat([it]);if(it.slug===slug)return c;if(it.kids){const r=findChain(slug,it,c);if(r)return r;}}return null;}
+(function initDeep(){
+  const p=new URLSearchParams(location.search); const go=p.get('go')||p.get('service')||p.get('cat'); if(!go)return;
+  const ch=findChain(go); if(!ch)return; const last=ch[ch.length-1];
+  if(last.leaf==='screening'){ location.href='../async-prototype/screening.html?t='+last.cond; return; }
+  if(last.ts && !last.kids){ path=ch.slice(0,-1).concat([provOf(last)]); }
+  else { path=ch; }
+})();
+window.addEventListener('load',()=>{render();});
+render();
+</script>
+</body></html>
