@@ -523,6 +523,27 @@
     injectSchema();
   }
 
+  // Booking menu embed (/timer page): load timer.html via srcdoc so it renders as
+  // real HTML. jsDelivr serves .html as text/plain, so an iframe src shows source —
+  // fetching the text and assigning srcdoc avoids that. Self-pinned via SCRIPT_BASE.
+  function mountTimerIfNeeded() {
+    const host = document.getElementById('nb-timer');
+    if (!host || host.dataset.nbtMounted) return;
+    host.dataset.nbtMounted = '1';
+    const f = document.createElement('iframe');
+    f.title = 'Bestill time';
+    f.style.cssText = 'width:100%;border:0;height:820px;min-height:600px';
+    host.appendChild(f);
+    const go = new URLSearchParams(location.search).get('go') || '';
+    fetch(SCRIPT_BASE + 'timer.html').then(r => r.text()).then(h => {
+      if (go) h = h.replace('</head>', '<script>window.__NB_GO__=' + JSON.stringify(go) + ';<\/script></head>');
+      f.srcdoc = h;
+    }).catch(() => {});
+    window.addEventListener('message', (e) => {
+      if (e && e.data && e.data.type === 'resizeExternalBooking' && e.data.height) f.style.height = e.data.height + 'px';
+    });
+  }
+
   // ---------- RENDER ---------------------------------------------------------
   function render(host) {
     const state = { activeCat: 'all', openSlug: null };
@@ -711,11 +732,12 @@
   }
 
   // ---------- LIFECYCLE (Squarespace SPA) ------------------------------------
+  function boot() { mountIfNeeded(); mountTimerIfNeeded(); }
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', mountIfNeeded);
+    document.addEventListener('DOMContentLoaded', boot);
   } else {
-    mountIfNeeded();
+    boot();
   }
-  document.addEventListener('mercury:load', mountIfNeeded);
+  document.addEventListener('mercury:load', boot);
   window.addEventListener('popstate', () => setTimeout(mountIfNeeded, 50));
 })();

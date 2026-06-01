@@ -174,7 +174,7 @@ function goBack(){ if(path.length){ path.pop(); render(); } else { window.open(S
 // Dyplenking: meny.html?go=<slug>  (hopp rett til kategori eller tjeneste)
 function findChain(slug,node,chain){node=node||TREE;chain=chain||[];for(const it of (node.items||node.kids||[])){const c=chain.concat([it]);if(it.slug===slug)return c;if(it.kids){const r=findChain(slug,it,c);if(r)return r;}}return null;}
 (function initDeep(){
-  const p=new URLSearchParams(location.search); const go=p.get('go')||p.get('service')||p.get('cat'); if(!go)return;
+  const p=new URLSearchParams(location.search); const go=(window.__NB_GO__)||p.get('go')||p.get('service')||p.get('cat'); if(!go)return;
   const ch=findChain(go); if(!ch)return; const last=ch[ch.length-1];
   if(last.leaf==='screening'){ location.href='../async-prototype/screening.html?t='+last.cond; return; }
   if(last.ts && !last.kids){ path=ch.slice(0,-1).concat([provOf(last)]); }
