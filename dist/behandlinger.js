@@ -423,8 +423,8 @@
     return PS_BASE + '?' + params.toString();
   }
 
-  // Booking menu (Dr.Dropin-style picker on /timer) — maps catalog slug -> menu ?go=
-  const MENU_BASE = '/timer';
+  // Booking menu (Dr.Dropin-style picker on /bestill-time) — maps catalog slug -> menu ?go=
+  const MENU_BASE = '/bestill-time';
   const GO_MAP = {
     'allmennlege':'allmennlege','vekt-og-livsstil':'vekt','legeattester':'legeattester',
     'nevrologi':'nevrologi','estetikk':'estetikk','digital-konsultasjon':'digital',
@@ -469,7 +469,7 @@
     const items = flatServices().map(s => ({
       '@type': 'MedicalProcedure',
       name: s.title,
-      url: 'https://www.neurobelleklinikk.com/bestill-time#' + s.slug,
+      url: 'https://www.neurobelleklinikk.com/behandlinger#' + s.slug,
       description: s.lead || '',
       bodyLocation: s.category === 'nevrologi' ? 'Nervesystem' : (s.category === 'estetikk' ? 'Hud' : undefined),
     }));
@@ -523,7 +523,7 @@
     injectSchema();
   }
 
-  // Booking menu embed (/timer page): load timer.html via srcdoc so it renders as
+  // Booking menu embed (/bestill-time page): load timer.html via srcdoc so it renders as
   // real HTML. jsDelivr serves .html as text/plain, so an iframe src shows source —
   // fetching the text and assigning srcdoc avoids that. Self-pinned via SCRIPT_BASE.
   function mountTimerIfNeeded() {
@@ -552,7 +552,6 @@
       <header class="nbb-hero">
         <h1 class="nbb-hero__title">Behandlinger</h1>
         <p class="nbb-hero__sub">Privat lege og spesialist i Oslo sentrum — allmennlege, nevrologi, estetisk medisin og digitale konsultasjoner. Velg en kategori for å se behandlinger og bestille time.</p>
-        <a class="nbb-cta nbb-hero__cta" href="${MENU_BASE}" aria-label="Bestill time nå">Bestill time nå<span class="nbb-cta__arrow" aria-hidden="true">${ARROW}</span></a>
       </header>
 
       <nav class="nbb-tabs" id="nbb-tabs" aria-label="Kategorier"></nav>
