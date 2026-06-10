@@ -1,0 +1,92 @@
+/* ============================================================
+   Neurobelle — site redesign layer v1 (2026-06-10)
+   Brand typography (Cormorant Garamond / Montserrat per
+   docs/brand-voice.md), vertical rhythm, buttons, cards, footer.
+
+   Separate file from site-polish.css so the whole layer can be
+   toggled by adding/removing two lines in Code Injection.
+   Pairs with site-redesign.js (tagline class, icon swap, tel:).
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ---- Brand typography -------------------------------------- */
+h1, h2, h3, .nbx-h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  color: #2a2420 !important;
+}
+h1 { font-size: clamp(3rem, 6vw, 4.6rem) !important; line-height: 1.05 !important; }
+h2 { font-size: clamp(2rem, 4vw, 2.9rem) !important; }
+h3 { font-size: clamp(1.5rem, 2.6vw, 1.9rem) !important; line-height: 1.15 !important; }
+h4, body, p, li, a, button {
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif !important;
+}
+h4 { font-weight: 500 !important; line-height: 1.45 !important; color: #3d362f !important; }
+
+/* Forside tagline: an 11px H1 in the content ("Moderne medisin.
+   Trygg behandling.") — site-redesign.js tags it; styled as kicker.
+   Real fix (change to paragraph in editor) is in Chrome-prompt C8. */
+h1.nb-tagline {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 1rem !important; font-weight: 600 !important;
+  letter-spacing: .18em !important; text-transform: uppercase !important;
+  color: #b3531a !important; /* 5.7:1 on cream */
+}
+
+/* ---- Vertical rhythm ---------------------------------------
+   Squarespace fluid-engine reserves fixed-height grid rows even
+   when empty -> huge dead zones. minmax(0,auto) collapses empty
+   rows to 0 while content rows still auto-size. Scoped to the
+   forside sections that measured worst (160-350px dead space). */
+section[data-section-id="6a205b4e313dc1545dc6e617"] .fluid-engine,
+section[data-section-id="6a21ca566f1bbb7309d2ddee"] .fluid-engine {
+  grid-template-rows: repeat(30, minmax(0, auto)) !important;
+}
+.page-section .content-wrapper {
+  padding-top: clamp(2rem, 5vw, 4rem) !important;
+  padding-bottom: clamp(2rem, 5vw, 4rem) !important;
+}
+.user-items-list { padding-block: 0 !important; }
+
+/* ---- Buttons: consistent pill, WCAG AA (dark ink on orange) - */
+.sqs-block-button-element, .btn, .sqs-button-element--primary {
+  background: #ec8639 !important; color: #2a2420 !important;
+  border: none !important; border-radius: 999px !important;
+  font-weight: 600 !important; padding: 1em 2.2em !important;
+  box-shadow: 0 2px 10px rgba(236, 134, 57, .35) !important;
+  transition: transform .15s ease, box-shadow .15s ease !important;
+}
+.sqs-block-button-element:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(236, 134, 57, .45) !important;
+}
+.sqs-button-element--secondary {
+  background: transparent !important; color: #1e5670 !important;
+  border: 1.5px solid #1e5670 !important; border-radius: 999px !important;
+}
+
+/* ---- Cards: soft depth + hover ------------------------------ */
+.user-items-list-item-container li, .list-item {
+  background: #fff;
+  border-radius: 16px !important;
+  box-shadow: 0 2px 14px rgba(42, 36, 32, .06) !important;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.list-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(42, 36, 32, .10) !important;
+}
+
+/* Lucide-style icons injected by site-redesign.js */
+svg.nb-ico { flex: none; }
+
+/* ---- Footer: hierarchy + balance ----------------------------- */
+footer { border-top: 3px solid #ec8639; }
+footer h2, footer .sqs-html-content h3 { font-size: 1.5rem !important; }
+footer p, footer a { font-size: .95rem !important; }
+
+/* ---- Motion safety ------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .sqs-block-button-element, .list-item { transition: none !important; }
+}
