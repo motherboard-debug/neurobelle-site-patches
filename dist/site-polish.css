@@ -119,3 +119,13 @@ a.sqs-custom-cart,
 /* ----------------- Images: ensure no broken visual blowout if alt missing ----------------- */
 img[alt=""] { /* explicitly empty */ }
 img:not([alt]) { outline: 1px dashed transparent; }  /* dev-only signal; invisible in prod */
+
+/* ---- WCAG AA contrast fixes (audit 2026-06-10) ----
+   White text on the content-block oranges #df7f4a/#ec8639 measures 2.6–2.9:1
+   (AA requires 4.5:1). Dark ink on the same oranges measures 5.3–5.9:1.
+   Scoped to our injected .nbx blocks; Squarespace-native buttons and the
+   plum/beige .nbb-cta (11.4:1) are untouched. */
+.nbx-cta a { color: #2a2420 !important; }
+.nbx-steps li::before { color: #2a2420 !important; }
+.nbx-links a { color: #a64d18 !important; } /* was #b95f2c: 4.4:1 on white → 5.7:1 */
+.nbx-doc .tit { color: #a64d18 !important; }

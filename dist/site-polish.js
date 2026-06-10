@@ -27,17 +27,36 @@
     if (isHomepage) return;
 
     const a = document.createElement('a');
-    a.href = '/bestill-time';
+    // Catalog lives at /behandlinger since the 2026-06-04 slug swap
+    // (/bestill-time is the booking menu, not the catalog).
+    a.href = '/behandlinger';
     a.className = 'nb-back-to-catalog';
     a.textContent = '← Se alle behandlinger';
     main.appendChild(a);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', injectBackLink);
-  } else {
-    injectBackLink();
+  // Legacy /timer links → /bestill-time, including query strings
+  // (/timer?go=vaksiner). Safety net while real hrefs are fixed in the
+  // editor; harmless once they are. The old Code Injection shim missed
+  // query-string variants — this supersedes it.
+  function rewriteLegacyTimerLinks() {
+    document
+      .querySelectorAll('a[href="/timer"], a[href^="/timer?"], a[href^="/timer/"]')
+      .forEach(function (a) {
+        a.setAttribute('href', a.getAttribute('href').replace(/^\/timer/, '/bestill-time'));
+      });
   }
-  document.addEventListener('mercury:load', injectBackLink);
-  window.addEventListener('popstate', () => setTimeout(injectBackLink, 50));
+
+  function run() {
+    injectBackLink();
+    rewriteLegacyTimerLinks();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+  document.addEventListener('mercury:load', run);
+  window.addEventListener('popstate', () => setTimeout(run, 50));
 })();
