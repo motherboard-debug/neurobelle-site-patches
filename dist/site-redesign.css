@@ -40,9 +40,13 @@ h1.nb-tagline {
    priser, om-oss). minmax(0,auto) collapses empty rows to 0
    while content rows still auto-size. Verified visually on
    forside, /priser, /om-oss, /behandlinger 2026-06-10. */
+/* DEAKTIVERT 11.06 — kollapset ALLE rader (~9px målt live): bilder
+   krympet og tekstblokker overlappet. Fluid-engine plasserer blokker
+   på faste rad-spenn; global minmax(0,auto) er ikke trygt.
 .page-section .fluid-engine {
   grid-template-rows: repeat(40, minmax(0, auto)) !important;
 }
+*/
 .page-section .content-wrapper {
   padding-top: clamp(2rem, 5vw, 4rem) !important;
   padding-bottom: clamp(2rem, 5vw, 4rem) !important;
