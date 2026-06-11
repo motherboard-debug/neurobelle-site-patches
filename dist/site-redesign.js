@@ -37,13 +37,55 @@
         }
       }
     }
-    // strip decorative book emoji from blog link lists
-    var links = document.querySelectorAll('a, strong, b');
-    for (var j = 0; j < links.length; j++) {
-      if (links[j].innerHTML.indexOf('\u{1F4D6}') !== -1) {
-        links[j].innerHTML = links[j].innerHTML.replace(/\u{1F4D6}\s*/gu, '');
+    // strip decorative emoji used as fake icons (book, bulb, card, link)
+    var STRIP = /(\u{1F4D6}|\u{1F4A1}|\u{1F4B3}|\u{1F517})\s*/gu;
+    var els2 = document.querySelectorAll('a, strong, b');
+    for (var j = 0; j < els2.length; j++) {
+      if (STRIP.test(els2[j].innerHTML)) {
+        els2[j].innerHTML = els2[j].innerHTML.replace(STRIP, '');
+      }
+      STRIP.lastIndex = 0;
+    }
+  }
+
+  // Content corrections that are pure text (real fix lives in the
+  // Squarespace editor — these are safe client-side bridges):
+  // - footer address typo "Arbeidersamfunnetsplass" (missing space),
+  //   matters for NAP consistency with Google Business Profile
+  // - English "Book time" button on /priser
+  function fixTextSlips() {
+    var foot = document.querySelector('footer');
+    if (foot && foot.innerHTML.indexOf('Arbeidersamfunnetsplass') !== -1) {
+      foot.innerHTML = foot.innerHTML.replace(/Arbeidersamfunnetsplass/g, 'Arbeidersamfunnets plass');
+    }
+    var as = document.querySelectorAll('a');
+    for (var i = 0; i < as.length; i++) {
+      if (/^\s*Book time/.test(as[i].textContent)) {
+        as[i].textContent = as[i].textContent.replace('Book time', 'Bestill time');
       }
     }
+  }
+
+  // /om-oss has a duplicate "Møt legene" group (editor cleanup is
+  // queued as Chrome-prompt C5) — hide every group after the first.
+  function hideDuplicateTeam() {
+    var wraps = document.querySelectorAll('.nbx-teamwrap');
+    for (var i = 1; i < wraps.length; i++) wraps[i].style.display = 'none';
+  }
+
+  // Sticky mobile booking CTA (styled by site-redesign.css; shown
+  // <768px only). Skipped on the booking pages themselves.
+  function injectStickyCta() {
+    if (document.querySelector('.nb-sticky-cta')) return;
+    var path = location.pathname.replace(/\/$/, '');
+    if (path === '/bestill-time' || path === '/behandlinger') return;
+    var bar = document.createElement('div');
+    bar.className = 'nb-sticky-cta';
+    var a = document.createElement('a');
+    a.href = '/bestill-time';
+    a.textContent = 'Bestill time';
+    bar.appendChild(a);
+    document.body.appendChild(bar);
   }
 
   function linkifyFooterPhone() {
@@ -69,7 +111,10 @@
   function run() {
     tagTagline();
     swapEmojiIcons();
+    fixTextSlips();
+    hideDuplicateTeam();
     linkifyFooterPhone();
+    injectStickyCta();
   }
 
   if (document.readyState === 'loading') {

@@ -36,12 +36,12 @@ h1.nb-tagline {
 
 /* ---- Vertical rhythm ---------------------------------------
    Squarespace fluid-engine reserves fixed-height grid rows even
-   when empty -> huge dead zones. minmax(0,auto) collapses empty
-   rows to 0 while content rows still auto-size. Scoped to the
-   forside sections that measured worst (160-350px dead space). */
-section[data-section-id="6a205b4e313dc1545dc6e617"] .fluid-engine,
-section[data-section-id="6a21ca566f1bbb7309d2ddee"] .fluid-engine {
-  grid-template-rows: repeat(30, minmax(0, auto)) !important;
+   when empty -> huge dead zones (160-350px measured on forside,
+   priser, om-oss). minmax(0,auto) collapses empty rows to 0
+   while content rows still auto-size. Verified visually on
+   forside, /priser, /om-oss, /behandlinger 2026-06-10. */
+.page-section .fluid-engine {
+  grid-template-rows: repeat(40, minmax(0, auto)) !important;
 }
 .page-section .content-wrapper {
   padding-top: clamp(2rem, 5vw, 4rem) !important;
@@ -85,6 +85,45 @@ svg.nb-ico { flex: none; }
 footer { border-top: 3px solid #ec8639; }
 footer h2, footer .sqs-html-content h3 { font-size: 1.5rem !important; }
 footer p, footer a { font-size: .95rem !important; }
+
+/* ---- /priser: bare <table> elements get proper styling ------- */
+main table {
+  width: 100%; border-collapse: collapse;
+  font-size: .95rem;
+}
+main table td {
+  padding: .65em .8em;
+  border-bottom: 1px solid rgba(42, 36, 32, .08);
+  text-align: left !important;
+}
+main table td:last-child {
+  text-align: right !important;
+  font-weight: 600; white-space: nowrap; color: #1e5670;
+}
+main table tr:last-child td { border-bottom: none; }
+main table tr:nth-child(even) td { background: rgba(251, 242, 234, .5); }
+
+/* ---- Sticky mobile booking CTA (injected by site-redesign.js) */
+.nb-sticky-cta {
+  display: none;
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(251, 246, 236, .96);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(42, 36, 32, .10);
+  box-shadow: 0 -4px 18px rgba(42, 36, 32, .08);
+}
+.nb-sticky-cta a {
+  display: block; text-align: center;
+  background: #ec8639; color: #2a2420 !important;
+  font-weight: 600; font-size: 1rem;
+  border-radius: 999px; padding: .85em 1.5em;
+  text-decoration: none;
+}
+@media (max-width: 767px) {
+  .nb-sticky-cta { display: block; }
+  body { padding-bottom: 76px; }
+}
 
 /* ---- Motion safety ------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
