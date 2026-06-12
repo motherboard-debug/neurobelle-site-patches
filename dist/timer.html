@@ -40,6 +40,10 @@
   <div class="crumb" id="crumb"></div>
   <div id="list"></div>
   <div class="start" id="startinfo"></div>
+  <p style="margin:18px auto 0;max-width:560px;text-align:center;font-size:12.5px;line-height:1.55;color:#6b6259;">
+    Avbestilling senest 48 timer før timen. Ved senere avbestilling eller ikke møtt
+    belastes full pris (estetikk-konsultasjon: 500&nbsp;kr).
+  </p>
 </div>
 <script>
 const SITE_URL='https://neurobelleklinikk.com';
@@ -65,45 +69,47 @@ const TREE={label:'Hva trenger du hjelp med?', items:[
   ]},
   {ic:'stethoscope',t:'Allmennlege',s:'Vanlig lege — video eller oppmøte',slug:'allmennlege',kids:[
     {ic:'video',t:'Digital (video)',clr:'c-mint',slug:'digital',kids:[
-      {ic:'video',t:'Legetime på video',price:'300 kr',slug:'legetime-video',ts:'39638706-550b-11f1-a128-fe2ac7c79aa2',beh:['Kaviyan','Giti']},
-      {ic:'zap',t:'Rask konsultasjon',price:'300 kr',slug:'rask-konsultasjon',ts:'60a4f138-550b-11f1-9c3f-be30137fbe21',beh:['Kaviyan','Giti']},
-      {ic:'pill',t:'Reseptfornyelse (video)',price:'300 kr',slug:'reseptfornyelse',ts:'7bb46d50-550b-11f1-a832-d6c5ed9ae184',beh:['Kaviyan','Giti','Ardavan']},
+      {ic:'video',t:'Legetime på video',price:'340 kr',slug:'legetime-video',ts:'39638706-550b-11f1-a128-fe2ac7c79aa2',beh:['Kaviyan','Giti']},
+      {ic:'pill',t:'Reseptfornyelse (video)',price:'250 kr',slug:'reseptfornyelse',ts:'7bb46d50-550b-11f1-a832-d6c5ed9ae184',beh:['Kaviyan','Giti','Ardavan']},
     ]},
     {ic:'building-2',t:'Fysisk oppmøte',clr:'c-peach',slug:'fysisk',kids:[
-      {ic:'stethoscope',t:'Lege konsultasjon',price:'450 kr',slug:'lege-konsultasjon',ts:'9d4f4e0a-5509-11f1-9abe-62401fc95a39',beh:['Kaviyan','Giti']},
-      {ic:'user-round',t:'Allmennspesialist',price:'850 kr',slug:'allmennspesialist',ts:'9bb66094-550c-11f1-8ced-d6c5ed9ae184',beh:['Giti']},
-      {ic:'clipboard-list',t:'Årlig helsesjekk',price:'1 500 kr',slug:'arlig-helsesjekk',ts:'f361eae2-550d-11f1-bc76-d6c5ed9ae184',beh:['Giti']},
-      {ic:'repeat',t:'Kontroll og oppfølging',price:'1 000 kr',slug:'kontroll',ts:'087c80ea-550e-11f1-bea8-fe2ac7c79aa2',beh:['Kaviyan','Giti']},
+      {ic:'stethoscope',t:'Hurtigtime / Lege konsultasjon',price:'280 kr',slug:'lege-konsultasjon',ts:'9d4f4e0a-5509-11f1-9abe-62401fc95a39',beh:['Kaviyan','Giti']},
+      {ic:'user-round',t:'Legetime',price:'650 kr',slug:'allmennspesialist',ts:'9bb66094-550c-11f1-8ced-d6c5ed9ae184',beh:['Giti']},
+      // AKTIVERES når PatientSky-takst finnes (bytt ts til riktig timeslotType-UUID):
+      // {ic:'clock',t:'Utvidet legetime',price:'1 590 kr',slug:'utvidet-legetime',ts:'MANGLER-PS-UUID',beh:['Giti']},
+      {ic:'clipboard-list',t:'Årlig helsesjekk',price:'1 790 kr',slug:'arlig-helsesjekk',ts:'f361eae2-550d-11f1-bc76-d6c5ed9ae184',beh:['Giti']},
+      {ic:'repeat',t:'Kontroll og oppfølging',price:'745 kr',slug:'kontroll',ts:'087c80ea-550e-11f1-bea8-fe2ac7c79aa2',beh:['Kaviyan','Giti']},
       {ic:'file-text',t:'Legeattester',price:'450 kr',slug:'legeattester',ts:'4ed116fe-550a-11f1-b2c8-d6c5ed9ae184',beh:['Kaviyan','Giti']},
     ]},
     {ic:'scale',t:'Vekt og livsstil',clr:'c-cream',slug:'vekt',kids:[
-      {ic:'scale',t:'Oppstart',price:'1 100 kr',slug:'vekt-oppstart',ts:'cd7619b4-550a-11f1-a9cf-7e82c1ba4ae2',beh:['Kaviyan','Giti']},
-      {ic:'calendar-range',t:'3-måneders program',price:'5 500 kr',slug:'vekt-3mnd',ts:'1a9fb646-550b-11f1-9284-d6c5ed9ae184',beh:['Kaviyan']},
+      {ic:'scale',t:'Oppstart',price:'990 kr',slug:'vekt-oppstart',ts:'cd7619b4-550a-11f1-a9cf-7e82c1ba4ae2',beh:['Kaviyan','Giti']},
+      {ic:'calendar-range',t:'3-måneders program',price:'2 490 kr',slug:'vekt-3mnd',ts:'1a9fb646-550b-11f1-9284-d6c5ed9ae184',beh:['Kaviyan']},
     ]},
   ]},
   {ic:'brain',t:'Nevrologi',s:'Hos nevrolog-spesialist',slug:'nevrologi',kids:[
     {ic:'activity',t:'Hodepine og migrene',slug:'hodepine',kids:[
-      {ic:'building-2',t:'Førstegangsutredning',price:'3 000 kr',slug:'hodepine-forstegang',ts:'dd9a3a04-550b-11f1-9b8b-c2a3d44e2214',beh:['Kaviyan','Ardavan']},
-      {ic:'stethoscope',t:'Oppfølging',price:'1 500 kr',slug:'hodepine-oppfolging',ts:'3655cec4-550c-11f1-8a50-82117ec75726',beh:['Kaviyan','Ardavan']},
+      {ic:'building-2',t:'Førstegangsutredning',price:'2 500 kr',slug:'hodepine-forstegang',ts:'dd9a3a04-550b-11f1-9b8b-c2a3d44e2214',beh:['Kaviyan','Ardavan']},
+      {ic:'stethoscope',t:'Oppfølging',price:'1 790 kr',slug:'hodepine-oppfolging',ts:'3655cec4-550c-11f1-8a50-82117ec75726',beh:['Kaviyan','Ardavan']},
+      // AKTIVERES når PatientSky-takst finnes (bytt ts til riktig timeslotType-UUID):
+      // {ic:'syringe',t:'Injeksjonsbehandling kronisk migrene',price:'4 200 kr',slug:'migrene-injeksjon',ts:'MANGLER-PS-UUID',beh:['Ardavan']},
     ]},
-    {ic:'brain',t:'Nevrologisk utredning',price:'2 500 kr',slug:'nevrologisk-utredning',ts:'1f72fb44-550e-11f1-862c-d6c5ed9ae184',beh:['Ardavan']},
-    {ic:'video',t:'Oppfølging (video)',price:'1 000 kr',slug:'nevro-oppfolging-video',ts:'40b6e7ac-550e-11f1-a98e-82117ec75726',beh:['Ardavan']},
-    {ic:'stethoscope',t:'Oppfølging (fysisk)',price:'1 500 kr',slug:'nevro-oppfolging-fysisk',ts:'3177826a-550e-11f1-be84-2655119da7d2',beh:['Ardavan']},
-    {ic:'file-text',t:'Second opinion',price:'3 000 kr',slug:'second-opinion',ts:'76b07c74-550e-11f1-8dbe-2655119da7d2',beh:['Ardavan']},
+    {ic:'brain',t:'Nevrologisk utredning',price:'2 800 kr',slug:'nevrologisk-utredning',ts:'1f72fb44-550e-11f1-862c-d6c5ed9ae184',beh:['Ardavan']},
+    {ic:'video',t:'Oppfølging (video)',price:'1 790 kr',slug:'nevro-oppfolging-video',ts:'40b6e7ac-550e-11f1-a98e-82117ec75726',beh:['Ardavan']},
+    {ic:'stethoscope',t:'Oppfølging (fysisk)',price:'1 790 kr',slug:'nevro-oppfolging-fysisk',ts:'3177826a-550e-11f1-be84-2655119da7d2',beh:['Ardavan']},
+    {ic:'file-text',t:'Second opinion',price:'3 900 kr',slug:'second-opinion',ts:'76b07c74-550e-11f1-8dbe-2655119da7d2',beh:['Ardavan']},
   ]},
   {ic:'sparkles',t:'Estetikk',s:'Estetisk medisin — velg din behandler',slug:'estetikk',kids:[
+    // AKTIVERES når PatientSky-takst finnes (bytt ts til riktig timeslotType-UUID):
+    // {ic:'message-circle',t:'Konsultasjon estetikk',s:'Fratrekkes ved behandling samme dag',price:'390 kr',slug:'konsultasjon-estetikk',ae:1,ts:'MANGLER-PS-UUID',beh:['Kaviyan','Ardavan']},
     {ic:'droplet',t:'Rynkebehandling',slug:'rynkebehandling',kids:[
       {ic:'target',t:'1 sone',price:'2 000 kr',ae:1,ts:'e11f6f5c-550e-11f1-a1e1-66fb28478fcb',beh:['Kaviyan','Ardavan']},
       {ic:'target',t:'2 soner',price:'3 375 kr',ae:1,ts:'e11f6f5c-550e-11f1-a1e1-66fb28478fcb',beh:['Kaviyan','Ardavan']},
       {ic:'target',t:'3 soner',price:'4 500 kr',ae:1,ts:'e11f6f5c-550e-11f1-a1e1-66fb28478fcb',beh:['Kaviyan','Ardavan']},
     ]},
-    {ic:'syringe',t:'Filler',slug:'filler',kids:[
-      {ic:'smile',t:'Ansikt',price:'fra 3 000 kr',ae:1,ts:'bbf66870-550e-11f1-b480-82117ec75726',beh:['Ardavan']},
-      {ic:'smile',t:'Lepper',price:'fra 3 000 kr',ae:1,ts:'bbf66870-550e-11f1-b480-82117ec75726',beh:['Ardavan']},
-    ]},
-    {ic:'sparkles',t:'Mesoterapi',price:'1 500 kr',slug:'mesoterapi',ae:1,ts:'0125df7a-550f-11f1-a89a-d6c5ed9ae184',beh:['Ardavan']},
-    {ic:'droplets',t:'Hyperhidrose',price:'2 800 kr',slug:'hyperhidrose',ae:1,ts:'7574182c-550c-11f1-93dd-7e82c1ba4ae2',beh:['Kaviyan','Ardavan']},
-    {ic:'waves',t:'Trådløft',price:'12 000 kr',slug:'tradloft',ae:1,ts:'c5b26ae4-550e-11f1-8592-7e82c1ba4ae2',beh:['Ardavan']},
+    {ic:'syringe',t:'Filler',price:'3 400 kr',slug:'filler',ae:1,ts:'bbf66870-550e-11f1-b480-82117ec75726',beh:['Ardavan']},
+    {ic:'sparkles',t:'Mesoterapi',price:'1 990 kr',slug:'mesoterapi',ae:1,ts:'0125df7a-550f-11f1-a89a-d6c5ed9ae184',beh:['Ardavan']},
+    {ic:'droplets',t:'Hyperhidrose',price:'4 500 kr',slug:'hyperhidrose',ae:1,ts:'7574182c-550c-11f1-93dd-7e82c1ba4ae2',beh:['Kaviyan','Ardavan']},
+    {ic:'waves',t:'Trådløft',price:'8 500 kr',slug:'tradloft',ae:1,ts:'c5b26ae4-550e-11f1-8592-7e82c1ba4ae2',beh:['Ardavan']},
   ]},
 ]};
 
