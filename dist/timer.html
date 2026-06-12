@@ -75,8 +75,7 @@ const TREE={label:'Hva trenger du hjelp med?', items:[
     {ic:'building-2',t:'Fysisk oppmøte',clr:'c-peach',slug:'fysisk',kids:[
       {ic:'stethoscope',t:'Hurtigtime / Lege konsultasjon',price:'280 kr',slug:'lege-konsultasjon',ts:'9d4f4e0a-5509-11f1-9abe-62401fc95a39',beh:['Kaviyan','Giti']},
       {ic:'user-round',t:'Legetime',price:'650 kr',slug:'allmennspesialist',ts:'9bb66094-550c-11f1-8ced-d6c5ed9ae184',beh:['Giti']},
-      // AKTIVERES når PatientSky-takst finnes (bytt ts til riktig timeslotType-UUID):
-      // {ic:'clock',t:'Utvidet legetime',price:'1 590 kr',slug:'utvidet-legetime',ts:'MANGLER-PS-UUID',beh:['Giti']},
+      {ic:'clock',t:'Utvidet legetime',price:'1 590 kr',slug:'utvidet-legetime',ts:'ddd9b4e8-6665-11f1-be3c-669f5ef59edc',beh:['Giti','Kaviyan']},
       {ic:'clipboard-list',t:'Årlig helsesjekk',price:'1 790 kr',slug:'arlig-helsesjekk',ts:'f361eae2-550d-11f1-bc76-d6c5ed9ae184',beh:['Giti']},
       {ic:'repeat',t:'Kontroll og oppfølging',price:'745 kr',slug:'kontroll',ts:'087c80ea-550e-11f1-bea8-fe2ac7c79aa2',beh:['Kaviyan','Giti']},
       {ic:'file-text',t:'Legeattester',price:'450 kr',slug:'legeattester',ts:'4ed116fe-550a-11f1-b2c8-d6c5ed9ae184',beh:['Kaviyan','Giti']},
@@ -90,8 +89,7 @@ const TREE={label:'Hva trenger du hjelp med?', items:[
     {ic:'activity',t:'Hodepine og migrene',slug:'hodepine',kids:[
       {ic:'building-2',t:'Førstegangsutredning',price:'2 500 kr',slug:'hodepine-forstegang',ts:'dd9a3a04-550b-11f1-9b8b-c2a3d44e2214',beh:['Kaviyan','Ardavan']},
       {ic:'stethoscope',t:'Oppfølging',price:'1 790 kr',slug:'hodepine-oppfolging',ts:'3655cec4-550c-11f1-8a50-82117ec75726',beh:['Kaviyan','Ardavan']},
-      // AKTIVERES når PatientSky-takst finnes (bytt ts til riktig timeslotType-UUID):
-      // {ic:'syringe',t:'Injeksjonsbehandling kronisk migrene',price:'4 200 kr',slug:'migrene-injeksjon',ts:'MANGLER-PS-UUID',beh:['Ardavan']},
+      {ic:'syringe',t:'Injeksjonsbehandling kronisk migrene',price:'4 200 kr',slug:'migrene-injeksjon',ts:'ca0caf1e-65d5-11f1-9fed-a64f88edb2b5',beh:['Kaviyan','Ardavan']},
     ]},
     {ic:'brain',t:'Nevrologisk utredning',price:'2 800 kr',slug:'nevrologisk-utredning',ts:'1f72fb44-550e-11f1-862c-d6c5ed9ae184',beh:['Ardavan']},
     {ic:'video',t:'Oppfølging (video)',price:'1 790 kr',slug:'nevro-oppfolging-video',ts:'40b6e7ac-550e-11f1-a98e-82117ec75726',beh:['Ardavan']},
@@ -99,8 +97,7 @@ const TREE={label:'Hva trenger du hjelp med?', items:[
     {ic:'file-text',t:'Second opinion',price:'3 900 kr',slug:'second-opinion',ts:'76b07c74-550e-11f1-8dbe-2655119da7d2',beh:['Ardavan']},
   ]},
   {ic:'sparkles',t:'Estetikk',s:'Estetisk medisin — velg din behandler',slug:'estetikk',kids:[
-    // AKTIVERES når PatientSky-takst finnes (bytt ts til riktig timeslotType-UUID):
-    // {ic:'message-circle',t:'Konsultasjon estetikk',s:'Fratrekkes ved behandling samme dag',price:'390 kr',slug:'konsultasjon-estetikk',ae:1,ts:'MANGLER-PS-UUID',beh:['Kaviyan','Ardavan']},
+    {ic:'message-circle',t:'Konsultasjon estetikk',s:'Fratrekkes ved behandling samme dag',price:'390 kr',slug:'konsultasjon-estetikk',ae:1,ts:'3ae897a2-65d6-11f1-96e1-8694f151c95a',beh:['Kaviyan','Ardavan']},
     {ic:'droplet',t:'Rynkebehandling',slug:'rynkebehandling',kids:[
       {ic:'target',t:'1 sone',price:'2 000 kr',ae:1,ts:'e11f6f5c-550e-11f1-a1e1-66fb28478fcb',beh:['Kaviyan','Ardavan']},
       {ic:'target',t:'2 soner',price:'3 375 kr',ae:1,ts:'e11f6f5c-550e-11f1-a1e1-66fb28478fcb',beh:['Kaviyan','Ardavan']},
