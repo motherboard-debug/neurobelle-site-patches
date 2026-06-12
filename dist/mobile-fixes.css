@@ -1,0 +1,282 @@
+/* ============================================================
+   Neurobelle — Mobile UX deep-fix
+   Addresses: hero text overflow, card spacing, button widths,
+   footer whitespace, touch targets, image scaling.
+
+   Loads AFTER site-polish.css and behandlinger.css to override.
+   Created 2026-05-21 (overnight session 2).
+   ============================================================ */
+
+/* ====== 1. HERO TEKST — ANTI-OVERFLOW PÅ SMÅ SKJERMER ====== */
+
+@media (max-width: 480px) {
+  .nbb-hero__title {
+    font-size: clamp(24px, 7.5vw, 32px) !important;
+    padding: 0 8px !important;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .nbb-hero__sub {
+    font-size: 15px !important;
+    padding: 0 12px !important;
+    line-height: 1.5 !important;
+  }
+  body:not(.nb-behandlinger-page):not(.nb-booking-page) h1 {
+    font-size: clamp(22px, 7vw, 32px) !important;
+    word-wrap: break-word !important;
+    hyphens: auto;
+  }
+  body:not(.nb-behandlinger-page):not(.nb-booking-page) h2 {
+    font-size: clamp(18px, 5.5vw, 24px) !important;
+  }
+}
+
+/* ====== 2. SERVICE-CARDS — TIGHTER PADDING ON SMALL SCREENS ====== */
+
+@media (max-width: 480px) {
+  .nbb-card {
+    padding: 20px 16px !important;
+    border-radius: 12px !important;
+  }
+  .nbb-card__title {
+    font-size: 19px !important;
+  }
+  .nbb-card__lead {
+    font-size: 14.5px !important;
+    line-height: 1.5 !important;
+  }
+  .nbb-variant {
+    padding: 14px 12px !important;
+    gap: 8px !important;
+  }
+  .nbb-variant__title {
+    font-size: 15px !important;
+  }
+  .nbb-variant__meta {
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .nbb-card {
+    padding: 16px 12px !important;
+  }
+  .nbb-variant {
+    padding: 12px 10px !important;
+  }
+  #nb-behandlinger {
+    padding: 0 12px !important;
+  }
+}
+
+/* ====== 3. BESTILL-KNAPPER — FULL-WIDTH ON MOBILE ====== */
+
+@media (max-width: 480px) {
+  .nbb-cta,
+  .nbb-cta--sm {
+    display: flex !important;
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 14px 20px !important;
+    font-size: 15.5px !important;
+    min-height: 48px !important;
+  }
+
+  body:not(.nb-behandlinger-page):not(.nb-booking-page) .sqs-block-button-element {
+    width: 100% !important;
+    max-width: 320px !important;
+    display: block !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    padding: 14px 20px !important;
+    min-height: 48px !important;
+  }
+
+  .nbb-link {
+    font-size: 14.5px !important;
+    padding: 8px 12px !important;
+  }
+}
+
+/* ====== 4. CATEGORY-TABS — TOUCH-FRIENDLY ====== */
+
+@media (max-width: 480px) {
+  .nbb-tabs {
+    gap: 6px !important;
+    padding: 0 8px !important;
+    margin: 0 -8px 24px !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nbb-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .nbb-tab {
+    flex-shrink: 0 !important;
+    min-height: 40px !important;
+    padding: 10px 16px !important;
+    font-size: 13.5px !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* ====== 5. FOOTER — REDUSER WHITESPACE ====== */
+
+@media (max-width: 540px) {
+  body:not(.nb-behandlinger-page):not(.nb-booking-page) #footer-sections section[data-section-id] .content-wrapper,
+  body:not(.nb-behandlinger-page):not(.nb-booking-page) footer .content-wrapper {
+    padding-top: 32px !important;
+    padding-bottom: 32px !important;
+  }
+  .nb-back-to-catalog {
+    margin: 24px auto 16px !important;
+    font-size: 13.5px !important;
+    padding: 10px 18px !important;
+  }
+}
+
+/* ====== 6. IMAGES — INTELLIGENT SIZING ====== */
+
+@media (max-width: 480px) {
+  .nbb-variant__image,
+  .nbb-card__image {
+    max-height: 180px !important;
+    object-fit: cover !important;
+    border-radius: 10px !important;
+  }
+  body:not(.nb-behandlinger-page):not(.nb-booking-page) .sqs-block-image .image-block-outer-wrapper img {
+    max-height: 50vh !important;
+    object-fit: cover !important;
+  }
+}
+
+/* ====== 7. TOUCH TARGET PASS — 44PX MINIMUM EVERYWHERE ====== */
+
+@media (max-width: 880px) {
+  body a:not(.nbb-cta):not(.nbb-cta--sm):not(.nbb-link):not(.nb-back-to-catalog) {
+    min-height: 36px;
+    display: inline-block;
+    padding: 4px 0;
+  }
+  .header-nav-item > a,
+  .header-menu-nav-item > a,
+  .nbb-card .nbb-variant button,
+  .nbb-variant button {
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+}
+
+/* ====== 8. STICKY-CTA — Bestill time alltid synlig på mobile ====== */
+
+@media (max-width: 768px) {
+  body:not(.nb-behandlinger-page):not(.nb-booking-page) .nb-sticky-cta {
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    background: #4a1f3d;
+    color: #f5ead7;
+    text-align: center;
+    padding: 14px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(74,31,61,0.3);
+    z-index: 999;
+    transition: transform 200ms ease, opacity 200ms ease;
+    opacity: 0;
+    transform: translateY(80px);
+    pointer-events: none;
+  }
+  body:not(.nb-behandlinger-page):not(.nb-booking-page).nb-scrolled .nb-sticky-cta {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+.nb-behandlinger-page .nb-sticky-cta,
+.nb-booking-page .nb-sticky-cta {
+  display: none !important;
+}
+
+/* ====== 9. NAVIGATION MENU — TYDELIGERE PÅ MOBIL ====== */
+
+@media (max-width: 880px) {
+  .burger-box,
+  .burger-inner {
+    width: 28px !important;
+  }
+  .header-menu-nav-item a {
+    font-size: 17px !important;
+    padding: 14px 24px !important;
+    min-height: 48px !important;
+  }
+  .header-menu-nav-folder-content a {
+    font-size: 15.5px !important;
+    padding: 10px 24px !important;
+  }
+}
+
+/* ====== 10. INPUT FIELDS — KOMFORTABEL Å SKRIVE I ====== */
+
+@media (max-width: 480px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea,
+  select {
+    font-size: 16px !important;
+    padding: 12px 14px !important;
+    border-radius: 8px !important;
+    min-height: 44px !important;
+  }
+}
+
+/* ====== 11. CONTRAST — BEDRE TILGJENGELIGHET ====== */
+
+@media (max-width: 880px) {
+  .nbb-muted,
+  .nbb-card__meta,
+  .nbb-variant__meta {
+    color: #5d4654 !important;
+  }
+}
+
+/* ====== 12. FLEX-FIX — TILLAT WRAP PÅ MEGET SMÅ SKJERMER ====== */
+
+@media (max-width: 380px) {
+  .nbb-variant {
+    flex-wrap: wrap !important;
+  }
+  .nbb-variant__title {
+    white-space: normal !important;
+    word-break: keep-all;
+  }
+}
+
+/* ====== 13. PRIS-VISNING — TYDELIG OG LESBAR ====== */
+
+@media (max-width: 480px) {
+  .nbb-variant__price,
+  .nbb-card__price {
+    font-weight: 600 !important;
+    font-size: 14.5px !important;
+    color: #4a1f3d !important;
+  }
+}
+
+/* ====== 14. PROTO-BANNER ====== */
+
+@media (max-width: 480px) {
+  .nb-proto-banner {
+    font-size: 13px !important;
+    padding: 10px 14px !important;
+    text-align: center !important;
+    margin: 0 -12px 16px !important;
+  }
+}
