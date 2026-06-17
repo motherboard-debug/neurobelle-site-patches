@@ -36,6 +36,9 @@
 | 8 | Ready-to-paste titler (50–60) + meta (150–160) per side | ✅ | `seo/page-meta.md` |
 | 9 | Innholdskalender søkeord → side/post | ✅ | `seo/content-calendar.md` |
 | 10 | Compliance-vakt utvidet (7 merkenavn × 2 filer) | ✅ | `validate-deploy.sh` |
+| 11 | Ferdig copy (5 sider + 4 blogposter), klar-til-lim | ✅ (medisinsk → godkjenning) | `seo/ready-to-publish/` |
+| 12 | FAQ + breadcrumb auto-wiret for 2 nye medisinske slugs | ✅ | `dist/seo.js` |
+| 13 | Copy-paste HEADER-snapshot (uten terminal) | ✅ | `seo/header-block.html` |
 
 ## Teknisk on-page sjekkliste
 

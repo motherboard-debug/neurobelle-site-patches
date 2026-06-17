@@ -4,11 +4,18 @@ Alt under er **utenfor agentens kontroll** (krever live-tilgang, eksterne
 kontoer eller medisinsk faglig godkjenning). Bunten i git er ferdig og venter.
 
 ## A. Aktivér bunten live (1 handling, låser opp tiltak 1–7 i scorecard)
-- [ ] Kjør `./bump-cache.sh | pbcopy` og lim inn i **Squarespace → Settings →
-      Advanced → Code Injection → HEADER** (erstatt eksisterende blokk). Save.
+- [ ] Lim inn innholdet i **`seo/header-block.html`** i **Squarespace →
+      Settings → Advanced → Code Injection → HEADER** (erstatt eksisterende
+      blokk). Save. *(Ingen terminal nødvendig — fila er ferdig generert.
+      Alternativt: `./bump-cache.sh | pbcopy`.)*
 - [ ] Kjør `./validate-deploy.sh` etterpå — skal være all-green.
 - ↳ Dette aktiverer: utvidet schema (WebSite/OfferCatalog), breadcrumb- og
   FAQ-schema, alt-tekst, lang, canonical, OG-fallback.
+
+## A2. Publiser nye sider/blogg (copy er ferdig)
+- [ ] Lim inn sidene fra **`seo/ready-to-publish/`** (5 sider + 4 blogposter)
+      med riktig slug + title/meta fra `page-meta.md`. Se mappens README.
+- [ ] Medisinske sider + blogg: **legegodkjenning før publisering.**
 
 ## B. Medisinsk faglig godkjenning (compliance)
 - [ ] Godkjenn FAQ-copy i `dist/seo.js` (3 sider: legekonsultasjon, hodepine/

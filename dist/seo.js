@@ -59,7 +59,12 @@
     'priser': 'Priser',
     'legekonsultasjon-oslo': 'Legekonsultasjon Oslo',
     'hodepine-migrene-oslo': 'Hodepine og migrene',
-    'vektreduksjon-oslo': 'Vektreduksjon'
+    'vektreduksjon-oslo': 'Vektreduksjon',
+    'hyperhidrose-oslo': 'Hyperhidrose',
+    'privat-nevrolog-oslo': 'Privat nevrolog Oslo',
+    'hudpleie-oslo': 'Hudpleie Oslo',
+    'filler-oslo': 'Filler Oslo',
+    'rynkebehandling-oslo': 'Rynkebehandling Oslo'
   };
 
   // ---- 1. lang -------------------------------------------------------------
@@ -127,6 +132,22 @@
        'Behandling vurderes individuelt ut fra helse, KMI og tidligere tiltak. Legen gjør en helhetlig vurdering og foreslår et forsvarlig opplegg — medikamentell behandling er ikke aktuelt for alle.'],
       ['Følger dere meg opp underveis?',
        'Ja. Vektreduksjon følges opp med kontroller hos lege slik at behandlingen kan justeres trygt over tid.']
+    ],
+    '/hyperhidrose-oslo': [
+      ['Hva er hyperhidrose?',
+       'Hyperhidrose er overdreven svetting som går ut over hverdagen, oftest i armhuler, hender eller føtter. Det er en medisinsk tilstand som kan utredes og behandles av lege.'],
+      ['Hvilken behandling finnes mot overdreven svette?',
+       'Aktuelle tiltak vurderes individuelt og kan omfatte reseptbelagt antiperspirant, og for utvalgte pasienter medikamentell injeksjonsbehandling. Legen vurderer hva som er forsvarlig i ditt tilfelle.'],
+      ['Trenger jeg henvisning for å få time?',
+       'Nei, du kan bestille time til en vurdering hos oss uten henvisning. Trenger du videre henvisning, hjelper legen med det.']
+    ],
+    '/privat-nevrolog-oslo': [
+      ['Kan jeg få time hos privat nevrolog i Oslo uten henvisning?',
+       'Ja. Du kan bestille time til en privat nevrologisk vurdering hos oss uten henvisning, med kort ventetid.'],
+      ['Hva kan en nevrolog utrede?',
+       'Blant annet hodepine og migrene, svimmelhet, nummenhet, skjelving og andre nevrologiske symptomer. Legen tar stilling til videre utredning individuelt.'],
+      ['Hva skjer på den første konsultasjonen?',
+       'Nevrologen går gjennom sykehistorien din, gjør en klinisk undersøkelse og legger en plan for eventuell videre utredning eller behandling.']
     ]
   };
 
