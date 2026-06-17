@@ -3,6 +3,9 @@
 Alt under er **utenfor agentens kontroll** (krever live-tilgang, eksterne
 kontoer eller medisinsk faglig godkjenning). Bunten i git er ferdig og venter.
 
+> 🤖 **Raskeste vei:** kjør hele listen via **`seo/claude-in-chrome-prompt.md`**
+> (11 ordnede oppgaver for Claude in Chrome). Statiske funn: `seo/audit-findings.md`.
+
 ## A. Aktivér bunten live (1 handling, låser opp tiltak 1–7 i scorecard)
 - [ ] Lim inn innholdet i **`seo/header-block.html`** i **Squarespace →
       Settings → Advanced → Code Injection → HEADER** (erstatt eksisterende

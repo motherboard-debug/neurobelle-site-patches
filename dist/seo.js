@@ -27,6 +27,9 @@
    ============================================================ */
 (function () {
   var SITE = 'https://www.neurobelleklinikk.com';
+  // Approved social card (lives in this repo, served by jsDelivr). Only used
+  // as a last-resort fallback when the page has no og:image of its own.
+  var OG_IMAGE = 'https://cdn.jsdelivr.net/gh/motherboard-debug/neurobelle-site-patches@main/dist/img/og-image.jpg';
 
   // ---- helpers -------------------------------------------------------------
   function cleanPath() {
@@ -236,11 +239,28 @@
       m.setAttribute('content', content);
       document.head.appendChild(m);
     }
-    var desc = document.querySelector('meta[name="description"]');
+    function setMetaName(name, content) {
+      if (!content) return;
+      if (document.querySelector('meta[name="' + name + '"]')) return;
+      var m = document.createElement('meta');
+      m.setAttribute('name', name);
+      m.setAttribute('content', content);
+      document.head.appendChild(m);
+    }
+    var descEl = document.querySelector('meta[name="description"]');
+    var desc = descEl ? descEl.getAttribute('content') : '';
     setMeta('og:title', document.title);
-    setMeta('og:description', desc ? desc.getAttribute('content') : '');
+    setMeta('og:description', desc);
     setMeta('og:type', 'website');
     setMeta('og:url', SITE + (cleanPath() === '/' ? '/' : cleanPath()));
+    setMeta('og:site_name', 'Neurobelle Klinikk');
+    setMeta('og:locale', 'nb_NO');
+    setMeta('og:image', OG_IMAGE);
+    // Twitter Card (uses name= attributes, not property=)
+    setMetaName('twitter:card', 'summary_large_image');
+    setMetaName('twitter:title', document.title);
+    setMetaName('twitter:description', desc);
+    setMetaName('twitter:image', OG_IMAGE);
   }
 
   // ---- run -----------------------------------------------------------------

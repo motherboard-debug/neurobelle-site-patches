@@ -39,6 +39,10 @@
 | 11 | Ferdig copy (5 sider + 4 blogposter), klar-til-lim | ✅ (medisinsk → godkjenning) | `seo/ready-to-publish/` |
 | 12 | FAQ + breadcrumb auto-wiret for 2 nye medisinske slugs | ✅ | `dist/seo.js` |
 | 13 | Copy-paste HEADER-snapshot (uten terminal) | ✅ | `seo/header-block.html` |
+| 14 | Schema `image`/`logo`: favicon → godkjent og-image | ✅ | `bump-cache.sh` |
+| 15 | OG `image`/`locale`/`site_name` + Twitter Card-tags | ✅ | `dist/seo.js` |
+| 16 | Statisk audit-rapport (funn + fikser) | ✅ | `seo/audit-findings.md` |
+| 17 | Claude-in-Chrome go-live-prompt (11 oppgaver) | ✅ | `seo/claude-in-chrome-prompt.md` |
 
 ## Teknisk on-page sjekkliste
 
