@@ -40,7 +40,7 @@ fi
 
 echo ""
 echo "=== 3. all 4 modules load from jsDelivr ==="
-for f in booking.css booking.js behandlinger.css behandlinger.js site-polish.css site-polish.js; do
+for f in booking.css booking.js behandlinger.css behandlinger.js site-polish.css site-polish.js seo.css seo.js; do
   code=$(curl -sS -o /dev/null -w "%{http_code}" "$CDN/$f")
   if [ "$code" = "200" ]; then pass "$f → 200"
   else fail "$f → $code"
@@ -52,7 +52,7 @@ echo "=== 4. behandlinger.js syntax checks (served live) ==="
 NODE=$(command -v node || true)
 if [ -z "$NODE" ] && [ -x /opt/homebrew/bin/node ]; then NODE=/opt/homebrew/bin/node; fi
 if [ -n "$NODE" ]; then
-  for f in booking.js behandlinger.js site-polish.js; do
+  for f in booking.js behandlinger.js site-polish.js seo.js; do
     curl -sS "$CDN/$f" > "/tmp/check-$f"
     if "$NODE" --check "/tmp/check-$f" 2>/dev/null; then pass "$f parses"
     else fail "$f HAS SYNTAX ERROR ON LIVE"
@@ -64,11 +64,13 @@ fi
 
 echo ""
 echo "=== 5. forbidden words not in live code (Norwegian marketing law) ==="
-for word in "Botox" "botulinumtoksin" "Neurobella"; do
-  hits=$(curl -sS "$CDN/behandlinger.js" | grep -c -i "$word")
-  if [ "$hits" = "0" ]; then pass "no '$word' in behandlinger.js"
-  else fail "'$word' appears $hits times in behandlinger.js — violation"
-  fi
+for word in "Botox" "botulinumtoksin" "Dysport" "Xeomin" "Bocouture" "Restylane" "Juvederm" "Neurobella"; do
+  for f in behandlinger.js seo.js; do
+    hits=$(curl -sS "$CDN/$f" | grep -c -i "$word")
+    if [ "$hits" = "0" ]; then pass "no '$word' in $f"
+    else fail "'$word' appears $hits times in $f — violation"
+    fi
+  done
 done
 
 echo ""
