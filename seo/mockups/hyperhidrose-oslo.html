@@ -112,6 +112,31 @@
   .nb-split{grid-template-columns:1fr}
   .nb-cards{grid-template-columns:1fr}
 }
+
+/* ============================================================
+   SQUARESPACE THEME GUARD — paste this part too.
+   Squarespace sets h1/h2/heading colours with high specificity,
+   which overrides ours and makes the hero text invisible (the top
+   looks like a black block). These !important rules force our
+   colours so the theme can't win.
+   ============================================================ */
+.nb-page .nb-hero h1{color:#fff !important}
+.nb-page .nb-hero .nb-hero__lead{color:#efe2d6 !important}
+.nb-page .nb-hero .nb-eyebrow{color:#f3c89a !important}
+.nb-page .nb-hero .nb-trust,.nb-page .nb-hero .nb-trust span{color:#e3cbb6 !important}
+.nb-page .nb-btn--primary{color:#2a1424 !important}
+.nb-page .nb-btn--ghost{color:#fff !important}
+.nb-page h2,.nb-page h3{color:#2a1424 !important}
+.nb-page .nb-aside h3{color:#14323f !important}
+.nb-page .nb-lead{color:#4a443d !important}
+.nb-page .nb-card p,.nb-page .nb-step p,.nb-page .nb-card h3,.nb-page .nb-step h3{color:inherit}
+.nb-page .nb-card p,.nb-page .nb-step p{color:#6b6258 !important}
+.nb-page .nb-quote p{color:#fff !important}
+.nb-page .nb-quote span{color:#a9cfdd !important}
+.nb-page .nb-faq summary{color:#2a1424 !important}
+.nb-page .nb-faq .nb-a{color:#4a443d !important}
+.nb-page .nb-band h2{color:#fff !important}
+.nb-page .nb-band p{color:#efe2d6 !important}
 </style>
 </head>
 <body style="margin:0">
