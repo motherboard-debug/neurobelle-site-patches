@@ -36,13 +36,22 @@
     return location.pathname.replace(/\/+$/, '') || '/';
   }
 
+  // Upsert: the <head> survives Squarespace Ajax (mercury) navigations, so a
+  // per-page JSON-LD block from the previous page would otherwise go stale on
+  // the next. Update in place (or create) so it always reflects the current path.
   function addJsonLd(id, obj) {
-    if (document.getElementById(id)) return; // already injected this nav
-    var s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.id = id;
+    var s = document.getElementById(id);
+    if (!s) {
+      s = document.createElement('script');
+      s.type = 'application/ld+json';
+      s.id = id;
+      document.head.appendChild(s);
+    }
     s.textContent = JSON.stringify(obj);
-    document.head.appendChild(s);
+  }
+  function removeJsonLd(id) {
+    var s = document.getElementById(id);
+    if (s) s.parentNode.removeChild(s);
   }
 
   function prettify(slug) {
@@ -88,7 +97,7 @@
   // ---- 3. breadcrumb -------------------------------------------------------
   function injectBreadcrumb() {
     var path = cleanPath();
-    if (path === '/') return; // no breadcrumb on home
+    if (path === '/') { removeJsonLd('nb-breadcrumb-ld'); return; } // none on home; clear stale
     var segs = path.split('/').filter(Boolean);
     var items = [{
       '@type': 'ListItem', position: 1, name: 'Hjem', item: SITE + '/'
@@ -157,7 +166,13 @@
   function injectFaq() {
     var path = cleanPath();
     var qa = FAQ[path];
-    if (!qa) return;
+    if (!qa) {
+      // navigated to a page with no FAQ — clear any stale block + schema
+      removeJsonLd('nb-faq-ld');
+      var stale = document.querySelector('.nb-faq');
+      if (stale) stale.parentNode.removeChild(stale);
+      return;
+    }
 
     // Visible, AI-extractable block (rendered once)
     if (!document.querySelector('.nb-faq')) {
@@ -209,6 +224,11 @@
       img.setAttribute('data-nb-alt', '1'); // mark as inspected
       var alt = img.getAttribute('alt');
       if (alt && alt.trim()) continue; // real alt already present — leave it
+
+      // Skip icon/spacer-sized images: a descriptive alt on a decorative icon
+      // hurts accessibility. Only skip when we positively know it's tiny.
+      var r = img.getBoundingClientRect();
+      if (r.width && r.height && r.width < 40 && r.height < 40) continue;
 
       // Derive from figure caption, nearest heading, or page context
       var derived = '';

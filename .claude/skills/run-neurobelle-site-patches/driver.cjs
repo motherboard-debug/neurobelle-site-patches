@@ -140,6 +140,24 @@ const check = (name, ok, detail) => { results.push({ name, ok, detail }); };
   check('image alt backfilled', !!seo.imgAlt && seo.imgAlt.length > 0, JSON.stringify(seo.imgAlt));
   await page.screenshot({ path: path.join(ART, '02-seo-hyperhidrose.png'), fullPage: true });
 
+  // ---- 3. SPA nav: <head> persists on Squarespace Ajax, so per-page schema
+  //         must UPDATE and stale FAQ must be CLEARED (regression guard) -----
+  const nav = await page.evaluate(() => {
+    history.pushState({}, '', '/om-oss');                 // a no-FAQ page
+    const art = document.querySelector('main#page article#sections');
+    art.innerHTML = '<h1>Om oss</h1><p>Møt legene.</p>';   // Ajax body swap
+    document.dispatchEvent(new Event('mercury:load'));      // seo.js re-runs (sync)
+    const bc = (() => { const el = document.getElementById('nb-breadcrumb-ld'); try { return el ? JSON.parse(el.textContent) : null; } catch { return 'INVALID'; } })();
+    return {
+      faqLdGone: !document.getElementById('nb-faq-ld'),
+      faqBlockGone: !document.querySelector('.nb-faq'),
+      breadcrumbLast: bc && bc.itemListElement && bc.itemListElement[bc.itemListElement.length - 1].name,
+    };
+  });
+  check('SPA nav clears stale FAQ JSON-LD', nav.faqLdGone);
+  check('SPA nav clears stale FAQ block', nav.faqBlockGone);
+  check('SPA nav updates breadcrumb', nav.breadcrumbLast === 'Om oss', `last=${nav.breadcrumbLast}`);
+
   await browser.close();
   server.close();
 

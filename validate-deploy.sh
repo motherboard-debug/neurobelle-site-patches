@@ -40,7 +40,7 @@ fi
 
 echo ""
 echo "=== 3. all 4 modules load from jsDelivr ==="
-for f in booking.css booking.js behandlinger.css behandlinger.js site-polish.css site-polish.js seo.css seo.js; do
+for f in booking.css booking.js behandlinger.css behandlinger.js site-polish.css site-polish.js site-redesign.css site-redesign.js seo.css seo.js; do
   code=$(curl -sS -o /dev/null -w "%{http_code}" "$CDN/$f")
   if [ "$code" = "200" ]; then pass "$f → 200"
   else fail "$f → $code"
@@ -52,7 +52,7 @@ echo "=== 4. behandlinger.js syntax checks (served live) ==="
 NODE=$(command -v node || true)
 if [ -z "$NODE" ] && [ -x /opt/homebrew/bin/node ]; then NODE=/opt/homebrew/bin/node; fi
 if [ -n "$NODE" ]; then
-  for f in booking.js behandlinger.js site-polish.js seo.js; do
+  for f in booking.js behandlinger.js site-polish.js site-redesign.js seo.js; do
     curl -sS "$CDN/$f" > "/tmp/check-$f"
     if "$NODE" --check "/tmp/check-$f" 2>/dev/null; then pass "$f parses"
     else fail "$f HAS SYNTAX ERROR ON LIVE"

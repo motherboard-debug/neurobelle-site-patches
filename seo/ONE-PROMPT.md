@@ -307,8 +307,12 @@ c) Collect the resulting GBP, legelisten and any Facebook/Instagram URLs and put
    them in your final report so they can be added to schema "sameAs" later.
 
 ═══════════════════════════════════════════════════════════════════════════
-TASK 11 — Disavow junk backlinks
+TASK 11 — Disavow junk backlinks  (OPTIONAL — likely skip)
 ═══════════════════════════════════════════════════════════════════════════
+NOTE: Google recommends disavow ONLY for genuine manipulative links or a manual
+action. The 16 spam links here are nofollow junk Google already ignores, and a
+brand-new low-authority site has no manual action. So unless Search Console shows
+a manual action under Security & Manual Actions, SKIP this task. If you do proceed:
 In Search Console → Links → "Top linking sites", export the linking domains.
 Identify spam: any "fiverr-*-seo.site" domain and the Moldovan link-farm domain(s)
 (.md or obvious link-farm). Build a disavow file in this exact format (one per line):

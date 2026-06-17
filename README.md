@@ -20,6 +20,8 @@ sq_patch_v2/
 │   ├── behandlinger.js        ← /behandlinger catalog module (7 cards, 22 services)
 │   ├── site-polish.css        ← site-wide mobile typography + spacing
 │   ├── site-polish.js         ← injects "Se alle behandlinger" link on service pages
+│   ├── site-redesign.css      ← icon/typography/sticky-CTA redesign layer
+│   ├── site-redesign.js       ← emoji→SVG icons, sticky CTA, footer tel link
 │   ├── seo.css                ← FAQ-block styling (scoped)
 │   ├── seo.js                 ← SEO fundament: breadcrumb/FAQ JSON-LD, alt-text, lang, canonical, OG
 │   └── img/                   ← local images for behandlinger.js
