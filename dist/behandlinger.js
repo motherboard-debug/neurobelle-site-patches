@@ -58,6 +58,7 @@
     'mesoterapi-oslo': '/estetisk-klinikk-oslo',
     'tradloft-oslo': '/estetisk-klinikk-oslo',
     'hyperhidrose-behandling-oslo': '/estetisk-klinikk-oslo',
+    'korrigering-estetikk': '/estetisk-klinikk-oslo',
     // Digital konsultasjon variants → reseptfornyelse landing
     'lege-pa-video': '/resept-fornyelse',
     'reseptfornyelse-video': '/resept-fornyelse',
@@ -340,6 +341,18 @@
           doctors: ['ardavan', 'kaviyan'],
           image: 'https://images.squarespace-cdn.com/content/v1/6934b929cc2a590e91870ba8/d417211a-f048-438b-ab56-91701275241d/Untitled.jpg',
           lead: 'Effektiv medikamentell behandling av plagsom svette i armhuler. Virkning fra ca. 1 uke, varer typisk 6–9 måneder. Trygt og godt dokumentert.',
+        },
+        {
+          slug: 'korrigering-estetikk',
+          title: 'Kontroll / korrigering',
+          tagline: 'Etterkontroll og finjustering etter behandling',
+          price: 'Etter avtale',
+          duration: '15 min',
+          doctors: ['ardavan', 'kaviyan'],
+          image: 'https://images.squarespace-cdn.com/content/v1/6934b929cc2a590e91870ba8/d93a15b8-7b40-43b5-b6a1-d88af9944b56/Estetikk+jpg..jpg',
+          lead: 'Etterkontroll og eventuell finjustering etter en estetisk behandling. Legen ser på resultatet sammen med deg og gjør små korrigeringer ved behov, for et balansert og naturlig uttrykk. Vurderes individuelt.',
+          // TODO: når PatientSky-lenken/UUID-en er klar — sett psTimeslotTypeId her
+          // (eller legg slug i GO_MAP). Inntil da går CTA til booking-menyens rot.
         },
       ],
     },
