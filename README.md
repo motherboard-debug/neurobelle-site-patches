@@ -20,6 +20,10 @@ sq_patch_v2/
 │   ├── behandlinger.js        ← /behandlinger catalog module (7 cards, 22 services)
 │   ├── site-polish.css        ← site-wide mobile typography + spacing
 │   ├── site-polish.js         ← injects "Se alle behandlinger" link on service pages
+│   ├── site-redesign.css      ← icon/typography/sticky-CTA redesign layer
+│   ├── site-redesign.js       ← emoji→SVG icons, sticky CTA, footer tel link
+│   ├── seo.css                ← FAQ-block styling (scoped)
+│   ├── seo.js                 ← SEO fundament: breadcrumb/FAQ JSON-LD, alt-text, lang, canonical, OG
 │   └── img/                   ← local images for behandlinger.js
 │       └── *.jpg              ← (parkinson, vaksine, henvisning, overvekt, resept)
 │
@@ -83,7 +87,10 @@ Paste the output of `./bump-cache.sh` into Squarespace → Settings → Advanced
 - `booking.css` / `booking.js` — site-wide CTA → `/bestill-time` redirect routing
 - `behandlinger.css` / `behandlinger.js` — the catalog mount, served on any page with `<div id="nb-behandlinger"></div>`
 - `site-polish.css` / `site-polish.js` — mobile typography, touch targets, "Se alle behandlinger" link
-- JSON-LD MedicalClinic + Physician schema (3 doctors)
+- `seo.css` / `seo.js` — SEO fundament: per-page BreadcrumbList + FAQPage JSON-LD, image alt-text, `lang`, canonical, OG fallbacks
+- JSON-LD graph: WebSite (+SearchAction) · MedicalClinic/LocalBusiness (+OfferCatalog) · Physician schema (3 doctors)
+
+SEO deliverables (scorecard, content calendar, ready-to-paste page meta, approval list) live in `seo/`.
 
 Catalog page setup (one-time, manual in Squarespace UI): on a page (currently `/bestill-time`), add a Code block with just:
 

@@ -3,3 +3,6 @@
 node_modules/
 .env
 .env.*
+.claude/skills/run-neurobelle-site-patches/artifacts/
+
+seo/mockups/shots/
