@@ -200,7 +200,7 @@
           slug: 'nevrologisk-undersokelse-oslo',
           title: 'Nevrologisk utredning',
           tagline: 'Grundig førstegangsutredning hos spesialist',
-          price: '2 800,-',
+          price: '2 500,-',
           duration: '60 min',
           doctors: ['ardavan'],
           image: 'https://images.squarespace-cdn.com/content/v1/6934b929cc2a590e91870ba8/c911d3d7-d158-45fa-b7e9-fdafb1d4a8cb/nevro+under.jpg',
