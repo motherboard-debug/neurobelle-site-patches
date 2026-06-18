@@ -76,7 +76,13 @@
     'privat-nevrolog-oslo': 'Privat nevrolog Oslo',
     'hudpleie-oslo': 'Hudpleie Oslo',
     'filler-oslo': 'Filler Oslo',
-    'rynkebehandling-oslo': 'Rynkebehandling Oslo'
+    'rynkebehandling-oslo': 'Rynkebehandling Oslo',
+    'generell-nevrologisk-utredning': 'Nevrologisk utredning',
+    'estetisk-klinikk-oslo': 'Estetisk klinikk Oslo',
+    'vaksiner': 'Vaksiner',
+    'attester': 'Legeattester',
+    'resept-fornyelse': 'Reseptfornyelse',
+    'hpv': 'HPV-vaksine'
   };
 
   // ---- 1. lang -------------------------------------------------------------
@@ -160,6 +166,42 @@
        'Blant annet hodepine og migrene, svimmelhet, nummenhet, skjelving og andre nevrologiske symptomer. Legen tar stilling til videre utredning individuelt.'],
       ['Hva skjer på den første konsultasjonen?',
        'Nevrologen går gjennom sykehistorien din, gjør en klinisk undersøkelse og legger en plan for eventuell videre utredning eller behandling.']
+    ],
+    '/generell-nevrologisk-utredning': [
+      ['Trenger jeg henvisning for nevrologisk utredning?',
+       'Nei, du kan bestille time til en privat nevrologisk utredning hos oss uten henvisning, med kort ventetid.'],
+      ['Hva utreder en nevrolog?',
+       'Blant annet hodepine og migrene, svimmelhet, nummenhet og prikking, skjelving, kraftsvikt og andre symptomer fra nervesystemet.'],
+      ['Hva innebærer utredningen?',
+       'En grundig samtale, klinisk nevrologisk undersøkelse og en plan for eventuelle videre tester. Målet er å forstå plagene og utelukke alvorlige årsaker.']
+    ],
+    '/estetisk-klinikk-oslo': [
+      ['Må jeg ha konsultasjon før estetisk behandling?',
+       'Ja, vi anbefaler alltid en kort konsultasjon hos lege først. Da vurderer vi ønsker, medisinske forhold og hva som er forsvarlig for deg.'],
+      ['Hvem utfører behandlingene?',
+       'Behandlingene utføres av lege med erfaring innen estetisk medisin, innenfor norsk regelverk.'],
+      ['Kan dere garantere resultatet?',
+       'Nei. Vi gir ingen garantier om bestemte resultater — målet er en faglig, ærlig vurdering og realistiske forventninger, med vekt på et naturlig uttrykk.']
+    ],
+    '/vaksiner': [
+      ['Hvilke vaksiner kan jeg få resept på?',
+       'Blant annet reisevaksiner, sesongvaksiner og forebyggende vaksiner. Legen vurderer hva som er aktuelt for deg i en kort konsultasjon.'],
+      ['Hvordan foregår det?',
+       'Du har en kort digital konsultasjon der legen vurderer indikasjon og eventuelle kontraindikasjoner, og sender resept til ditt foretrukne apotek.']
+    ],
+    '/attester': [
+      ['Hvilke legeattester kan dere utstede?',
+       'Vi utsteder flere vanlige attester, blant annet knyttet til førerkort, arbeid, reise og idrett. Avklar gjerne formålet på forhånd.'],
+      ['Hva bør jeg ta med til en attesttime?',
+       'Eventuelle skjemaer fra den som krever attesten, oversikt over faste medisiner og relevant sykehistorikk, samt legitimasjon.'],
+      ['Kan legen garantere et bestemt utfall?',
+       'Nei. En attest skal gjenspeile en faglig og uavhengig vurdering — det er nettopp det som gjør den gyldig.']
+    ],
+    '/resept-fornyelse': [
+      ['Kan jeg fornye fast medisin digitalt?',
+       'Ja, faste medisiner du allerede bruker kan ofte fornyes etter en kort digital vurdering hos lege.'],
+      ['Hva kan ikke fornyes digitalt?',
+       'Nye medisiner og enkelte reseptgrupper krever en vanlig konsultasjon. Legen vurderer hva som er forsvarlig i ditt tilfelle.']
     ]
   };
 

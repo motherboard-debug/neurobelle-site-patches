@@ -62,3 +62,28 @@ inneholder tjeneste + «Oslo». Tegn-tellinger i `[ ]`.
 - **Title:** `Rynkebehandling Oslo – utført av lege` [38]
 - **Meta:** `Rynkebehandling i Oslo utført av lege, tilpasset deg og innenfor norsk regelverk. Trygg vurdering og naturlig resultat. Bestill time hos Neurobelle Klinikk.` [159]
 - **H1:** `Rynkebehandling i Oslo`
+
+---
+
+## Eksisterende live-sider som mangler optimalisert meta (fra sitemap)
+Lim inn i Squarespace → Side → Innstillinger → SEO. Ingen HEADER nødvendig.
+
+### `/generell-nevrologisk-utredning`  (søkeord: nevrolog oslo 140 / nevrologisk utredning)
+- **Title:** `Nevrologisk utredning Oslo – privat nevrolog` [44]
+- **Meta:** `Privat nevrologisk utredning i Oslo uten henvisning. Vurdering av hodepine, svimmelhet, nummenhet og andre nevrologiske symptomer. Bestill time hos Neurobelle.` [157]
+
+### `/estetisk-klinikk-oslo`  (søkeord: hudklinikk oslo 880 / estetisk klinikk)
+- **Title:** `Estetisk klinikk i Oslo – behandling hos lege` [46]
+- **Meta:** `Estetisk medisin i Oslo utført av lege, innenfor norsk regelverk. Konsultasjon først, naturlige resultater. Bestill en vurdering hos Neurobelle Klinikk.` [152]
+
+### `/vaksiner`  (søkeord: vaksiner / reisevaksine oslo)
+- **Title:** `Vaksiner og resept i Oslo – digital legetime` [45]
+- **Meta:** `Få vurdering og resept på reise-, sesong- og forebyggende vaksiner via kort digital legetime. Enkelt og trygt hos Neurobelle Klinikk i Oslo.` [142]
+
+### `/attester`  (søkeord: legeattest oslo / førerkortattest)
+- **Title:** `Legeattester i Oslo – førerkort, jobb og reise` [47]
+- **Meta:** `Trenger du legeattest i Oslo? Vi utsteder attester til førerkort, arbeid, reise og idrett. Bestill time hos lege hos Neurobelle Klinikk.` [137]
+
+### `/resept-fornyelse`  (søkeord: fornye resept / resept på nett)
+- **Title:** `Reseptfornyelse i Oslo – digital legetime` [42]
+- **Meta:** `Forny faste medisiner trygt via kort digital legekonsultasjon. Vurdering av lege uten å bytte fastlege. Bestill reseptfornyelse hos Neurobelle Klinikk.` [151]
