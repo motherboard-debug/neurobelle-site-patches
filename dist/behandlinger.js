@@ -285,7 +285,7 @@
           slug: 'konsultasjon-estetikk',
           title: 'Konsultasjon estetikk',
           tagline: 'Fratrekkes ved behandling samme dag',
-          price: '390,-',
+          price: '99,-',
           duration: '20 min',
           doctors: ['ardavan', 'kaviyan'],
           image: 'https://images.squarespace-cdn.com/content/v1/6934b929cc2a590e91870ba8/d93a15b8-7b40-43b5-b6a1-d88af9944b56/Estetikk+jpg..jpg',
