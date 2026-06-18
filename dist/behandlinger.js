@@ -1,5 +1,6 @@
 /* ============================================================
    Neurobelle — Behandlinger (treatments catalog) module
+   build: 2026-06-18 (priser 99/2500, Estetisk korrigering)
    Mounts into any page containing: <div id="nb-behandlinger"></div>
    Built for Squarespace 7.1, served via jsDelivr from
    motherboard-debug/neurobelle-site-patches@main/dist/behandlinger.js
