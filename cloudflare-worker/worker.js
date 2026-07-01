@@ -9,17 +9,27 @@
    Endpoints:
    - GET  /              health check
    - POST /tg-webhook    Telegram bot webhook → forwards to Gmail
+   - POST /tg-send       Agent → send a message back to a Telegram chat
    - POST /send-email    Agent calls this to send a real email
 
    Env / Secrets (set via `wrangler secret put`):
    - TELEGRAM_BOT_TOKEN     bot token from BotFather
+   - TELEGRAM_WEBHOOK_SECRET (optional) shared secret set when you call
+                            setWebhook with `secret_token=…`. If set, the
+                            worker rejects any /tg-webhook call whose
+                            X-Telegram-Bot-Api-Secret-Token header doesn't
+                            match — blocks spoofed webhook traffic.
+   - RESEND_API_KEY         API key for Resend (https://resend.com) — the
+                            worker sends mail through Resend's REST API.
+                            (MailChannels' free Workers integration was shut
+                            down in June 2024, so the old path no longer works.)
    - INBOX_EMAIL            where Telegram messages get forwarded
                             (default: motherboard@neurobelleklinikk.com)
    - EMAIL_FROM             From: address for outbound mail
                             (default: motherboard@neurobelleklinikk.com)
    - EMAIL_FROM_NAME        From: display name (default: "Neurobelle")
    - AGENT_TOKEN            shared secret the agent uses to auth
-                            /send-email — required
+                            /send-email and /tg-send — required
    ============================================================ */
 
 export default {
@@ -36,6 +46,11 @@ export default {
       return handleTelegram(request, env);
     }
 
+    // Agent → Telegram message (reply path)
+    if (url.pathname === '/tg-send' && request.method === 'POST') {
+      return handleTelegramSend(request, env);
+    }
+
     // Agent calls this to send a real (not draft) email
     if (url.pathname === '/send-email' && request.method === 'POST') {
       return handleSendEmail(request, env);
@@ -48,6 +63,15 @@ export default {
 // ---------- TELEGRAM WEBHOOK ---------------------------------------------------
 
 async function handleTelegram(request, env) {
+  // If a webhook secret is configured, require it. Telegram sends the value you
+  // passed to setWebhook(secret_token=…) in this header on every call.
+  if (env.TELEGRAM_WEBHOOK_SECRET) {
+    const got = request.headers.get('x-telegram-bot-api-secret-token') || '';
+    if (got !== env.TELEGRAM_WEBHOOK_SECRET) {
+      return json({ ok: false, error: 'unauthorized webhook' }, 401);
+    }
+  }
+
   let update;
   try {
     update = await request.json();
@@ -78,14 +102,13 @@ async function handleTelegram(request, env) {
     text,
     '---',
     '',
-    'Reply by sending a POST to this worker /send-email with',
-    `  {"to": "telegram-reply@neurobelleklinikk.com", "subject": "RE: ${subject}",`,
-    `   "body": "...", "telegram_chat_id": "${chatId}"}`,
-    '(routing the response back to Telegram is a separate step — wire when ready.)',
+    'Reply straight back to this Telegram chat by POSTing to this worker /tg-send with',
+    `  {"chat_id": ${JSON.stringify(chatId)}, "text": "…"}`,
+    '  (Authorization: Bearer <AGENT_TOKEN>)',
   ].join('\n');
 
   const inbox = env.INBOX_EMAIL || 'motherboard@neurobelleklinikk.com';
-  const sent = await sendViaMailchannels({
+  const sent = await sendEmail(env, {
     to: inbox,
     subject,
     text: body,
@@ -94,18 +117,63 @@ async function handleTelegram(request, env) {
   });
 
   if (!sent.ok) {
-    return json({ ok: false, error: 'mail send failed', detail: sent.detail }, 500);
+    // Log but still 200: if we 500 here Telegram retries the same update for
+    // hours, and a mail-provider outage shouldn't wedge the webhook.
+    console.error('tg-webhook mail send failed:', sent.detail);
+    return json({ ok: true, forwarded: false, warn: 'mail send failed', detail: sent.detail });
   }
   return json({ ok: true, forwarded: true });
+}
+
+// ---------- AGENT → TELEGRAM (REPLY PATH) -------------------------------------
+
+async function handleTelegramSend(request, env) {
+  if (!checkAgentAuth(request, env)) {
+    return json({ ok: false, error: 'unauthorized' }, 401);
+  }
+  if (!env.TELEGRAM_BOT_TOKEN) {
+    return json({ ok: false, error: 'TELEGRAM_BOT_TOKEN not set' }, 500);
+  }
+
+  let payload;
+  try {
+    payload = await request.json();
+  } catch (e) {
+    return json({ ok: false, error: 'invalid json' }, 400);
+  }
+
+  const { chat_id, text, parse_mode, disable_web_page_preview } = payload || {};
+  if (chat_id === undefined || chat_id === null || !text) {
+    return json({ ok: false, error: 'missing fields: chat_id and text required' }, 400);
+  }
+
+  const tgBody = { chat_id, text };
+  if (parse_mode) tgBody.parse_mode = parse_mode;
+  if (disable_web_page_preview !== undefined) tgBody.disable_web_page_preview = disable_web_page_preview;
+
+  let resp, data;
+  try {
+    resp = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(tgBody),
+    });
+    data = await resp.json().catch(() => ({}));
+  } catch (e) {
+    return json({ ok: false, error: 'telegram request failed', detail: String(e) }, 502);
+  }
+
+  if (!resp.ok || data.ok === false) {
+    return json({ ok: false, error: 'telegram send failed', detail: data.description || `HTTP ${resp.status}` }, 502);
+  }
+  return json({ ok: true, sent: true, message_id: data.result?.message_id });
 }
 
 // ---------- AGENT-CALLED SEND ENDPOINT ----------------------------------------
 
 async function handleSendEmail(request, env) {
   // Auth
-  const auth = request.headers.get('authorization') || '';
-  const expected = `Bearer ${env.AGENT_TOKEN || ''}`;
-  if (!env.AGENT_TOKEN || auth !== expected) {
+  if (!checkAgentAuth(request, env)) {
     return json({ ok: false, error: 'unauthorized' }, 401);
   }
 
@@ -127,7 +195,7 @@ async function handleSendEmail(request, env) {
     return json({ ok: false, error: 'recipient count > 10 — requires Kaviyan approval per playbook' }, 403);
   }
 
-  const sent = await sendViaMailchannels({
+  const sent = await sendEmail(env, {
     to,
     cc,
     bcc,
@@ -139,43 +207,60 @@ async function handleSendEmail(request, env) {
   });
 
   if (!sent.ok) {
-    return json({ ok: false, error: 'mail send failed', detail: sent.detail }, 500);
+    return json({ ok: false, error: 'mail send failed', detail: sent.detail }, 502);
   }
   return json({ ok: true, sent: true });
 }
 
-// ---------- MAILCHANNELS SEND --------------------------------------------------
-// Cloudflare Workers ship with free Mailchannels-based mail sending.
-// No SMTP credentials needed. Spam-safe because CF + Mailchannels handle DKIM via the
-// worker's domain (you set up DKIM once when you point the domain at the worker).
+// ---------- EMAIL SEND (Resend) ------------------------------------------------
+// MailChannels shut down its free Cloudflare Workers integration on 2024-06-30,
+// so the old api.mailchannels.net path silently 401s now. We send through Resend
+// (https://resend.com) instead — free tier is plenty for this volume, and it's a
+// single REST call with a Bearer key. Set the key once:
+//   wrangler secret put RESEND_API_KEY
+// and verify the sending domain (neurobelleklinikk.com) in the Resend dashboard.
 
-async function sendViaMailchannels({ to, cc, bcc, subject, text, fromEmail, fromName, replyTo }) {
-  const personalization = {
-    to: toArray(to).map(e => ({ email: e })),
-  };
-  if (cc) personalization.cc = toArray(cc).map(e => ({ email: e }));
-  if (bcc) personalization.bcc = toArray(bcc).map(e => ({ email: e }));
-  if (replyTo) personalization.reply_to = { email: replyTo };
+async function sendEmail(env, { to, cc, bcc, subject, text, fromEmail, fromName, replyTo }) {
+  if (!env.RESEND_API_KEY) {
+    return { ok: false, detail: 'RESEND_API_KEY not set — run `wrangler secret put RESEND_API_KEY`' };
+  }
 
-  const body = {
-    personalizations: [personalization],
-    from: { email: fromEmail, name: fromName },
+  const payload = {
+    from: fromName ? `${fromName} <${fromEmail}>` : fromEmail,
+    to: toArray(to),
     subject,
-    content: [{ type: 'text/plain', value: text }],
+    text,
   };
+  if (cc) payload.cc = toArray(cc);
+  if (bcc) payload.bcc = toArray(bcc);
+  if (replyTo) payload.reply_to = replyTo;
 
-  const resp = await fetch('https://api.mailchannels.net/tx/v1/send', {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify(body),
-  });
+  let resp, detailText;
+  try {
+    resp = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'authorization': `Bearer ${env.RESEND_API_KEY}`,
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
+    detailText = await resp.text().catch(() => '(no body)');
+  } catch (e) {
+    return { ok: false, detail: `fetch failed: ${String(e)}` };
+  }
 
   if (resp.status >= 200 && resp.status < 300) return { ok: true };
-  const detail = await resp.text().catch(() => '(no body)');
-  return { ok: false, detail: `HTTP ${resp.status}: ${detail.slice(0, 300)}` };
+  return { ok: false, detail: `HTTP ${resp.status}: ${detailText.slice(0, 300)}` };
 }
 
 // ---------- HELPERS ------------------------------------------------------------
+
+function checkAgentAuth(request, env) {
+  const auth = request.headers.get('authorization') || '';
+  const expected = `Bearer ${env.AGENT_TOKEN || ''}`;
+  return Boolean(env.AGENT_TOKEN) && auth === expected;
+}
 
 function json(obj, status = 200) {
   return new Response(JSON.stringify(obj), {

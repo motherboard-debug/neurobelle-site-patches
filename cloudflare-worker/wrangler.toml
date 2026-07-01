@@ -7,8 +7,10 @@ compatibility_date = "2026-05-01"
 
 [vars]
 # Non-secret vars (override per env if needed). Secrets are set via:
-#   wrangler secret put TELEGRAM_BOT_TOKEN
-#   wrangler secret put AGENT_TOKEN
+#   wrangler secret put TELEGRAM_BOT_TOKEN        # from @BotFather
+#   wrangler secret put AGENT_TOKEN               # openssl rand -hex 32
+#   wrangler secret put RESEND_API_KEY            # from resend.com (mail send)
+#   wrangler secret put TELEGRAM_WEBHOOK_SECRET   # optional; matches setWebhook secret_token
 INBOX_EMAIL = "motherboard@neurobelleklinikk.com"
 EMAIL_FROM = "motherboard@neurobelleklinikk.com"
 EMAIL_FROM_NAME = "Neurobelle Klinikk"
