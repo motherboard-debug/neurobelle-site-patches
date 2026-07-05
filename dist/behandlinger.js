@@ -477,6 +477,9 @@
       '@graph': [
         {
           '@type': 'MedicalClinic',
+          // Same @id as the header-injected clinic entity so Google merges
+          // them instead of seeing two competing MedicalClinic records.
+          '@id': 'https://www.neurobelleklinikk.com/#clinic',
           name: 'Neurobelle Klinikk',
           url: 'https://www.neurobelleklinikk.com',
           telephone: '+47 458 17 755',
@@ -487,7 +490,7 @@
             postalCode: '0181',
             addressCountry: 'NO',
           },
-          medicalSpecialty: ['Neurology', 'PrimaryCare', 'Dermatology'],
+          medicalSpecialty: ['Neurologic', 'PrimaryCare'],
           availableService: items,
         },
       ],
