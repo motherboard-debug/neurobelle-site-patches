@@ -1,5 +1,6 @@
 /* ============================================================
    Neurobelle — Behandlinger (treatments catalog) module
+   build: 2026-06-18 (priser 99/2500, Estetisk korrigering)
    Mounts into any page containing: <div id="nb-behandlinger"></div>
    Built for Squarespace 7.1, served via jsDelivr from
    motherboard-debug/neurobelle-site-patches@main/dist/behandlinger.js
@@ -58,6 +59,7 @@
     'mesoterapi-oslo': '/estetisk-klinikk-oslo',
     'tradloft-oslo': '/estetisk-klinikk-oslo',
     'hyperhidrose-behandling-oslo': '/estetisk-klinikk-oslo',
+    'korrigering-estetikk': '/estetisk-klinikk-oslo',
     // Digital konsultasjon variants → reseptfornyelse landing
     'lege-pa-video': '/resept-fornyelse',
     'reseptfornyelse-video': '/resept-fornyelse',
@@ -276,7 +278,7 @@
       h2: 'Estetisk medisin i Oslo — hos spesialist',
       tagline: 'Rynkebehandling, filler, mesoterapi, trådløft og hyperhidrose',
       category: 'estetikk',
-      fromPrice: '390,-',
+      fromPrice: '99,-',
       duration: 'Varierer',
       image: 'https://images.squarespace-cdn.com/content/v1/6934b929cc2a590e91870ba8/d93a15b8-7b40-43b5-b6a1-d88af9944b56/Estetikk+jpg..jpg',
       intro: 'Estetiske behandlinger utført av spesialist i estetisk medisin. Vi anbefaler en kort konsultasjon for å finne riktig behandling for ditt mål.',
@@ -340,6 +342,18 @@
           doctors: ['ardavan', 'kaviyan'],
           image: 'https://images.squarespace-cdn.com/content/v1/6934b929cc2a590e91870ba8/d417211a-f048-438b-ab56-91701275241d/Untitled.jpg',
           lead: 'Effektiv medikamentell behandling av plagsom svette i armhuler. Virkning fra ca. 1 uke, varer typisk 6–9 måneder. Trygt og godt dokumentert.',
+        },
+        {
+          slug: 'korrigering-estetikk',
+          title: 'Estetisk korrigering',
+          tagline: 'Etterkontroll og finjustering etter behandling',
+          price: 'Etter avtale',
+          duration: '15 min',
+          doctors: ['ardavan', 'kaviyan'],
+          image: 'https://images.squarespace-cdn.com/content/v1/6934b929cc2a590e91870ba8/d93a15b8-7b40-43b5-b6a1-d88af9944b56/Estetikk+jpg..jpg',
+          lead: 'Etterkontroll og eventuell finjustering etter en estetisk behandling. Legen ser på resultatet sammen med deg og gjør små korrigeringer ved behov, for et balansert og naturlig uttrykk. Vurderes individuelt.',
+          psTimeslotTypeId: '6a9b9ca4-6b55-11f1-a537-2ac500c20712',
+          psCalendarId: 'fe7adc9a-5454-11f1-b67f-2655119da7d2',
         },
       ],
     },
@@ -417,6 +431,7 @@
     const params = new URLSearchParams({ serviceProviderId: PS_PROVIDER_ID });
     // If a variant has a PatientSky timeslotTypeId, pre-select that service inside PatientSky
     if (svc.psTimeslotTypeId) params.set('timeslotType', svc.psTimeslotTypeId);
+    if (svc.psCalendarId) params.set('calendarId', svc.psCalendarId);
     return PS_BASE + '?' + params.toString();
   }
 
@@ -439,11 +454,13 @@
     'lege-pa-video':'legetime-video','reseptfornyelse-video':'reseptfornyelse',
   };
   function menuUrl(svc) {
-    if (svc.slug === 'vaksiner') return bookingUrl(svc);
+    // Direct to PatientSky when we have a real timeslot UUID (vaksiner, or any
+    // variant with psTimeslotTypeId set); otherwise route via the booking menu.
+    if (svc.slug === 'vaksiner' || svc.psTimeslotTypeId) return bookingUrl(svc);
     const go = GO_MAP[svc.slug];
     return MENU_BASE + (go ? ('?go=' + encodeURIComponent(go)) : '');
   }
-  function ctaTarget(svc) { return svc.slug === 'vaksiner' ? ' target="_blank" rel="noopener"' : ''; }
+  function ctaTarget(svc) { return (svc.slug === 'vaksiner' || svc.psTimeslotTypeId) ? ' target="_blank" rel="noopener"' : ''; }
 
   function escape(s) {
     return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
