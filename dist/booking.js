@@ -156,6 +156,17 @@
 
   function shouldSkipButton(el) {
     if (isProtectedRegion(el)) return true;
+    // Never hijack external links (PatientSky, payment portal, any third party)
+    // or mailto/tel. The login/payment CTAs on /logg-inn must reach their real
+    // target — the aggressive redirect only applies to on-site booking buttons.
+    if (el.tagName === 'A') {
+      var href = el.getAttribute('href') || '';
+      if (/^(mailto:|tel:)/i.test(href)) return true;
+      if (/^https?:\/\//i.test(href) && !/([^\/.]+\.)?neurobelleklinikk\.com/i.test(href)) return true;
+    }
+    // Never hijack explicit non-booking CTAs (data-cta="pasientsky"/"betaling"/…).
+    var cta = el.getAttribute && el.getAttribute('data-cta');
+    if (cta && ['bestill-time', 'book', 'booking'].indexOf(cta) === -1) return true;
     const txt = normalize(el.textContent);
     if (!txt) return false;                    // empty text (e.g. cart icon) → still route
     return BUTTON_SKIP_TEXTS.indexOf(txt) !== -1;
