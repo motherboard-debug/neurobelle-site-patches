@@ -45,6 +45,13 @@
       .forEach(function (a) {
         a.setAttribute('href', a.getAttribute('href').replace(/^\/timer/, '/bestill-time'));
       });
+    // Broken editor artifact on /hpv: literal href="https://Booking" (dead for
+    // every user). Route to the vaccine booking flow until the rich-text link
+    // is fixed at the source; harmless once it is.
+    document.querySelectorAll('a[href="https://Booking"]').forEach(function (a) {
+      a.setAttribute('href', '/bestill-time?go=vaksiner');
+      a.removeAttribute('target');
+    });
   }
 
   function run() {
@@ -59,4 +66,18 @@
   }
   document.addEventListener('mercury:load', run);
   window.addEventListener('popstate', () => setTimeout(run, 50));
+
+  // Widgets that build their CTAs with innerHTML after load (e.g. the HIT-6
+  // headache-score widget on /hodepine-migrene-oslo) escape the run() hooks
+  // above — observe the DOM and re-apply the link rewrites, debounced.
+  var rewriteQueued = false;
+  var mo = new MutationObserver(function () {
+    if (rewriteQueued) return;
+    rewriteQueued = true;
+    setTimeout(function () {
+      rewriteQueued = false;
+      rewriteLegacyTimerLinks();
+    }, 100);
+  });
+  mo.observe(document.documentElement, { childList: true, subtree: true });
 })();
