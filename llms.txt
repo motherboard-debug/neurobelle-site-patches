@@ -1,0 +1,78 @@
+# Neurobelle Klinikk
+
+> Privat lege- og spesialistklinikk i Oslo sentrum. Tilbyr allmennmedisin, nevrologi, og estetisk medisin med kort ventetid. Bestilling via PatientSky med navn og telefon. Leger: Dr. Ardavan Karimi (nevrolog), Dr. Kaviyan Karimi (allmennlege/estetisk medisin), Dr. Giti Sabalani (allmennspesialist).
+
+## Hovedinformasjon
+
+- **Adresse:** Arbeidersamfunnets plass 1, 0181 Oslo, Norge (5. etasje, heis)
+- **Telefon:** +47 458 17 755
+- **E-post:** post@neurobelleklinikk.com
+- **Nettside:** https://www.neurobelleklinikk.com
+- **Booking:** https://www.neurobelleklinikk.com/bestill-time
+- **Driftsorganisasjon:** Avida Helse AS
+
+## Tjenester
+
+### Allmennmedisin
+- [Hurtigtime / legekonsultasjon](https://www.neurobelleklinikk.com/legekonsultasjon-oslo) — Kort time for vanlige problemer (280 kr, 15 min)
+- [Legetime](https://www.neurobelleklinikk.com/legekonsultasjon-oslo) — Vanlig legekonsultasjon (650 kr, 30 min)
+- [Utvidet legetime](https://www.neurobelleklinikk.com/legekonsultasjon-oslo) — Lengre time for sammensatte saker (1 590 kr, 45 min)
+- [Årlig helsesjekk](https://www.neurobelleklinikk.com/legekonsultasjon-oslo) — Inkl. blodprøver + skriftlig oppsummering (1 790 kr, 60 min)
+- Kontroll og oppfølging — Oppfølging av pågående behandling (745 kr, 30 min)
+- [Vekt og livsstil](https://www.neurobelleklinikk.com/vektreduksjon-oslo) — Medisinsk oppfølging, oppstart (990 kr, 45 min)
+- [Legeattester](https://www.neurobelleklinikk.com/attester) — Attester for kjøre, jobb, idrett, forsikring (450 kr, 20 min)
+
+### Nevrologi (Dr. Ardavan Karimi)
+- [Nevrologisk utredning](https://www.neurobelleklinikk.com/generell-nevrologisk-utredning) — Grundig vurdering, ny pasient (2 800 kr, 60 min)
+- [Hodepine- og migreneutredning](https://www.neurobelleklinikk.com/hodepine-migrene-oslo) — Migrene, klyngehodepine, kronisk hodepine, førstegang (2 500 kr, 60 min)
+- Hodepine, oppfølging (1 790 kr, 45 min)
+- Nevrologisk oppfølging — fysisk eller video (1 790 kr)
+- Second opinion — vurdering av eksisterende diagnose (3 900 kr, 45 min)
+- Behandling av kronisk migrene — injeksjonsbehandling (4 200 kr, 45 min)
+
+### Estetisk medisin
+- [Rynkebehandling](https://www.neurobelleklinikk.com/estetisk-klinikk-oslo) — Medikamentell behandling, 1 sone (2 000 kr, 30 min); 2 soner (3 375 kr); 3 soner (4 500 kr)
+- Filler — Hyaluronsyre-filler (3 400 kr, 45 min)
+- Mesoterapi — Hudbehandling (1 990 kr, 45 min)
+- Trådløft — Ansiktsløfting med tråder (8 500 kr, 90 min)
+- [Hyperhidrose](https://www.neurobelleklinikk.com/hyperhidrose-oslo) — Behandling av overdreven svetting i armhulene, medisinsk indikasjon (4 500 kr, 30 min)
+
+### Digital konsultasjon
+- [Legetime på video](https://www.neurobelleklinikk.com/resept-fornyelse) — Videokonsultasjon (340 kr, 25 min)
+- [Reseptfornyelse på video](https://www.neurobelleklinikk.com/resept-fornyelse) — Fornying av resept (250 kr, 10 min)
+- [Vaksiner (digital konsultasjon)](https://www.neurobelleklinikk.com/vaksiner) — Konsultasjon + resept til apotek (250 kr, 10 min)
+
+## Om legene
+
+### Dr. Ardavan Karimi
+Nevrolog og fysikalsk medisin, klinisk leder ved Neurobelle Klinikk. Tilbyr også estetisk medisin.
+
+### Dr. Kaviyan Karimi
+Allmennlege og estetisk medisin. Hovedansvar for allmennmedisinske tjenester — legekonsultasjoner, årlig helsesjekk, kontroller og oppfølging, vekt og livsstil — samt digital konsultasjon og estetiske behandlinger. Daglig leder av Avida Helse AS. HPR: 10173026.
+
+### Dr. Giti Sabalani
+Allmennspesialist — kontroll og oppfølging.
+
+## Ofte stilte spørsmål
+
+- **Hvor finner jeg klinikken?** Arbeidersamfunnets plass 1, 0181 Oslo (5. etasje, heis), sentralt i Oslo.
+- **Hvordan booker jeg?** På https://www.neurobelleklinikk.com/bestill-time eller via PatientSky-appen — med navn og telefon. Du trenger ikke henvisning.
+- **Trenger jeg BankID for å bestille time?** Nei. Vanlig timebestilling krever bare navn og telefon.
+- **Tar dere fastlege-pasienter?** Nei — vi er en privatklinikk, du beholder din fastlege.
+- **Kan jeg refundere via HELFO?** Nei. Neurobelle er en privatklinikk uten avtale med HELFO — konsultasjoner refunderes ikke. (Privat helseforsikring kan dekke; sjekk med ditt selskap.)
+- **Ventetid?** Vanligvis kort; ledige timer vises på /bestill-time. Åpningstider varierer per lege og dag.
+- **Akutt hjelp?** Ring 113 ved livstruende skade/sykdom, 116 117 for legevakten.
+- **Hvor mye koster en time hos privat nevrolog?** Nevrologisk utredning: 2 800 kr (60 min). Hodepineutredning: 2 500 kr (60 min).
+- **Hva er forskjellen på en vanlig og en utvidet legekonsultasjon?** En vanlig legetime (30 min, 650 kr) dekker vanlige problemstillinger. Utvidet legetime (45 min, 1 590 kr) gir bedre tid ved flere eller mer sammensatte problemstillinger.
+- **Hva er hyperhidrose?** Overdreven, ufrivillig svetting — vanligst i armhulene. En medisinsk tilstand, ikke kosmetikk. Behandles medikamentelt der det er medisinsk indikasjon (4 500 kr, 30 min).
+- **Kan jeg velge lege?** Du står fritt til å booke time hos den legen du ønsker.
+
+## Personvern og sikkerhet
+
+Vi følger GDPR og Norm for informasjonssikkerhet i helsesektoren. Journal lagres i PatientSky (sikkert norsk EPJ-system). Pasienter har rett til innsyn, retting, sletting, og portabilitet. Detaljer: https://www.neurobelleklinikk.com/personvern
+
+## Optional
+
+- [Om oss](https://www.neurobelleklinikk.com/about) — Klinikkens historie og verdier
+- [FAQ](https://www.neurobelleklinikk.com/faq) — Flere spørsmål og svar
+- [Vilkår og avbestilling](https://www.neurobelleklinikk.com/vilkar) — Avbestillings- og no-show-policy
