@@ -53,9 +53,9 @@ const SP='98b4722e-3418-11f1-a9b0-12f246543b9f';
 const CAL={Kaviyan:'3b98f044-5455-11f1-a5c7-be30137fbe21',Giti:'1fc0692e-5455-11f1-8c5d-7e82c1ba4ae2',Ardavan:'fe7adc9a-5454-11f1-b67f-2655119da7d2'};
 // Behandlere — sett img til en bilde-URL når du har foto, så byttes ikonet ut automatisk
 const BEH={
-  Kaviyan:{n:'Dr. Kaviyan Karimi',s:'Allmennlege',c:'c-peach',i:'K',img:''},
-  Giti:{n:'Dr. Giti Sabalani',s:'Allmennspesialist',c:'c-mint',i:'G',img:''},
-  Ardavan:{n:'Dr. Ardavan Karimi',s:'Nevrolog',c:'c-cream',i:'A',img:''}
+  Kaviyan:{n:'Dr. Kaviyan Karimi',s:'Allmennlege',c:'c-peach',i:'K',img:'https://cdn.jsdelivr.net/gh/motherboard-debug/neurobelle-site-patches@main/dist/img/behandler-kaviyan.jpg'},
+  Giti:{n:'Dr. Giti Sabalani',s:'Allmennspesialist',c:'c-mint',i:'G',img:'https://cdn.jsdelivr.net/gh/motherboard-debug/neurobelle-site-patches@main/dist/img/behandler-giti.jpg'},
+  Ardavan:{n:'Dr. Ardavan Karimi',s:'Nevrolog',c:'c-cream',i:'A',img:'https://cdn.jsdelivr.net/gh/motherboard-debug/neurobelle-site-patches@main/dist/img/behandler-ardavan.jpg'}
 };
 function psUrl(ts,beh){let u=PS+'?serviceProviderId='+SP+'&timeslotType='+ts;if(beh&&CAL[beh])u+='&calendarId='+CAL[beh];return u;}
 const COLORS=['c-peach','c-mint','c-cream','c-rose'];
