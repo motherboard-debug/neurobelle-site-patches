@@ -16,3 +16,10 @@ Format: 9:16, 1080×1920, ~7 sek, H.264 MP4. Ken Burns-zoom på foto + animert t
 | `R_telehelse.mp4` | KLINIKK | Telehelse | henvisning.jpg | «Legen din – hjemmefra» | Bestill time · neurobelleklinikk.com |
 
 Alle merkevarefarger: terrakotta #DF7F4D, nær-svart #292420, fersken #FAEADB scrim.
+
+## Tillegg – 2 nye AVIDA motion-graphics reels (ren merkevare-motion, ingen foto)
+| Fil | Pool | Pilar | Konsept |
+|-----|------|-------|---------|
+| `AVIDA_5vaner.mp4` | AVIDA | Hukommelse/kognisjon | «5 vaner som beskytter hjernen» – animert nummerert liste |
+| `AVIDA_blodsukker.mp4` | AVIDA | Blodsukker | «Blodsukker i balanse» – animert graf som flater ut fra kaos til stabil |
+Begge 9:16, uten lyd (legg på rolig musikk). Bygget lokalt (Pillow + FFmpeg).
