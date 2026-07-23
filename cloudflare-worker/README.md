@@ -108,10 +108,46 @@ curl -X POST https://neurobelle-bridge.<your-cf-subdomain>.workers.dev/tg-send \
 
 The `chat_id` is included in every forwarded email (see the email body). Response: `{"ok":true,"sent":true,"message_id":...}`.
 
+To send a **photo / video / document** into a chat — e.g. a reel MP4 the generator produced. Two ways:
+
+**By URL** (Telegram fetches it — simplest if the file is already hosted):
+```bash
+curl -X POST https://neurobelle-bridge.<your-cf-subdomain>.workers.dev/tg-send-media \
+  -H "Authorization: Bearer <AGENT_TOKEN>" \
+  -H "Content-Type: application/json" \
+  -d '{ "chat_id": 123456789, "kind": "video",
+        "url": "https://.../reel-2026-07-19.mp4", "caption": "Helsesjekk" }'
+```
+
+**By upload** (stream a local file straight through — for files on the Mac):
+```bash
+curl -X POST https://neurobelle-bridge.<your-cf-subdomain>.workers.dev/tg-send-media \
+  -H "Authorization: Bearer <AGENT_TOKEN>" \
+  -F "chat_id=123456789" \
+  -F "kind=video" \
+  -F "caption=Helsesjekk" \
+  -F "file=@/Users/avidahelse/motherboard/projects/social/pool-klinikk/ready/reel-2026-07-19.mp4"
+```
+
+`kind` is `photo`, `video` (default), or `document`. Response: `{"ok":true,"sent":true,"message_id":...}`. Telegram caps bot uploads at 50 MB (reels are far smaller).
+
+### Simplest path: push a whole folder from the Mac (no Worker needed)
+
+Neither Claude session can reach Telegram (the web session has no Telegram tool; Claude Code is firewalled from `api.telegram.org`). The Mac mini is the only place with the bot token, the files, **and** network — so pushing content is a Mac-side job. [`push-to-telegram.sh`](./push-to-telegram.sh) does it directly against the Bot API (no Worker, no Resend to deploy):
+
+```bash
+export TELEGRAM_BOT_TOKEN="…"   # from @BotFather
+export TELEGRAM_CHAT_ID="…"     # numeric chat id (printed in every forwarded email)
+./cloudflare-worker/push-to-telegram.sh \
+  /Users/avidahelse/motherboard/projects/social/pool-klinikk/ready/ "reel-*.mp4"
+```
+
+It picks `sendVideo`/`sendPhoto`/`sendDocument` per file extension and uses a sidecar `.txt` (or the filename) as the caption. Use `/tg-send-media` above instead only if you specifically want the send to route through the deployed Worker.
+
 ## Hard limits baked into the worker
 
 - Recipients per send capped at 10 (matches Kaviyan's standing approval gate from CLAUDE.md). Higher → 403 error, must escalate.
-- Bearer auth required for `/send-email` and `/tg-send` — without `AGENT_TOKEN` set, both always return 401.
+- Bearer auth required for `/send-email`, `/tg-send`, and `/tg-send-media` — without `AGENT_TOKEN` set, they always return 401.
 - `/tg-webhook` verifies the `X-Telegram-Bot-Api-Secret-Token` header when `TELEGRAM_WEBHOOK_SECRET` is set (spoofed-update protection).
 - A mail-provider failure on `/tg-webhook` returns 200 (with a `warn`) so Telegram doesn't retry the same update for hours; the error is logged via `console.error` (visible in `wrangler tail`).
 - Non-text Telegram updates (photos/stickers/etc.) are ignored gracefully — returns 200 so Telegram stops retrying.
