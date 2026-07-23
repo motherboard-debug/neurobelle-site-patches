@@ -131,6 +131,19 @@ curl -X POST https://neurobelle-bridge.<your-cf-subdomain>.workers.dev/tg-send-m
 
 `kind` is `photo`, `video` (default), or `document`. Response: `{"ok":true,"sent":true,"message_id":...}`. Telegram caps bot uploads at 50 MB (reels are far smaller).
 
+### Simplest path: push a whole folder from the Mac (no Worker needed)
+
+Neither Claude session can reach Telegram (the web session has no Telegram tool; Claude Code is firewalled from `api.telegram.org`). The Mac mini is the only place with the bot token, the files, **and** network — so pushing content is a Mac-side job. [`push-to-telegram.sh`](./push-to-telegram.sh) does it directly against the Bot API (no Worker, no Resend to deploy):
+
+```bash
+export TELEGRAM_BOT_TOKEN="…"   # from @BotFather
+export TELEGRAM_CHAT_ID="…"     # numeric chat id (printed in every forwarded email)
+./cloudflare-worker/push-to-telegram.sh \
+  /Users/avidahelse/motherboard/projects/social/pool-klinikk/ready/ "reel-*.mp4"
+```
+
+It picks `sendVideo`/`sendPhoto`/`sendDocument` per file extension and uses a sidecar `.txt` (or the filename) as the caption. Use `/tg-send-media` above instead only if you specifically want the send to route through the deployed Worker.
+
 ## Hard limits baked into the worker
 
 - Recipients per send capped at 10 (matches Kaviyan's standing approval gate from CLAUDE.md). Higher → 403 error, must escalate.
