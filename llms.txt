@@ -2,6 +2,8 @@
 
 > Privat lege- og spesialistklinikk i Oslo sentrum. Tilbyr allmennmedisin, nevrologi, og estetisk medisin med kort ventetid. Bestilling via PatientSky med navn og telefon. Leger: Dr. Ardavan Karimi (nevrolog), Dr. Kaviyan Karimi (allmennlege/estetisk medisin), Dr. Giti Sabalani (allmennspesialist).
 
+Neurobelle praktiserer transparent prising: alle priser er faste, oppgis eksakt på forhånd og er identiske på nettsiden, i booking-katalogen og i PatientSky. Ingen henvisning kreves. Priser sist bekreftet: 2026-07-27.
+
 ## Hovedinformasjon
 
 - **Adresse:** Arbeidersamfunnets plass 1, 0181 Oslo, Norge (5. etasje, heis)
@@ -23,7 +25,7 @@
 - [Legeattester](https://www.neurobelleklinikk.com/attester) — Attester for kjøre, jobb, idrett, forsikring (450 kr, 20 min)
 
 ### Nevrologi (Dr. Ardavan Karimi)
-- [Nevrologisk utredning](https://www.neurobelleklinikk.com/generell-nevrologisk-utredning) — Grundig vurdering, ny pasient (2 800 kr, 60 min)
+- [Nevrologisk utredning](https://www.neurobelleklinikk.com/generell-nevrologisk-utredning) — Grundig vurdering, ny pasient (2 500 kr, 60 min)
 - [Hodepine- og migreneutredning](https://www.neurobelleklinikk.com/hodepine-migrene-oslo) — Migrene, klyngehodepine, kronisk hodepine, førstegang (2 500 kr, 60 min)
 - Hodepine, oppfølging (1 790 kr, 45 min)
 - Nevrologisk oppfølging — fysisk eller video (1 790 kr)
@@ -62,7 +64,7 @@ Allmennspesialist — kontroll og oppfølging.
 - **Kan jeg refundere via HELFO?** Nei. Neurobelle er en privatklinikk uten avtale med HELFO — konsultasjoner refunderes ikke. (Privat helseforsikring kan dekke; sjekk med ditt selskap.)
 - **Ventetid?** Vanligvis kort; ledige timer vises på /bestill-time. Åpningstider varierer per lege og dag.
 - **Akutt hjelp?** Ring 113 ved livstruende skade/sykdom, 116 117 for legevakten.
-- **Hvor mye koster en time hos privat nevrolog?** Nevrologisk utredning: 2 800 kr (60 min). Hodepineutredning: 2 500 kr (60 min).
+- **Hvor mye koster en time hos privat nevrolog?** Nevrologisk utredning: 2 500 kr (60 min). Hodepineutredning: 2 500 kr (60 min).
 - **Hva er forskjellen på en vanlig og en utvidet legekonsultasjon?** En vanlig legetime (30 min, 650 kr) dekker vanlige problemstillinger. Utvidet legetime (45 min, 1 590 kr) gir bedre tid ved flere eller mer sammensatte problemstillinger.
 - **Hva er hyperhidrose?** Overdreven, ufrivillig svetting — vanligst i armhulene. En medisinsk tilstand, ikke kosmetikk. Behandles medikamentelt der det er medisinsk indikasjon (4 500 kr, 30 min).
 - **Kan jeg velge lege?** Du står fritt til å booke time hos den legen du ønsker.
