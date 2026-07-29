@@ -7,3 +7,4 @@ node_modules/
 .claude/skills/
 skills-lock.json
 marketing/hyperframes-2026-07/*/node_modules/
+marketing/hyperframes-2026-07/*/snapshots/frame-*.png

@@ -12,8 +12,10 @@ Dette er det første fulle Bloom→Canva(→HeyGen)-eksempelet i denne prosessen
 
 ## HeyGen HyperFrames (pågår)
 - Full branded motion-graphics-versjon (5 scener, ~17,5 sek, stille) bygges lokalt via de installerte HyperFrames-skillene (siden hostet compose er deaktivert for CLI-agenter) i `marketing/hyperframes-2026-07/E2-spesialist-uten-ventetid/`.
-- Kjøres i bakgrunnen av en dedikert Builder-subagent som følger `motion-graphics`/`hyperframes-core`/`motion-doctrine`-kontraktene (lint → check → snapshots → render til MP4).
-- Status ved skriving: **under bygging** — oppdateres når agenten er ferdig.
+- **FERDIG RENDRET**: `renders/video.mp4` (17,5 sek, 1080×1920, 3,6 MB). Lint: 0 feil. Check: passert (WCAG-kontrast 30/30, layout 0 funn, runtime OK).
+- 5 scener: «Trenger du en spesialist?» → kalender-slam «Ikke vent i måneder» → «nevrologisk spesialistvurdering — raskt» → Klinikk/Video/Du velger → mørkt sluttkort med CTA.
+- Tekst-terrakotta justert til #C87245 på lys bakgrunn for WCAG AA (flater/ikoner beholder #DF7F4D).
+- Kilde: `index.html` (redigerbar HTML/GSAP-komposisjon), kontaktark i `snapshots/contact-sheet.jpg`.
 
 ## Bloom
 - Heroet (`8917b3b4-aabe-4908-9ef2-584b050793c1`) er generert og ligger i Bloom-galleriet, men endte ikke i Canva-designet av grunnen nevnt over.
