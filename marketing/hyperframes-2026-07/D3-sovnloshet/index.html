@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Neurobelle – Søvnløs natt igjen?</title>
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #292420; }
+      body { font-family: "Montserrat", "DejaVu Sans", sans-serif; }
+      .serif { font-family: "Playfair Display", "DejaVu Serif", serif; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #292420; }
+      .clip { position: absolute; inset: 0; }
+      .stage { position: absolute; inset: 0; display: flex; flex-direction: column;
+        justify-content: center; padding: 0 90px; }
+
+      /* night decor */
+      #decor .moonglow { position: absolute; border-radius: 50%; width: 700px; height: 700px;
+        top: 140px; right: -180px;
+        background: radial-gradient(circle, rgba(250,234,219,0.14) 0%, rgba(250,234,219,0) 70%); }
+      #decor .moon { position: absolute; top: 300px; right: 120px; width: 150px; height: 150px; }
+      #decor .star { position: absolute; border-radius: 50%; background: #faeadb; }
+      #st-a { width: 8px; height: 8px; top: 260px; left: 180px; }
+      #st-b { width: 6px; height: 6px; top: 420px; left: 340px; }
+      #st-c { width: 7px; height: 7px; top: 200px; right: 420px; }
+      #decor .wm { position: absolute; top: 130px; left: 90px; font-size: 42px; font-weight: 700; color: #faeadb; }
+      #decor .wm .dot { color: #df7f4d; }
+
+      /* S1 — the clock */
+      #s1 .stage { align-items: flex-start; }
+      #s1 .time { font-size: 210px; font-weight: 800; color: #faeadb; letter-spacing: 4px;
+        font-variant-numeric: tabular-nums; }
+      #s1 .line { margin-top: 36px; font-size: 76px; font-weight: 700; color: #dcede3; line-height: 1.2; }
+      #s1 .line .em { color: #df7f4d; }
+
+      /* S2 */
+      #s2 .stage { align-items: flex-start; }
+      #s2 .msg { font-size: 100px; font-weight: 700; color: #faeadb; line-height: 1.16; }
+      #s2 .msg .em { color: #df7f4d; }
+      #s2 .sub { margin-top: 44px; font-size: 46px; font-weight: 300; color: #dcede3; }
+
+      /* S3 — tips */
+      #s3-kicker { position: absolute; top: 430px; left: 90px; font-size: 40px; font-weight: 600;
+        letter-spacing: 5px; color: #dcede3; text-transform: uppercase; }
+      .tip { position: absolute; left: 90px; right: 90px; display: flex; align-items: center; gap: 40px; }
+      #tp-1 { top: 570px; } #tp-2 { top: 790px; } #tp-3 { top: 1010px; }
+      .tip .chip { flex: 0 0 96px; width: 96px; height: 96px; border-radius: 28px;
+        display: grid; place-items: center; font-size: 46px; }
+      #tp-1 .chip { background: #faeadb; } #tp-2 .chip { background: #df7f4d; }
+      #tp-3 .chip { background: #dcede3; }
+      .tip .txt { font-size: 56px; font-weight: 700; color: #faeadb; }
+      #s3-more { position: absolute; top: 1270px; left: 90px; right: 90px;
+        font-size: 64px; font-weight: 700; color: #dcede3; line-height: 1.25; }
+      #s3-more .em { color: #df7f4d; }
+
+      /* S4 end card */
+      #s4 { background: #292420; }
+      #s4 .stage { align-items: center; text-align: center; }
+      #s4 .wm { font-size: 124px; font-weight: 700; color: #faeadb; }
+      #s4 .wm .dot { color: #df7f4d; }
+      #s4 .rule { width: 160px; height: 6px; background: #df7f4d; border-radius: 3px; margin: 50px 0; }
+      #s4 .cta { font-size: 62px; font-weight: 700; color: #ffffff; margin-bottom: 24px; }
+      #s4 .url { font-size: 38px; font-weight: 400; color: #dcede3; letter-spacing: 1px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="16"
+      data-width="1080" data-height="1920" data-layout-allow-overflow>
+
+      <div id="decor" class="clip" data-start="0" data-duration="13" data-track-index="1">
+        <div id="decor-inner" style="position:absolute; inset:0;">
+          <div class="moonglow" id="moonglow"></div>
+          <svg class="moon" id="moon" viewBox="0 0 24 24" fill="none">
+            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z"
+              stroke="#FAEADB" stroke-width="1.4" fill="rgba(250,234,219,0.12)"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="star" id="st-a"></div><div class="star" id="st-b"></div><div class="star" id="st-c"></div>
+          <div class="wm serif">Neurobelle<span class="dot">.</span></div>
+        </div>
+      </div>
+
+      <!-- S1: 0–4 -->
+      <section id="s1" class="clip" data-start="0" data-duration="4" data-track-index="2">
+        <div class="stage">
+          <div class="time serif" id="s1-time">03:14</div>
+          <div class="line serif" id="s1-line">Og du er<br />fortsatt <span class="em">våken</span>.</div>
+        </div>
+      </section>
+
+      <!-- S2: 4–7.5 -->
+      <section id="s2" class="clip" data-start="4" data-duration="3.5" data-track-index="2">
+        <div class="stage">
+          <h2 class="msg serif" id="s2-msg">Søvn er hjernens<br /><span class="em">reparasjon</span>.</h2>
+          <div class="sub" id="s2-sub">Hukommelse. Humør. Helse. Alt starter der.</div>
+        </div>
+      </section>
+
+      <!-- S3: 7.5–13 -->
+      <section id="s3" class="clip" data-start="7.5" data-duration="5.5" data-track-index="2">
+        <div id="s3-inner" style="position:absolute; inset:0;">
+          <div id="s3-kicker">Tre grep i kveld</div>
+          <div class="tip" id="tp-1"><div class="chip">🕘</div><div class="txt">Fast leggetid</div></div>
+          <div class="tip" id="tp-2"><div class="chip">🌙</div><div class="txt">Mørkt og kjølig rom</div></div>
+          <div class="tip" id="tp-3"><div class="chip">📵</div><div class="txt">Skjermfri siste time</div></div>
+          <div id="s3-more" class="serif">Varer det uke etter uke?<br />Da kan vi <span class="em">hjelpe</span>.</div>
+        </div>
+      </section>
+
+      <!-- S4: 13–16 -->
+      <section id="s4" class="clip" data-start="13" data-duration="3" data-track-index="2">
+        <div class="stage">
+          <div class="wm serif" id="s4-wm">Neurobelle<span class="dot">.</span></div>
+          <div class="rule" id="s4-rule"></div>
+          <div class="cta serif" id="s4-cta">Bestill konsultasjon</div>
+          <div class="url" id="s4-url">neurobelleklinikk.com/bestill-time</div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // night sky drifts slowly; stars twinkle deterministically
+      tl.fromTo("#moonglow", { scale: 0.9, opacity: 0.7 }, { scale: 1.1, opacity: 1, duration: 13, ease: "sine.inOut" }, 0);
+      tl.fromTo("#st-a", { opacity: 0.3 }, { opacity: 1, duration: 1.6, ease: "sine.inOut", repeat: 6, yoyo: true }, 0);
+      tl.fromTo("#st-b", { opacity: 0.8 }, { opacity: 0.25, duration: 1.9, ease: "sine.inOut", repeat: 5, yoyo: true }, 0.4);
+      tl.fromTo("#st-c", { opacity: 0.4 }, { opacity: 1, duration: 1.4, ease: "sine.inOut", repeat: 7, yoyo: true }, 0.8);
+      tl.from("#decor .wm", { y: -30, opacity: 0, duration: 0.6, ease: "power3.out" }, 0.1);
+      tl.from("#moon", { opacity: 0, scale: 0.85, transformOrigin: "50% 50%", duration: 0.8, ease: "power2.out" }, 0.2);
+
+      // S1: clock lands with weight
+      tl.from("#s1-time", { y: 90, opacity: 0, duration: 0.7, ease: "power4.out" }, 0.35);
+      tl.from("#s1-line", { y: 60, opacity: 0, duration: 0.6, ease: "power3.out" }, 1.1);
+      tl.to("#s1 .stage", { y: -140, opacity: 0, duration: 0.45, ease: "power3.in" }, 3.55);
+      tl.set("#s1 .stage", { opacity: 0 }, 4.0);
+
+      // S2
+      tl.from("#s2 .stage", { y: 140, opacity: 0, duration: 0.55, ease: "power3.out" }, 4.0);
+      tl.from("#s2-sub", { y: 40, opacity: 0, duration: 0.55, ease: "power3.out" }, 4.9);
+      tl.to("#s2 .stage", { x: -200, opacity: 0, duration: 0.45, ease: "power3.in" }, 7.05);
+      tl.set("#s2 .stage", { opacity: 0 }, 7.5);
+
+      // S3: tips cascade from right
+      tl.from("#s3-kicker", { x: 200, opacity: 0, duration: 0.5, ease: "power3.out" }, 7.5);
+      tl.from("#tp-1", { x: 240, opacity: 0, duration: 0.45, ease: "power4.out" }, 7.85);
+      tl.from("#tp-2", { x: 240, opacity: 0, duration: 0.45, ease: "power4.out" }, 8.55);
+      tl.from("#tp-3", { x: 240, opacity: 0, duration: 0.45, ease: "power4.out" }, 9.25);
+      tl.from("#s3-more", { y: 60, opacity: 0, duration: 0.6, ease: "power3.out" }, 10.4);
+      tl.to("#s3-inner", { opacity: 0, duration: 0.35, ease: "power2.in" }, 12.6);
+      tl.set("#s3-inner", { opacity: 0 }, 13.0);
+      tl.to("#decor-inner", { opacity: 0, duration: 0.35, ease: "power2.in" }, 12.6);
+      tl.set("#decor-inner", { opacity: 0 }, 13.0);
+
+      // S4 close
+      tl.from("#s4-wm", { y: 60, opacity: 0, duration: 0.6, ease: "power3.out" }, 13.12);
+      tl.from("#s4-rule", { scaleX: 0, duration: 0.45, ease: "power3.out" }, 13.5);
+      tl.from("#s4-cta", { y: 40, opacity: 0, duration: 0.5, ease: "power3.out" }, 13.75);
+      tl.from("#s4-url", { opacity: 0, duration: 0.5, ease: "power2.out" }, 14.1);
+
+      tl.seek(0);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Neurobelle – Hjernetåke</title>
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #faeadb; }
+      body { font-family: "Montserrat", "DejaVu Sans", sans-serif; }
+      .serif { font-family: "Playfair Display", "DejaVu Serif", serif; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #faeadb; }
+      .clip { position: absolute; inset: 0; }
+      .stage { position: absolute; inset: 0; display: flex; flex-direction: column;
+        justify-content: center; padding: 0 90px; }
+
+      #decor .fog-a, #decor .fog-b { position: absolute; border-radius: 50%; filter: blur(6px); }
+      #decor .fog-a { width: 950px; height: 950px; top: -140px; left: -300px;
+        background: radial-gradient(circle, rgba(220,237,227,0.75) 0%, rgba(220,237,227,0) 70%); }
+      #decor .fog-b { width: 800px; height: 800px; bottom: -100px; right: -260px;
+        background: radial-gradient(circle, rgba(223,127,77,0.18) 0%, rgba(223,127,77,0) 70%); }
+      #decor .hair { position: absolute; top: 120px; left: 90px; width: 120px; height: 6px;
+        background: #df7f4d; border-radius: 3px; }
+      #decor .wm { position: absolute; top: 150px; left: 90px; font-size: 42px; font-weight: 700; color: #292420; }
+      #decor .wm .dot { color: #b6673f; }
+
+      /* S1 — head with fog */
+      #s1 .stage { align-items: flex-start; }
+      #head { width: 360px; height: 400px; margin-bottom: 60px; position: relative; }
+      #head svg { width: 100%; height: 100%; }
+      .fogball { position: absolute; border-radius: 50%; filter: blur(14px);
+        background: rgba(200,114,69,0.55); }
+      #fog-1 { width: 110px; height: 110px; top: 80px; left: 105px; }
+      #fog-2 { width: 70px; height: 70px; top: 60px; left: 190px; }
+      #fog-3 { width: 55px; height: 55px; top: 150px; left: 70px; }
+      #s1 .q { font-size: 92px; font-weight: 700; color: #292420; line-height: 1.16; }
+      #s1 .q .em { color: #c87245; }
+
+      /* S2 — årsaker chips */
+      #s2-kicker { position: absolute; top: 420px; left: 90px; font-size: 40px; font-weight: 600;
+        letter-spacing: 5px; color: #21402f; text-transform: uppercase; }
+      #s2-head { position: absolute; top: 490px; left: 90px; right: 90px;
+        font-size: 84px; font-weight: 700; color: #292420; }
+      .cause { position: absolute; left: 90px; display: flex; align-items: center; gap: 34px; }
+      #ca-1 { top: 760px; } #ca-2 { top: 950px; } #ca-3 { top: 1140px; } #ca-4 { top: 1330px; }
+      .cause .chip { flex: 0 0 88px; width: 88px; height: 88px; border-radius: 26px;
+        display: grid; place-items: center; font-size: 44px; }
+      #ca-1 .chip { background: #dcede3; } #ca-2 .chip { background: #faeadb; border: 4px solid #df7f4d; }
+      #ca-3 .chip { background: #dcede3; } #ca-4 .chip { background: #faeadb; border: 4px solid #21402f; }
+      .cause .txt { font-size: 58px; font-weight: 700; color: #292420; }
+
+      /* S3 */
+      #s3 .stage { align-items: flex-start; }
+      #s3 .l1 { font-size: 80px; font-weight: 700; color: #292420; line-height: 1.2; }
+      #s3 .l2 { margin-top: 48px; font-size: 92px; font-weight: 700; color: #21402f; line-height: 1.16; }
+      #s3 .l2 .em { color: #c87245; }
+
+      /* S4 end card */
+      #s4 { background: #292420; }
+      #s4 .stage { align-items: center; text-align: center; }
+      #s4 .wm { font-size: 124px; font-weight: 700; color: #faeadb; }
+      #s4 .wm .dot { color: #df7f4d; }
+      #s4 .rule { width: 160px; height: 6px; background: #df7f4d; border-radius: 3px; margin: 50px 0; }
+      #s4 .cta { font-size: 60px; font-weight: 700; color: #ffffff; margin-bottom: 24px; }
+      #s4 .url { font-size: 38px; font-weight: 400; color: #dcede3; letter-spacing: 1px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="16"
+      data-width="1080" data-height="1920" data-layout-allow-overflow>
+
+      <div id="decor" class="clip" data-start="0" data-duration="13" data-track-index="1">
+        <div id="decor-inner" style="position:absolute; inset:0;">
+          <div class="fog-a" id="fog-a"></div><div class="fog-b"></div>
+          <div class="hair"></div>
+          <div class="wm serif">Neurobelle<span class="dot">.</span></div>
+        </div>
+      </div>
+
+      <!-- S1: 0–4 -->
+      <section id="s1" class="clip" data-start="0" data-duration="4" data-track-index="2">
+        <div class="stage">
+          <div id="head">
+            <svg viewBox="0 0 24 26" fill="none">
+              <path d="M12 2C7 2 3.6 5.8 3.6 10.4c0 2.5 1 4.3 2.2 5.8.8 1 .8 2 .8 3v2.4c0 .9.7 1.6 1.6 1.6h5.2c.9 0 1.6-.7 1.6-1.6v-1.2h1.4c.9 0 1.6-.7 1.6-1.6v-2.2l1.5-.5c.6-.2.8-.9.5-1.4l-1.6-2.4C18.7 6.6 16 2 12 2z"
+                stroke="#292420" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="fogball" id="fog-1"></div>
+            <div class="fogball" id="fog-2"></div>
+            <div class="fogball" id="fog-3"></div>
+          </div>
+          <h1 class="q serif" id="s1-q">Glemmer du ord<br />midt i <span class="em">setninger</span>?</h1>
+        </div>
+      </section>
+
+      <!-- S2: 4–8.5 -->
+      <section id="s2" class="clip" data-start="4" data-duration="4.5" data-track-index="2">
+        <div id="s2-inner" style="position:absolute; inset:0;">
+          <div id="s2-kicker">Hjernetåke er vanlig</div>
+          <div id="s2-head" class="serif">Ofte handler det om:</div>
+          <div class="cause" id="ca-1"><div class="chip">😴</div><div class="txt">Søvn</div></div>
+          <div class="cause" id="ca-2"><div class="chip">⚡</div><div class="txt">Stress</div></div>
+          <div class="cause" id="ca-3"><div class="chip">🌀</div><div class="txt">Hormoner</div></div>
+          <div class="cause" id="ca-4"><div class="chip">🥦</div><div class="txt">Ernæring</div></div>
+        </div>
+      </section>
+
+      <!-- S3: 8.5–13 -->
+      <section id="s3" class="clip" data-start="8.5" data-duration="4.5" data-track-index="2">
+        <div class="stage">
+          <div class="l1 serif" id="s3-l1">Men noen ganger<br />er det mer.</div>
+          <div class="l2 serif" id="s3-l2">En kognitiv vurdering<br />gir deg <span class="em">svar</span>.</div>
+        </div>
+      </section>
+
+      <!-- S4: 13–16 -->
+      <section id="s4" class="clip" data-start="13" data-duration="3" data-track-index="2">
+        <div class="stage">
+          <div class="wm serif" id="s4-wm">Neurobelle<span class="dot">.</span></div>
+          <div class="rule" id="s4-rule"></div>
+          <div class="cta serif" id="s4-cta">Bestill kognitiv vurdering</div>
+          <div class="url" id="s4-url">neurobelleklinikk.com/bestill-time</div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo("#fog-a", { x: -60 }, { x: 80, duration: 13, ease: "sine.inOut" }, 0);
+      tl.from(["#decor .hair", "#decor .wm"], { y: -30, opacity: 0, duration: 0.6, ease: "power3.out", stagger: 0.08 }, 0.1);
+
+      // S1: head appears, fog drifts INSIDE the head (performing the concept)
+      tl.from("#head", { y: 80, opacity: 0, duration: 0.6, ease: "power3.out" }, 0.25);
+      tl.fromTo("#fog-1", { x: -20, opacity: 0.4 }, { x: 25, opacity: 0.9, duration: 2.8, ease: "sine.inOut" }, 0.5);
+      tl.fromTo("#fog-2", { x: 15, opacity: 0.3 }, { x: -20, opacity: 0.8, duration: 2.8, ease: "sine.inOut" }, 0.6);
+      tl.fromTo("#fog-3", { y: 10, opacity: 0.3 }, { y: -15, opacity: 0.7, duration: 2.8, ease: "sine.inOut" }, 0.7);
+      tl.from("#s1-q", { y: 70, opacity: 0, duration: 0.65, ease: "power4.out" }, 0.9);
+      tl.to("#s1 .stage", { y: -150, opacity: 0, duration: 0.45, ease: "power3.in" }, 3.55);
+      tl.set("#s1 .stage", { opacity: 0 }, 4.0);
+
+      // S2: causes cascade (riding the upward current)
+      tl.from("#s2-kicker", { y: 60, opacity: 0, duration: 0.45, ease: "power3.out" }, 4.0);
+      tl.from("#s2-head", { y: 60, opacity: 0, duration: 0.5, ease: "power3.out" }, 4.2);
+      tl.from("#ca-1", { x: -220, opacity: 0, duration: 0.45, ease: "power4.out" }, 4.6);
+      tl.from("#ca-2", { x: -220, opacity: 0, duration: 0.45, ease: "power4.out" }, 5.25);
+      tl.from("#ca-3", { x: -220, opacity: 0, duration: 0.45, ease: "power4.out" }, 5.9);
+      tl.from("#ca-4", { x: -220, opacity: 0, duration: 0.45, ease: "power4.out" }, 6.55);
+      tl.to("#s2-inner", { x: -200, opacity: 0, duration: 0.45, ease: "power3.in" }, 8.05);
+      tl.set("#s2-inner", { opacity: 0 }, 8.5);
+
+      // S3: enters from right
+      tl.from("#s3 .stage", { x: 220, opacity: 0, duration: 0.55, ease: "power3.out" }, 8.5);
+      tl.from("#s3-l1", { y: 50, opacity: 0, duration: 0.55, ease: "power3.out" }, 8.7);
+      tl.from("#s3-l2", { y: 60, opacity: 0, duration: 0.6, ease: "power3.out" }, 9.6);
+      tl.to("#s3 .stage", { opacity: 0, scale: 0.95, duration: 0.4, ease: "power2.in" }, 12.55);
+      tl.set("#s3 .stage", { opacity: 0 }, 13.0);
+      tl.to("#decor-inner", { opacity: 0, duration: 0.3, ease: "power2.in" }, 12.65);
+      tl.set("#decor-inner", { opacity: 0 }, 13.0);
+
+      // S4 close
+      tl.from("#s4-wm", { y: 60, opacity: 0, duration: 0.6, ease: "power3.out" }, 13.12);
+      tl.from("#s4-rule", { scaleX: 0, duration: 0.45, ease: "power3.out" }, 13.5);
+      tl.from("#s4-cta", { y: 40, opacity: 0, duration: 0.5, ease: "power3.out" }, 13.75);
+      tl.from("#s4-url", { opacity: 0, duration: 0.5, ease: "power2.out" }, 14.1);
+
+      tl.seek(0);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
