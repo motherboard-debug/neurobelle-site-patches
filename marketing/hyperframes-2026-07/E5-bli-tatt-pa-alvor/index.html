@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Neurobelle – Bli tatt på alvor</title>
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #292420; }
+      body { font-family: "Montserrat", "DejaVu Sans", sans-serif; }
+      .serif { font-family: "Playfair Display", "DejaVu Serif", serif; }
+
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden;
+        background: #292420; }
+      .clip { position: absolute; inset: 0; }
+      .stage { position: absolute; inset: 0; display: flex; flex-direction: column;
+        justify-content: center; padding: 0 90px; }
+
+      /* dark half decor (scenes 1–2) */
+      #decor-dark .glow { position: absolute; border-radius: 50%;
+        background: radial-gradient(circle, rgba(223,127,77,0.16) 0%, rgba(223,127,77,0) 70%);
+        width: 1000px; height: 1000px; top: 200px; left: -300px; }
+      #decor-dark .wm { position: absolute; top: 130px; left: 90px;
+        font-size: 42px; font-weight: 700; color: #faeadb; }
+      #decor-dark .wm .dot { color: #df7f4d; }
+
+      /* S1 dark */
+      #s1 .q { font-size: 104px; font-weight: 700; color: #faeadb; line-height: 1.16; }
+      #s1 .sub { margin-top: 44px; font-size: 44px; font-weight: 300; color: #dcede3; }
+
+      /* S2 dark */
+      #s2 .line { font-size: 110px; font-weight: 700; color: #faeadb; line-height: 1.14; }
+      #s2 .line .em { color: #df7f4d; }
+      #s2 .rule { width: 140px; height: 6px; background: #dcede3; border-radius: 3px; margin-top: 56px; }
+
+      /* light board: covers 7s → end */
+      #light { background: #faeadb; }
+      /* S3 light */
+      #s3-wrap .brand { font-size: 58px; font-weight: 800; color: #21402f; margin-bottom: 36px; }
+      #s3-wrap .msg { font-size: 100px; font-weight: 700; color: #292420; line-height: 1.16; }
+      #s3-wrap .msg .em { color: #c87245; }
+
+      /* S4 light: three lines */
+      .promise { position: absolute; left: 90px; right: 90px; display: flex; align-items: center; gap: 40px; }
+      #pr-1 { top: 640px; }
+      #pr-2 { top: 860px; }
+      #pr-3 { top: 1080px; }
+      .promise .tick { flex: 0 0 92px; width: 92px; height: 92px; border-radius: 50%;
+        display: grid; place-items: center; background: #21402f; }
+      #pr-2 .tick { background: #df7f4d; }
+      #pr-3 .tick { background: #292420; }
+      .promise .tick svg { width: 48px; height: 48px; }
+      .promise .txt { font-size: 68px; font-weight: 700; color: #292420; }
+      #s4-kicker { position: absolute; top: 480px; left: 90px; font-size: 40px; font-weight: 600;
+        letter-spacing: 5px; color: #21402f; text-transform: uppercase; }
+
+      /* S5 end card dark */
+      #s5 { background: #292420; }
+      #s5 .stage { align-items: center; text-align: center; }
+      #s5 .wm { font-size: 124px; font-weight: 700; color: #faeadb; }
+      #s5 .wm .dot { color: #df7f4d; }
+      #s5 .rule { width: 160px; height: 6px; background: #df7f4d; border-radius: 3px; margin: 50px 0; }
+      #s5 .cta { font-size: 64px; font-weight: 700; color: #ffffff; margin-bottom: 24px; }
+      #s5 .url { font-size: 38px; font-weight: 400; color: #dcede3; letter-spacing: 1px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="16"
+      data-width="1080" data-height="1920" data-layout-allow-overflow>
+
+      <!-- dark decor for scenes 1–2 -->
+      <div id="decor-dark" class="clip" data-start="0" data-duration="7" data-track-index="1">
+        <div id="dd-inner" style="position:absolute; inset:0;">
+          <div class="glow" id="dd-glow"></div>
+          <div class="wm serif">Neurobelle<span class="dot">.</span></div>
+        </div>
+      </div>
+
+      <!-- S1: 0–3.5 dark -->
+      <section id="s1" class="clip" data-start="0" data-duration="3.5" data-track-index="2">
+        <div class="stage">
+          <h1 class="q serif" id="s1-q">Har du følt at<br />ingen lytter?</h1>
+          <div class="sub" id="s1-sub">Til smerten. Til uroen. Til deg.</div>
+        </div>
+      </section>
+
+      <!-- S2: 3.5–7 dark -->
+      <section id="s2" class="clip" data-start="3.5" data-duration="3.5" data-track-index="2">
+        <div class="stage">
+          <h2 class="line serif" id="s2-line">Symptomene dine<br />er <span class="em">ekte</span>.</h2>
+          <div class="rule" id="s2-rule"></div>
+        </div>
+      </section>
+
+      <!-- light board under scenes 3–4 -->
+      <div id="light" class="clip" data-start="7" data-duration="6" data-track-index="1"></div>
+
+      <!-- S3: 7–10.5 light -->
+      <section id="s3" class="clip" data-start="7" data-duration="3.5" data-track-index="2">
+        <div class="stage" id="s3-wrap">
+          <div class="brand serif">Neurobelle</div>
+          <h2 class="msg serif" id="s3-msg">Hos oss blir<br />du <span class="em">hørt</span>.</h2>
+        </div>
+      </section>
+
+      <!-- S4: 10.5–13 light -->
+      <section id="s4" class="clip" data-start="10.5" data-duration="2.5" data-track-index="2">
+        <div id="s4-inner" style="position:absolute; inset:0;">
+          <div id="s4-kicker">Vårt løfte</div>
+          <div class="promise" id="pr-1">
+            <div class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#DCEDE3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="txt">Vi lytter.</div>
+          </div>
+          <div class="promise" id="pr-2">
+            <div class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#FAEADB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="txt">Vi utreder.</div>
+          </div>
+          <div class="promise" id="pr-3">
+            <div class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#DCEDE3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="txt serif">Vi følger opp.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- S5: 13–16 end card -->
+      <section id="s5" class="clip" data-start="13" data-duration="3" data-track-index="2">
+        <div class="stage">
+          <div class="wm serif" id="s5-wm">Neurobelle<span class="dot">.</span></div>
+          <div class="rule" id="s5-rule"></div>
+          <div class="cta serif" id="s5-cta">Bestill time</div>
+          <div class="url" id="s5-url">neurobelleklinikk.com/bestill-time</div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // dark decor drift (performs the slow emotional weight)
+      tl.fromTo("#dd-glow", { scale: 0.85, opacity: 0.6 }, { scale: 1.2, opacity: 1, duration: 7, ease: "sine.inOut" }, 0);
+
+      // S1: quiet fade-up, held
+      tl.from("#s1-q", { y: 70, opacity: 0, duration: 0.8, ease: "power3.out" }, 0.3);
+      tl.from("#s1-sub", { y: 40, opacity: 0, duration: 0.7, ease: "power3.out" }, 1.1);
+      tl.to("#s1 .stage", { y: -120, opacity: 0, duration: 0.5, ease: "power3.in" }, 3.0);
+      tl.set("#s1 .stage", { opacity: 0 }, 3.5);
+
+      // S2: enters on the same upward current
+      tl.from("#s2 .stage", { y: 120, opacity: 0, duration: 0.6, ease: "power3.out" }, 3.5);
+      tl.from("#s2-rule", { scaleX: 0, transformOrigin: "0 50%", duration: 0.5, ease: "power3.out" }, 4.4);
+      tl.to("#s2 .stage", { opacity: 0, scale: 0.96, duration: 0.5, ease: "power2.in" }, 6.5);
+      tl.set("#s2 .stage", { opacity: 0 }, 7.0);
+      tl.to("#dd-inner", { opacity: 0, duration: 0.5, ease: "power2.in" }, 6.5);
+      tl.set("#dd-inner", { opacity: 0 }, 7.0);
+
+      // light board sweeps up from below at 7s — the emotional lift
+      tl.from("#light", { y: 1920, duration: 0.7, ease: "power4.out" }, 7.0);
+
+      // S3: rides the lift
+      tl.from("#s3-wrap", { y: 180, opacity: 0, duration: 0.65, ease: "power3.out" }, 7.25);
+      tl.to("#s3-wrap", { y: -140, opacity: 0, duration: 0.45, ease: "power3.in" }, 10.05);
+      tl.set("#s3-wrap", { opacity: 0 }, 10.5);
+
+      // S4: cascade of promises
+      tl.from("#s4-kicker", { opacity: 0, y: 30, duration: 0.4, ease: "power3.out" }, 10.55);
+      tl.from("#pr-1", { x: -220, opacity: 0, duration: 0.45, ease: "power4.out" }, 10.75);
+      tl.from("#pr-2", { x: -220, opacity: 0, duration: 0.45, ease: "power4.out" }, 11.35);
+      tl.from("#pr-3", { x: -220, opacity: 0, duration: 0.45, ease: "power4.out" }, 11.95);
+      tl.to("#s4-inner", { opacity: 0, duration: 0.3, ease: "power2.in" }, 12.65);
+      tl.set("#s4-inner", { opacity: 0 }, 13.0);
+
+      // S5: settled dark close
+      tl.from("#s5-wm", { y: 60, opacity: 0, duration: 0.6, ease: "power3.out" }, 13.12);
+      tl.from("#s5-rule", { scaleX: 0, duration: 0.45, ease: "power3.out" }, 13.5);
+      tl.from("#s5-cta", { y: 40, opacity: 0, duration: 0.5, ease: "power3.out" }, 13.75);
+      tl.from("#s5-url", { opacity: 0, duration: 0.5, ease: "power2.out" }, 14.1);
+
+      tl.seek(0);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

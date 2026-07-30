@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Neurobelle – Sykmelding hjemmefra</title>
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #faeadb; }
+      body { font-family: "Montserrat", "DejaVu Sans", sans-serif; }
+      .serif { font-family: "Playfair Display", "DejaVu Serif", serif; }
+
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden;
+        background: #faeadb; }
+      .clip { position: absolute; inset: 0; }
+      .stage { position: absolute; inset: 0; display: flex; flex-direction: column;
+        justify-content: center; padding: 0 90px; }
+
+      /* decor */
+      #decor .glow-a { position: absolute; border-radius: 50%; width: 900px; height: 900px;
+        top: -160px; right: -280px;
+        background: radial-gradient(circle, rgba(220,237,227,0.6) 0%, rgba(220,237,227,0) 70%); }
+      #decor .glow-b { position: absolute; border-radius: 50%; width: 760px; height: 760px;
+        bottom: 0; left: -260px;
+        background: radial-gradient(circle, rgba(223,127,77,0.2) 0%, rgba(223,127,77,0) 70%); }
+      #decor .hair { position: absolute; top: 120px; left: 90px; width: 120px; height: 6px;
+        background: #df7f4d; border-radius: 3px; }
+      #decor .wm { position: absolute; top: 150px; left: 90px; font-size: 42px;
+        font-weight: 700; color: #292420; }
+      #decor .wm .dot { color: #b6673f; }
+
+      /* S1 */
+      #s1 .kicker { font-size: 34px; font-weight: 600; letter-spacing: 6px; color: #21402f;
+        text-transform: uppercase; margin-bottom: 34px; }
+      #s1 .q { font-size: 120px; font-weight: 700; color: #292420; line-height: 1.1; }
+      #s1 .q .em { color: #c87245; }
+
+      /* S2 — house / home visual */
+      #s2 .stage { align-items: flex-start; }
+      #house { width: 380px; height: 360px; margin-bottom: 64px; }
+      #s2 .line { font-size: 88px; font-weight: 700; color: #292420; line-height: 1.16; }
+      #s2 .line .em { color: #c87245; }
+
+      /* S3 — three steps */
+      #s3-kicker { position: absolute; top: 400px; left: 90px; font-size: 40px; font-weight: 600;
+        letter-spacing: 5px; color: #21402f; text-transform: uppercase; }
+      .step { position: absolute; left: 90px; right: 90px; display: flex; align-items: center; gap: 44px; }
+      #st-1 { top: 560px; } #st-2 { top: 800px; } #st-3 { top: 1040px; }
+      .step .num { flex: 0 0 110px; width: 110px; height: 110px; border-radius: 30px;
+        display: grid; place-items: center; font-size: 56px; font-weight: 800; }
+      #st-1 .num { background: #dcede3; color: #21402f; }
+      #st-2 .num { background: #df7f4d; color: #292420; }
+      #st-3 .num { background: #292420; color: #faeadb; }
+      .step .txt { font-size: 60px; font-weight: 700; color: #292420; }
+      #s3-punch { position: absolute; top: 1330px; left: 90px; right: 90px;
+        font-size: 76px; font-weight: 700; color: #21402f; }
+
+      /* S4 end card */
+      #s4 { background: #292420; }
+      #s4 .stage { align-items: center; text-align: center; }
+      #s4 .wm { font-size: 124px; font-weight: 700; color: #faeadb; }
+      #s4 .wm .dot { color: #df7f4d; }
+      #s4 .rule { width: 160px; height: 6px; background: #df7f4d; border-radius: 3px; margin: 50px 0; }
+      #s4 .cta { font-size: 64px; font-weight: 700; color: #ffffff; margin-bottom: 24px; }
+      #s4 .url { font-size: 38px; font-weight: 400; color: #dcede3; letter-spacing: 1px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="16"
+      data-width="1080" data-height="1920" data-layout-allow-overflow>
+
+      <div id="decor" class="clip" data-start="0" data-duration="13" data-track-index="1">
+        <div id="decor-inner" style="position:absolute; inset:0;">
+          <div class="glow-a"></div><div class="glow-b"></div>
+          <div class="hair"></div>
+          <div class="wm serif">Neurobelle<span class="dot">.</span></div>
+        </div>
+      </div>
+
+      <!-- S1: 0–3 -->
+      <section id="s1" class="clip" data-start="0" data-duration="3" data-track-index="2">
+        <div class="stage">
+          <div class="kicker" id="s1-kicker">Digital legetjeneste</div>
+          <h1 class="q serif" id="s1-q">Syk<br />i <span class="em">dag</span>?</h1>
+        </div>
+      </section>
+
+      <!-- S2: 3–6.5 -->
+      <section id="s2" class="clip" data-start="3" data-duration="3.5" data-track-index="2">
+        <div class="stage">
+          <svg id="house" viewBox="0 0 24 22" fill="none">
+            <path d="M2 10.5L12 2l10 8.5" stroke="#DF7F4D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4.5 9.5V20h15V9.5" stroke="#292420" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9.5 20v-6h5v6" stroke="#292420" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 6.2c.9 0 1.7.6 1.7 1.5 0 1.2-1.7 2.3-1.7 2.3s-1.7-1.1-1.7-2.3c0-.9.8-1.5 1.7-1.5z" fill="#DF7F4D"/>
+          </svg>
+          <h2 class="line serif" id="s2-line">Du trenger ikke dra<br />til <span class="em">legekontoret</span>.</h2>
+        </div>
+      </section>
+
+      <!-- S3: 6.5–13 -->
+      <section id="s3" class="clip" data-start="6.5" data-duration="6.5" data-track-index="2">
+        <div id="s3-inner" style="position:absolute; inset:0;">
+          <div id="s3-kicker">Slik fungerer det</div>
+          <div class="step" id="st-1"><div class="num">1</div><div class="txt">Book videotime</div></div>
+          <div class="step" id="st-2"><div class="num">2</div><div class="txt">Snakk med legen</div></div>
+          <div class="step" id="st-3"><div class="num">3</div><div class="txt">Sykmelding — digitalt</div></div>
+          <div id="s3-punch" class="serif">Alt fra sofaen.</div>
+        </div>
+      </section>
+
+      <!-- S4: 13–16 end card -->
+      <section id="s4" class="clip" data-start="13" data-duration="3" data-track-index="2">
+        <div class="stage">
+          <div class="wm serif" id="s4-wm">Neurobelle<span class="dot">.</span></div>
+          <div class="rule" id="s4-rule"></div>
+          <div class="cta serif" id="s4-cta">Bestill videotime</div>
+          <div class="url" id="s4-url">neurobelleklinikk.com/bestill-time</div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo("#decor .glow-a", { scale: 0.9 }, { scale: 1.15, duration: 13, ease: "sine.inOut" }, 0);
+      tl.from(["#decor .hair", "#decor .wm"], { y: -30, opacity: 0, duration: 0.6, ease: "power3.out", stagger: 0.08 }, 0.1);
+
+      // S1
+      tl.from("#s1-kicker", { y: 40, opacity: 0, duration: 0.5, ease: "power3.out" }, 0.25);
+      tl.from("#s1-q", { y: 90, opacity: 0, duration: 0.7, ease: "power4.out" }, 0.45);
+      tl.to("#s1 .stage", { y: -150, opacity: 0, duration: 0.45, ease: "power3.in" }, 2.55);
+      tl.set("#s1 .stage", { opacity: 0 }, 3.0);
+
+      // S2 rides the current; house draws itself
+      tl.from("#s2 .stage", { y: 150, opacity: 0, duration: 0.55, ease: "power3.out" }, 3.0);
+      tl.from("#house path", { opacity: 0, scale: 0.85, transformOrigin: "50% 100%", duration: 0.45, ease: "power2.out", stagger: 0.12 }, 3.3);
+      tl.from("#s2-line", { y: 60, opacity: 0, duration: 0.55, ease: "power3.out" }, 3.9);
+      tl.to("#s2 .stage", { x: -220, opacity: 0, duration: 0.45, ease: "power3.in" }, 6.05);
+      tl.set("#s2 .stage", { opacity: 0 }, 6.5);
+
+      // S3 steps cascade in from the right (continuing the leftward current)
+      tl.from("#s3-kicker", { x: 220, opacity: 0, duration: 0.5, ease: "power3.out" }, 6.5);
+      tl.from("#st-1", { x: 260, opacity: 0, duration: 0.5, ease: "power4.out" }, 6.85);
+      tl.from("#st-2", { x: 260, opacity: 0, duration: 0.5, ease: "power4.out" }, 7.75);
+      tl.from("#st-3", { x: 260, opacity: 0, duration: 0.5, ease: "power4.out" }, 8.65);
+      tl.from("#s3-punch", { y: 60, opacity: 0, duration: 0.6, ease: "power3.out" }, 9.9);
+      tl.to("#s3-inner", { opacity: 0, duration: 0.3, ease: "power2.in" }, 12.65);
+      tl.set("#s3-inner", { opacity: 0 }, 13.0);
+      tl.to("#decor-inner", { opacity: 0, duration: 0.3, ease: "power2.in" }, 12.65);
+      tl.set("#decor-inner", { opacity: 0 }, 13.0);
+
+      // S4 close
+      tl.from("#s4-wm", { y: 60, opacity: 0, duration: 0.6, ease: "power3.out" }, 13.12);
+      tl.from("#s4-rule", { scaleX: 0, duration: 0.45, ease: "power3.out" }, 13.5);
+      tl.from("#s4-cta", { y: 40, opacity: 0, duration: 0.5, ease: "power3.out" }, 13.75);
+      tl.from("#s4-url", { opacity: 0, duration: 0.5, ease: "power2.out" }, 14.1);
+
+      tl.seek(0);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
