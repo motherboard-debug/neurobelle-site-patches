@@ -26,3 +26,22 @@ Bilder av selve klinikken/kontoret brukes IKKE inntil videre — verken AI-gener
 - Eksakt brand-hex i prompten (terrakotta #DF7F4D, nær-svart #292420, fersken #FAEADB, mint #DCEDE3, skoggrønn #21402F)
 - 9:16 = 1152×2048 standard · «no real faces» for AVIDA · nedre tredjedel ren for stickers
 - Bruk scraped-fotoene (ekte klinikkbilder fra nettsiden) som referansebilder i Bloom
+
+---
+# AMENDMENT (loop-batch-enforcer §1) — utvidet kanon
+
+## §1.1 Utvidet blokkliste (hard reject, G6)
+Alt over PLUSS: pollen/gress/blomstereng som motiv (selv i pollen-sesonginnhold — bruk pasient som gnir øynene / immunrespons-visualisering) · ALL mat som hovedmotiv · blodtrykksmåler-stock og klisjé-apparatbilder uten menneske · generiske naturbilder uansett årstid · såpe/spa-rekvisitter · tomme interiører · frittstående apparater.
+
+## §1.2 Positiv kanon (det Bloom/Kling SKAL lage)
+1. **Anatomi-visualisering**: hjerne, nervebaner, muskulatur, ledd — stilisert i brand-palett, editorial 3D/illustrativ, aldri skummel
+2. **Celle-/mikronivå**: nevroner, synapser, signalveier — samme varme grade
+3. **Pasient merker symptom**: hånd mot tinning/nakke/kne, person som kjenner etter — ekte mennesker, varmt lys
+4. **Lege/pasient-interaksjon**: konsultasjon, undersøkelse, videolege, forklaring med modell i hånd
+5. **Klinisk velvære**: behandlingsrom/klinikkdetaljer KUN med menneske eller medisinsk element til stede (NB: bilder av VÅR klinikk er parkert — gjelder generiske kliniske miljøer)
+
+## Bloom prompt-prefix (obligatorisk)
+"warm editorial medical illustration OR clinical photography; anatomy/cellular visualization in cream-amber-green brand palette, or real people noticing symptoms / doctor-patient interaction. NEVER: food, nature scenery, pollen, candles, spa props, empty interiors, standalone devices."
+
+## Sesongregel (enforcer §6)
+Sesong påvirker TEMA og COPY — aldri bildemotiv. «Pollensesong» → pasient som gnir øynene eller immunrespons-visualisering, ALDRI pollen/gress.
