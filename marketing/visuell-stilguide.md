@@ -8,11 +8,11 @@ Kaviyans direktiv — gjelder ALL bildegenerering (Bloom, fal.ai, Canva, lokal m
 - Stemnings-rekvisitter: strikkepledd, stearinlys, kaffekopper som hovedmotiv
 - Generiske «livsstils»-bilder uten medisinsk relevans
 
-## ⚠️ KLINIKKBILDER: KUN EKTE FOTO
-Bilder av klinikken/kontoret skal ALDRI AI-genereres. Bruk EKTE foto fra Google Business-profilen (eller egne opptak), lett pusset opp (eksponering/varme/beskjæring). Finnes ikke ekte foto av motivet → dropp motivet, ikke generer det.
+## ⚠️ KLINIKKBILDER: PARKERT (per Kaviyan, aug 2026)
+Bilder av selve klinikken/kontoret brukes IKKE inntil videre — verken AI-genererte (forbudt) eller ekte (venter på foto fra Google Business-profilen). Når ekte foto leveres (Drive eller repo), pusses de opp og tas i bruk. Frem til da: bruk kategoriene 2–6 under.
 
 ## ✅ ALLTID (velg fra disse kategoriene)
-1. **Klinikk-miljø**: KUN ekte foto fra Google Business-profil / egne opptak (se over)
+1. ~~Klinikk-miljø~~ — PARKERT, se over
 2. **Lege–pasient**: samtale, undersøkelse, lytting (AVIDA: anonymt/rygg/hender)
 3. **Pasient kjenner på symptom**: hånd mot tinning (hodepine), skjelvende hånd, trett person ved skrivebord — gjenkjennbart og relevant
 4. **Anatomi-visualisering**: hjerne, nervesystem, nevroner/synapser, celler — elegant medisinsk illustrasjon i brand-farger
