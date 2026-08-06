@@ -41,8 +41,9 @@ Malen: S1 hook · S2 info · S3 standout · S4 visuell/foto · S5 løsning · S6
 | K15-hostsjekk | KLINIKK | 🍂 Book høstsjekken i august |
 | K16-hjernetake-ferie | AVIDA | 🍂 Hjernetåke etter ferien |
 
-## 🖼 stories-stills/ (10 stk, 9:16 1080×1920)
+## 🖼 stories-stills/ (14 stk, 9:16 1080×1920)
 ST01 Velkommen tilbake · ST02 Høstsjekk · ST03 Søvnrytme · ST04 «1 av 7» migrene-stat · ST05 Vaksinestatus · ST06 Helse-sitat (terrakotta) · ST07 Blodtrykk-quiz · ST08 Telehelse nasjonalt · ST09 Skjelvinger · ST10 Book-CTA (mørk)
+**Nye stilguide-kompatible (erstatter 4 slettede Bloom-stories):** ST11 Næring til hjernen (anatomi-grafikk) · ST12 Reisevaksiner (skjold) · ST13 Video i hele Norge (telefon+puls) · ST14 Går du på reserve? (batteri, ikke stearinlys)
 Interaktive stickers (poll/quiz/swipe) legges på i Instagram.
 
 ## 🎞 story-motion/ (10 stk, 6s, 9:16, tekst inn/ut)
