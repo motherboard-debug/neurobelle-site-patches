@@ -6,105 +6,118 @@
       "file": "reels/AVIDA_5vaner.mp4",
       "engine": "local-engine",
       "api_ref": "lokal render (Pillow+FFmpeg)",
-      "timestamp": "2026-08-05T17:29:17.608332+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "reel-9x16",
-      "tema": "hjernehelse-vaner"
+      "tema": "hjernehelse-vaner",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
     },
     {
       "file": "reels/AVIDA_blodsukker.mp4",
       "engine": "local-engine",
       "api_ref": "lokal render (Pillow+FFmpeg)",
-      "timestamp": "2026-08-05T17:29:17.609657+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "reel-9x16",
-      "tema": "blodsukker"
+      "tema": "blodsukker",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
     },
     {
       "file": "reels/HF_A1-hjernetake.mp4",
       "engine": "hyperframes",
       "api_ref": "lokal render (npx hyperframes render)",
-      "timestamp": "2026-08-05T17:29:19.018038+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "reel-9x16",
-      "tema": "hjernetake"
+      "tema": "hjernetake",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
     },
     {
       "file": "reels/HF_B3-parorende.mp4",
       "engine": "hyperframes",
       "api_ref": "lokal render (npx hyperframes render)",
-      "timestamp": "2026-08-05T17:29:19.282038+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "reel-9x16",
-      "tema": "parorende-hukommelse"
+      "tema": "parorende-hukommelse",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
     },
     {
       "file": "reels/HF_C1-sykmelding-hjemmefra.mp4",
       "engine": "hyperframes",
       "api_ref": "lokal render (npx hyperframes render)",
-      "timestamp": "2026-08-05T17:29:18.734038+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "reel-9x16",
-      "tema": "sykmelding-digital"
+      "tema": "sykmelding-digital",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
     },
     {
       "file": "reels/HF_D3-sovnloshet.mp4",
       "engine": "hyperframes",
       "api_ref": "lokal render (npx hyperframes render)",
-      "timestamp": "2026-08-05T17:29:19.386038+00:00",
+      "timestamp": "2026-08-07T09:40:38.727395+00:00",
       "format_id": "reel-9x16",
-      "tema": "sovnloshet"
+      "tema": "sovnloshet",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
     },
     {
       "file": "reels/HF_E2-spesialist-uten-ventetid.mp4",
       "engine": "hyperframes",
       "api_ref": "lokal render (npx hyperframes render)",
-      "timestamp": "2026-08-05T17:29:18.250038+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "reel-9x16",
-      "tema": "spesialist-ventetid"
+      "tema": "spesialist-ventetid",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
     },
     {
       "file": "reels/HF_E5-bli-tatt-pa-alvor.mp4",
       "engine": "hyperframes",
       "api_ref": "lokal render (npx hyperframes render)",
-      "timestamp": "2026-08-05T17:29:18.442038+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "reel-9x16",
-      "tema": "bli-tatt-pa-alvor"
+      "tema": "bli-tatt-pa-alvor",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
     },
     {
       "file": "reels/R_livsstil.mp4",
       "engine": "local-engine",
       "api_ref": "lokal render (Pillow+FFmpeg)",
-      "timestamp": "2026-08-05T17:29:17.314038+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "reel-9x16",
-      "tema": "livsstil"
+      "tema": "livsstil",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
     },
     {
       "file": "reels/R_resept.mp4",
       "engine": "local-engine",
       "api_ref": "lokal render (Pillow+FFmpeg)",
-      "timestamp": "2026-08-05T17:29:17.358038+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "reel-9x16",
-      "tema": "digital-resept"
+      "tema": "digital-resept",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
     },
     {
       "file": "reels/R_telehelse.mp4",
       "engine": "local-engine",
       "api_ref": "lokal render (Pillow+FFmpeg)",
-      "timestamp": "2026-08-05T17:29:17.362353+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "reel-9x16",
-      "tema": "telehelse"
+      "tema": "telehelse",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
     },
     {
       "file": "reels/R_tremor.mp4",
       "engine": "local-engine",
       "api_ref": "lokal render (Pillow+FFmpeg)",
-      "timestamp": "2026-08-05T17:29:17.602038+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "reel-9x16",
-      "tema": "tremor"
+      "tema": "tremor",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
     },
     {
       "file": "reels/R_vaksine.mp4",
       "engine": "local-engine",
       "api_ref": "lokal render (Pillow+FFmpeg)",
-      "timestamp": "2026-08-05T17:29:17.605678+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "reel-9x16",
-      "tema": "reisevaksine"
+      "tema": "reisevaksine",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
     },
     {
       "file": "karuseller/K01-migrene/S1.png",
@@ -990,81 +1003,294 @@
       "file": "story-motion/SM01-ny-start.mp4",
       "engine": "local-engine",
       "api_ref": "lokal render (Pillow+FFmpeg)",
-      "timestamp": "2026-08-05T17:34:03.699916+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "story-motion-9x16",
-      "tema": "SM01-ny-start"
+      "tema": "SM01-ny-start",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
     },
     {
       "file": "story-motion/SM02-hodepine-ferie.mp4",
       "engine": "local-engine",
       "api_ref": "lokal render (Pillow+FFmpeg)",
-      "timestamp": "2026-08-05T17:34:05.233879+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "story-motion-9x16",
-      "tema": "SM02-hodepine-ferie"
+      "tema": "SM02-hodepine-ferie",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
     },
     {
       "file": "story-motion/SM03-hostsjekk.mp4",
       "engine": "local-engine",
       "api_ref": "lokal render (Pillow+FFmpeg)",
-      "timestamp": "2026-08-05T17:34:07.056211+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "story-motion-9x16",
-      "tema": "SM03-hostsjekk"
+      "tema": "SM03-hostsjekk",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
     },
     {
       "file": "story-motion/SM04-sovn.mp4",
       "engine": "local-engine",
       "api_ref": "lokal render (Pillow+FFmpeg)",
-      "timestamp": "2026-08-05T17:34:09.196801+00:00",
+      "timestamp": "2026-08-07T09:40:38.727487+00:00",
       "format_id": "story-motion-9x16",
-      "tema": "SM04-sovn"
+      "tema": "SM04-sovn",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
     },
     {
       "file": "story-motion/SM05-resept.mp4",
       "engine": "local-engine",
       "api_ref": "lokal render (Pillow+FFmpeg)",
-      "timestamp": "2026-08-05T17:34:10.623215+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "story-motion-9x16",
-      "tema": "SM05-resept"
+      "tema": "SM05-resept",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
     },
     {
       "file": "story-motion/SM06-migrene.mp4",
       "engine": "local-engine",
       "api_ref": "lokal render (Pillow+FFmpeg)",
-      "timestamp": "2026-08-05T17:34:12.122895+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "story-motion-9x16",
-      "tema": "SM06-migrene"
+      "tema": "SM06-migrene",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
     },
     {
       "file": "story-motion/SM07-tremor.mp4",
       "engine": "local-engine",
       "api_ref": "lokal render (Pillow+FFmpeg)",
-      "timestamp": "2026-08-05T17:34:13.587914+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "story-motion-9x16",
-      "tema": "SM07-tremor"
+      "tema": "SM07-tremor",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
     },
     {
       "file": "story-motion/SM08-du-velger.mp4",
       "engine": "local-engine",
       "api_ref": "lokal render (Pillow+FFmpeg)",
-      "timestamp": "2026-08-05T17:34:15.271267+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "story-motion-9x16",
-      "tema": "SM08-du-velger"
+      "tema": "SM08-du-velger",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
     },
     {
       "file": "story-motion/SM09-stress.mp4",
       "engine": "local-engine",
       "api_ref": "lokal render (Pillow+FFmpeg)",
-      "timestamp": "2026-08-05T17:34:16.714449+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "story-motion-9x16",
-      "tema": "SM09-stress"
+      "tema": "SM09-stress",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
     },
     {
       "file": "story-motion/SM10-august-cta.mp4",
       "engine": "local-engine",
       "api_ref": "lokal render (Pillow+FFmpeg)",
-      "timestamp": "2026-08-05T17:34:18.158088+00:00",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
       "format_id": "story-motion-9x16",
-      "tema": "SM10-august-cta"
+      "tema": "SM10-august-cta",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
+    },
+    {
+      "file": "reels/KLING_hjernen.mp4",
+      "engine": "kling",
+      "api_ref": "https://v3b.fal.media/files/b/0aa55cb2/BmjvaNvcw9n74BGqUiZsy_output.mp4 + https://v3b.fal.media/files/b/0aa54e70/vfrakI9bcbvYOVm-W5mUa_output.mp4",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "reel-9x16",
+      "tema": "anatomi-hjernehelse",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "reels/KLING_signal.mp4",
+      "engine": "kling",
+      "api_ref": "https://v3b.fal.media/files/b/0aa54e9a/veEHP8VgJsLi4lmOa_SVX_output.mp4 + https://v3b.fal.media/files/b/0aa54eae/Jckp0sfs1r1PXwt4ej0rW_output.mp4",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "reel-9x16",
+      "tema": "kropps-signal",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_AVATAR_velkommen.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "2gUjkebdbwxURBcoyAXW",
+      "timestamp": "2026-08-07T09:24:10.766809+00:00",
+      "format_id": "vo-mp3",
+      "tema": "klinikk-velkomst",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_AVATAR_videotime.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "H8vrOVD2LvV6oVb8o0By",
+      "timestamp": "2026-08-07T09:24:11.908350+00:00",
+      "format_id": "vo-mp3",
+      "tema": "videotime-forklaring",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_AVIDA_5vaner.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "9kU4aiu5XL6Y1Ynd6xjE",
+      "timestamp": "2026-08-07T09:23:55.223253+00:00",
+      "format_id": "vo-mp3",
+      "tema": "hjernehelse-vaner",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_AVIDA_blodsukker.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "nUWwBA8EkhP6fvJYz5rM",
+      "timestamp": "2026-08-07T09:23:56.660488+00:00",
+      "format_id": "vo-mp3",
+      "tema": "blodsukker",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_HF_A1-hjernetake.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "ZkAO1D2x6bZzkodOH0lE",
+      "timestamp": "2026-08-07T09:23:58.047045+00:00",
+      "format_id": "vo-mp3",
+      "tema": "hjernetake",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_HF_B3-parorende.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "5PVJuaQokAEAkKOWN6r3",
+      "timestamp": "2026-08-07T09:23:59.249679+00:00",
+      "format_id": "vo-mp3",
+      "tema": "parorende-omsorg",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_HF_C1-sykmelding-hjemmefra.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "onCS9DS2mtOYghTE7LRS",
+      "timestamp": "2026-08-07T09:23:50.346240+00:00",
+      "format_id": "vo-mp3",
+      "tema": "sykmelding-digital",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_HF_D3-sovnloshet.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "9wn4F1DYk7z6KNBZn6Wp",
+      "timestamp": "2026-08-07T09:24:00.672467+00:00",
+      "format_id": "vo-mp3",
+      "tema": "sovnloshet",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_HF_E2-spesialist-uten-ventetid.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "pZV6Nlupssw9SBay8SkY",
+      "timestamp": "2026-08-07T09:24:01.848725+00:00",
+      "format_id": "vo-mp3",
+      "tema": "spesialist-tilgjengelighet",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_HF_E5-bli-tatt-pa-alvor.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "2P3akWmkt59dTPDi7Fl2",
+      "timestamp": "2026-08-07T09:24:03.124427+00:00",
+      "format_id": "vo-mp3",
+      "tema": "bli-tatt-pa-alvor",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_KLING_hjernen.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "1c1NWPVSDwzLYlKmLsjg",
+      "timestamp": "2026-08-07T09:24:07.912483+00:00",
+      "format_id": "vo-mp3",
+      "tema": "anatomi-hjernehelse",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_KLING_signal.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "wbQo31TWRnZJVJ7giGoz",
+      "timestamp": "2026-08-07T09:24:09.168605+00:00",
+      "format_id": "vo-mp3",
+      "tema": "kropps-signal",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_R_livsstil.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "l5tQQ934SOBHSMtQkeTz",
+      "timestamp": "2026-08-07T09:23:49.139914+00:00",
+      "format_id": "vo-mp3",
+      "tema": "livsstil",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_R_resept.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "kg4vMThvYxy2BpeFNPHI",
+      "timestamp": "2026-08-07T09:24:05.038073+00:00",
+      "format_id": "vo-mp3",
+      "tema": "digital-resept",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_R_telehelse.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "ewkjStwET6u9KxsppeER",
+      "timestamp": "2026-08-07T09:23:51.899859+00:00",
+      "format_id": "vo-mp3",
+      "tema": "telehelse",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_R_tremor.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "hh4ML6QuGgnm3IqGpp8T",
+      "timestamp": "2026-08-07T09:23:53.552418+00:00",
+      "format_id": "vo-mp3",
+      "tema": "tremor-signal",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_R_vaksine.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "m1kBj6J31cDG9sk71H5f",
+      "timestamp": "2026-08-07T09:24:06.323444+00:00",
+      "format_id": "vo-mp3",
+      "tema": "reisevaksine",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "canva/CANVA_hjernen-alvor.png",
+      "engine": "canva",
+      "api_ref": "https://www.canva.com/d/gWv_WtfZfjwFa3C",
+      "timestamp": "2026-08-07T09:36:55.435905+00:00",
+      "format_id": "instagram-post-4x5",
+      "tema": "hjernehelse"
+    },
+    {
+      "file": "canva/CANVA_hostsjekk.png",
+      "engine": "canva",
+      "api_ref": "https://www.canva.com/d/gWv_WtfZfjwFa3C",
+      "timestamp": "2026-08-07T09:36:55.147390+00:00",
+      "format_id": "instagram-post-4x5",
+      "tema": "hostsjekk-kampanje"
+    },
+    {
+      "file": "canva/CANVA_sovn.png",
+      "engine": "canva",
+      "api_ref": "https://www.canva.com/d/gWv_WtfZfjwFa3C",
+      "timestamp": "2026-08-07T09:36:55.754033+00:00",
+      "format_id": "instagram-post-4x5",
+      "tema": "sovn-hjernehelse"
+    },
+    {
+      "file": "canva/CANVA_videotime.png",
+      "engine": "canva",
+      "api_ref": "https://www.canva.com/d/gWv_WtfZfjwFa3C",
+      "timestamp": "2026-08-07T09:36:56.055704+00:00",
+      "format_id": "instagram-post-4x5",
+      "tema": "telehelse"
     }
   ]
 }

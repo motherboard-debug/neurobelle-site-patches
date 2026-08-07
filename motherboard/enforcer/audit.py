@@ -164,9 +164,13 @@ def main():
             reasons.append("stum (ingen lydspor)")
         if not (DUR_MIN <= meta["duration"] <= DUR_MAX):
             reasons.append(f"varighet {meta['duration']:.1f}s utenfor {DUR_MIN}-{DUR_MAX}s")
-        vo = a.get("vo_voice_id")
-        if vo != KAVIYAN_VOICE_ID:
-            reasons.append(f"VO mangler/feil voice_id ({vo or 'ingen'})")
+        # Kaviyans spec-endring 2026-08-07 (beskjed i story-motion-mappen):
+        # story-motion-videoer skal ha bakgrunnsmusikk, IKKE voice-over.
+        # Lydspor-kravet består; vo_voice_id kreves kun utenfor story-motion/.
+        if not f.startswith("story-motion/"):
+            vo = a.get("vo_voice_id")
+            if vo != KAVIYAN_VOICE_ID:
+                reasons.append(f"VO mangler/feil voice_id ({vo or 'ingen'})")
         if reasons:
             disqualified.append((f, "; ".join(reasons)))
         else:

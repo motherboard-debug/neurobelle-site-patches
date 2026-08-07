@@ -4,13 +4,13 @@
     "status": "auditing",
     "counts": {
       "heygen": 0,
-      "kling": 0,
-      "canva": 0,
+      "kling": 2,
+      "canva": 4,
       "bloom": 0,
       "bloom_pct": 0.0,
-      "qualifying_videos": 0
+      "qualifying_videos": 25
     },
     "audit": "red",
-    "audited_at": "2026-08-06T11:49:03.122483+00:00"
+    "audited_at": "2026-08-07T09:40:52.166169+00:00"
   }
 }
