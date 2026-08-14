@@ -1,0 +1,66 @@
+{
+  "category": "kinetic-type",
+  "duration_s": 17.5,
+  "fps": 30,
+  "canvas": { "w": 1080, "h": 1920, "aspect": "9:16" },
+  "style": "Warm editorial, confident and trustworthy Norwegian medical-clinic brand piece. Light background (not the usual dark motion-graphics default), serif headlines paired with geometric sans body, real vector icon motifs (calendar/pages, building, phone, checkmark) — not decorative-only. One continuous camera current across all 5 scenes: each exit motivates the next entrance. No people, no faces, no medical claims beyond 'specialist assessment'.",
+  "palette": ["#FAEADB", "#292420", "#DF7F4D", "#DCEDE3", "#21402F"],
+  "font": "Playfair Display (headings) + Montserrat (body)",
+  "beats": [3.5, 7, 11, 14.5, 17.5],
+  "export": "mp4",
+  "asset_needs": [],
+  "content": {
+    "scenes": [
+      {
+        "id": "s1-question",
+        "start": 0,
+        "end": 3.5,
+        "text": "Trenger du en spesialist?",
+        "emphasis_words": ["spesialist"],
+        "emotion": "curious, direct address",
+        "motion": "headline builds in word-by-word or clause reveal; breathing terracotta radial glow behind; large ghost-text texture at low opacity for depth",
+        "beats": [0.2, 1.0]
+      },
+      {
+        "id": "s2-dontwait",
+        "start": 3.5,
+        "end": 7,
+        "text": "Ikke vent i måneder.",
+        "emphasis_words": ["måneder"],
+        "emotion": "tension, urgency without alarm",
+        "motion": "animated calendar/pages motif in terracotta line-art flips rapidly (real content visual, page count decreasing) then slams to a stop — the stop is the beat; text arrives synced to the stop, carried forward by scene 1's exit vector",
+        "beats": [3.7, 6.6]
+      },
+      {
+        "id": "s3-reveal",
+        "start": 7,
+        "end": 11,
+        "text": "Neurobelle gir deg nevrologisk spesialistvurdering — raskt.",
+        "emphasis_words": ["Neurobelle", "raskt"],
+        "emotion": "confident reassurance, the payoff",
+        "motion": "wordmark-led reveal continuing the same directional current as the calendar-stop exit; subtle single pulse/checkmark accent synced to 'raskt'; no idle wobble",
+        "beats": [7.2, 10.2]
+      },
+      {
+        "id": "s4-threeways",
+        "start": 11,
+        "end": 14.5,
+        "text": "Klinikk i Oslo / Eller video / Du velger",
+        "emphasis_words": ["Du velger"],
+        "emotion": "clarity, optionality",
+        "motion": "three beats staggered in sequence with varied layout (not identical repeated cards) — building icon+label, then phone/video icon+label offset differently, then checkmark+label as the resolving beat; each beat's exit motivates the next entrance in the same current",
+        "beats": [11.2, 12.4, 13.6]
+      },
+      {
+        "id": "s5-endcard",
+        "start": 14.5,
+        "end": 17.5,
+        "text": "Neurobelle — Bestill time — neurobelleklinikk.com/bestill-time",
+        "emphasis_words": ["Bestill time"],
+        "emotion": "settled close, clear CTA",
+        "motion": "hard cut to near-black stage-ground (seam-craft opaque background to avoid white-flash); wordmark lockup in Playfair Display, terracotta accent hairline, CTA in Montserrat resolves and holds to end",
+        "beats": [14.7, 16.0]
+      }
+    ]
+  }
+}

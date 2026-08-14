@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Neurobelle – Spesialist uten lang ventetid</title>
+    <script src="vendor/gsap.min.js"></script>
+    <!-- Fonts: Playfair Display + Montserrat resolved by the HyperFrames producer at
+         compile/render time from the font-family declarations below (no external <link>,
+         which hangs headless checks in offline/proxied environments). -->
+
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1080px; height: 1920px; overflow: hidden;
+        background: #faeadb;
+      }
+      body { font-family: "Montserrat", "DejaVu Sans", sans-serif; }
+      .serif { font-family: "Playfair Display", "DejaVu Serif", serif; }
+
+      #root {
+        position: relative; width: 1080px; height: 1920px; overflow: hidden;
+        /* seam-craft: opaque stage-ground, never white */
+        background: #faeadb;
+      }
+      .clip { position: absolute; inset: 0; }
+
+      /* ---------- persistent decorative layer ---------- */
+      #decor { z-index: 1; }
+      .glow {
+        position: absolute; border-radius: 50%;
+        background: radial-gradient(circle, rgba(223,127,77,0.28) 0%, rgba(223,127,77,0) 70%);
+      }
+      #glow-a { width: 900px; height: 900px; top: -180px; left: -240px; }
+      #glow-b { width: 700px; height: 700px; bottom: 40px; right: -220px;
+        background: radial-gradient(circle, rgba(220,237,227,0.55) 0%, rgba(220,237,227,0) 70%); }
+      #ghost {
+        position: absolute; top: 46%; left: -40px; width: 1400px;
+        font-size: 250px; font-weight: 800; color: #c87245; opacity: 0.05;
+        white-space: nowrap; letter-spacing: -6px;
+      }
+      #hairline-top {
+        position: absolute; top: 120px; left: 84px; width: 120px; height: 6px;
+        background: #df7f4d; border-radius: 3px;
+      }
+      #wordmark-top {
+        position: absolute; top: 150px; left: 84px;
+        font-size: 44px; font-weight: 700; color: #292420; letter-spacing: 0.5px;
+      }
+      #wordmark-top .dot { color: #b6673f; }
+
+      /* ---------- scene layout shells (inside clips) ---------- */
+      .stage { position: absolute; inset: 0; display: flex; flex-direction: column;
+        justify-content: center; padding: 0 84px; }
+
+      /* S1 */
+      #s1 .q { font-size: 108px; font-weight: 700; color: #292420; line-height: 1.12; }
+      #s1 .q .em { color: #c87245; }
+      #s1 .kicker { font-size: 34px; font-weight: 600; letter-spacing: 6px;
+        color: #21402f; text-transform: uppercase; margin-bottom: 36px; }
+
+      /* S2 */
+      #s2 .stage { align-items: flex-start; }
+      #cal {
+        width: 420px; height: 460px; margin-bottom: 70px; position: relative;
+      }
+      #cal .frame {
+        position: absolute; inset: 0; border: 10px solid #df7f4d; border-radius: 36px;
+        background: #fffdf9;
+      }
+      #cal .header {
+        position: absolute; top: 0; left: 0; right: 0; height: 96px;
+        background: #df7f4d; border-radius: 26px 26px 0 0;
+      }
+      #cal .rings { position: absolute; top: -26px; left: 0; right: 0;
+        display: flex; justify-content: space-around; }
+      #cal .rings span { width: 20px; height: 52px; background: #292420; border-radius: 10px; }
+      .page {
+        position: absolute; top: 130px; left: 40px; right: 40px; bottom: 40px;
+        background: #fffdf9; border-radius: 16px;
+        display: grid; place-items: center;
+        font-family: "Playfair Display", "DejaVu Serif", serif;
+        font-size: 150px; font-weight: 800; color: #292420;
+        transform-origin: 50% 0%;
+        box-shadow: 0 4px 24px rgba(41,36,32,0.10);
+      }
+      #s2 .line { font-size: 100px; font-weight: 700; color: #292420; line-height: 1.1; }
+      #s2 .line .em { color: #c87245; }
+
+      /* S3 */
+      #s3 .stage { align-items: flex-start; }
+      #s3 .brandline { font-size: 64px; font-weight: 800; color: #21402f; margin-bottom: 40px; }
+      #s3 .msg { font-size: 84px; font-weight: 700; color: #292420; line-height: 1.18; }
+      #s3 .msg .fast { color: #c87245; white-space: nowrap; display: inline-block; }
+      #s3 .pulse-wrap { margin-top: 70px; display: flex; align-items: center; gap: 28px; }
+      #s3 .check {
+        width: 110px; height: 110px; border-radius: 50%;
+        background: #21402f; display: grid; place-items: center;
+      }
+      #s3 .check svg { width: 60px; height: 60px; }
+      #s3 .check-label { font-size: 38px; font-weight: 600; color: #21402f; }
+
+      /* S4 */
+      .beat { position: absolute; left: 84px; right: 84px; display: flex; align-items: center; gap: 44px; }
+      #beat-1 { top: 480px; }
+      #beat-2 { top: 820px; flex-direction: row-reverse; text-align: right; }
+      #beat-3 { top: 1180px; justify-content: center; }
+      .beat .icon {
+        flex: 0 0 150px; width: 150px; height: 150px; border-radius: 40px;
+        display: grid; place-items: center;
+      }
+      #beat-1 .icon { background: #dcede3; }
+      #beat-2 .icon { background: #faeadb; border: 5px solid #df7f4d; }
+      #beat-3 .icon { background: #df7f4d; border-radius: 50%; }
+      .beat .icon svg { width: 78px; height: 78px; }
+      .beat .label { font-size: 62px; font-weight: 700; color: #292420; }
+      #beat-3 .label { color: #21402f; }
+      #s4-title { position: absolute; top: 300px; left: 84px; right: 84px;
+        font-size: 46px; font-weight: 600; letter-spacing: 4px; color: #21402f;
+        text-transform: uppercase; }
+
+      /* S5 – end card */
+      #s5 { background: #292420; }
+      #s5 .stage { align-items: center; text-align: center; }
+      #s5 .wm { font-size: 128px; font-weight: 700; color: #faeadb; }
+      #s5 .wm .dot { color: #df7f4d; }
+      #s5 .rule { width: 160px; height: 6px; background: #df7f4d; border-radius: 3px; margin: 52px 0; }
+      #s5 .cta { font-size: 66px; font-weight: 700; color: #ffffff; margin-bottom: 26px; }
+      #s5 .url { font-size: 40px; font-weight: 400; color: #dcede3; letter-spacing: 1px; }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="17.5"
+      data-width="1080"
+      data-height="1920"
+      data-layout-allow-overflow
+    >
+      <!-- persistent decorative depth: lives under scenes 1–4 -->
+      <div id="decor" class="clip" data-start="0" data-duration="14.5" data-track-index="1">
+        <div id="decor-inner" style="position:absolute; inset:0;">
+          <div id="glow-a" class="glow"></div>
+          <div id="glow-b" class="glow"></div>
+          <div id="ghost" class="serif">Neurobelle</div>
+          <div id="hairline-top"></div>
+          <div id="wordmark-top" class="serif">Neurobelle<span class="dot">.</span></div>
+        </div>
+      </div>
+
+      <!-- S1: 0–3.5s -->
+      <section id="s1" class="clip" data-start="0" data-duration="3.5" data-track-index="2">
+        <div class="stage">
+          <div class="kicker" id="s1-kicker">Nevrologi · Oslo</div>
+          <h1 class="q serif" id="s1-line1">Trenger du</h1>
+          <h1 class="q serif" id="s1-line2">en <span class="em">spesialist</span>?</h1>
+        </div>
+      </section>
+
+      <!-- S2: 3.5–7s -->
+      <section id="s2" class="clip" data-start="3.5" data-duration="3.5" data-track-index="2">
+        <div class="stage">
+          <div id="cal">
+            <div class="frame"></div>
+            <div class="header"></div>
+            <div class="rings"><span></span><span></span><span></span></div>
+            <div class="page" id="page-3" data-layout-allow-occlusion data-layout-allow-overlap>3</div>
+            <div class="page" id="page-2" data-layout-allow-occlusion data-layout-allow-overlap>2</div>
+            <div class="page" id="page-1" data-layout-allow-occlusion data-layout-allow-overlap>1</div>
+            <div class="page" id="page-0" data-layout-allow-occlusion data-layout-allow-overlap>✕</div>
+          </div>
+          <h2 class="line serif" id="s2-line">Ikke vent i <span class="em">måneder</span>.</h2>
+        </div>
+      </section>
+
+      <!-- S3: 7–11s -->
+      <section id="s3" class="clip" data-start="7" data-duration="4" data-track-index="2">
+        <div class="stage">
+          <div class="brandline serif" id="s3-brand">Neurobelle</div>
+          <h2 class="msg serif" id="s3-msg">
+            gir deg nevrologisk spesialistvurdering<br />— <span class="fast" id="s3-fast">raskt.</span>
+          </h2>
+          <div class="pulse-wrap" id="s3-pulse">
+            <div class="check">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 12.5l5 5L20 6.5" stroke="#DCEDE3" stroke-width="3.2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="check-label">Kort ventetid</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- S4: 11–14.5s -->
+      <section id="s4" class="clip" data-start="11" data-duration="3.5" data-track-index="2">
+        <div id="s4-inner" style="position:absolute; inset:0;">
+        <div id="s4-title">Slik møter du oss</div>
+        <div class="beat" id="beat-1">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"
+                stroke="#21402F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="label">Klinikk i Oslo</div>
+        </div>
+        <div class="beat" id="beat-2">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="7" y="2.5" width="10" height="19" rx="2.5" stroke="#DF7F4D" stroke-width="1.8"/>
+              <path d="M10.5 18.5h3" stroke="#DF7F4D" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M9.5 9.5l2.5 2 3-3.5" stroke="#DF7F4D" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="label">Eller video</div>
+        </div>
+        <div class="beat" id="beat-3">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 12.5l5 5L20 6.5" stroke="#FAEADB" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="label serif">Du velger.</div>
+        </div>
+        </div>
+      </section>
+
+      <!-- S5: 14.5–17.5s (hard cut, opaque near-black ground) -->
+      <section id="s5" class="clip" data-start="14.5" data-duration="3" data-track-index="2">
+        <div class="stage">
+          <div class="wm serif" id="s5-wm">Neurobelle<span class="dot">.</span></div>
+          <div class="rule" id="s5-rule"></div>
+          <div class="cta serif" id="s5-cta">Bestill time</div>
+          <div class="url" id="s5-url">neurobelleklinikk.com/bestill-time</div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      /* ---------- persistent decoratives: slow performing drift, not wobble ---------- */
+      tl.fromTo("#glow-a", { scale: 0.9, opacity: 0.7 }, { scale: 1.15, opacity: 1, duration: 14.5, ease: "sine.inOut" }, 0);
+      tl.fromTo("#ghost", { x: 0 }, { x: -220, duration: 14.5, ease: "none" }, 0);
+      tl.from(["#hairline-top", "#wordmark-top"], { y: -30, opacity: 0, duration: 0.6, ease: "power3.out", stagger: 0.08 }, 0.1);
+
+      /* ---------- S1 (0–3.5): build in, exit upward (sets the current) ---------- */
+      tl.from("#s1-kicker", { y: 40, opacity: 0, duration: 0.5, ease: "power3.out" }, 0.25);
+      tl.from("#s1-line1", { y: 90, opacity: 0, duration: 0.65, ease: "power4.out" }, 0.45);
+      tl.from("#s1-line2", { y: 90, opacity: 0, duration: 0.65, ease: "power4.out" }, 0.62);
+      // exit: rides up and out — this vector carries into S2's entrance
+      tl.to("#s1 .stage", { y: -160, opacity: 0, duration: 0.45, ease: "power3.in" }, 3.05);
+      tl.set("#s1 .stage", { opacity: 0 }, 3.5);
+
+      /* ---------- S2 (3.5–7): enters riding the same upward current ---------- */
+      tl.from("#s2 .stage", { y: 160, opacity: 0, duration: 0.55, ease: "power3.out" }, 3.5);
+      // calendar pages flip fast (months burning away), then slam stop
+      tl.set(["#page-2", "#page-1", "#page-0"], { rotationX: -95, opacity: 0 }, 3.5);
+      tl.to("#page-3", { rotationX: 95, opacity: 0, duration: 0.34, ease: "power2.in" }, 4.15);
+      tl.to("#page-2", { rotationX: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 4.32);
+      tl.to("#page-2", { rotationX: 95, opacity: 0, duration: 0.3, ease: "power2.in" }, 4.72);
+      tl.to("#page-1", { rotationX: 0, opacity: 1, duration: 0.28, ease: "power2.out" }, 4.88);
+      tl.to("#page-1", { rotationX: 95, opacity: 0, duration: 0.26, ease: "power2.in" }, 5.22);
+      // the slam: ✕ page lands hard with a squash-settle
+      tl.to("#page-0", { rotationX: 0, opacity: 1, duration: 0.22, ease: "power3.out" }, 5.38);
+      tl.fromTo("#cal", { scale: 1 }, { scale: 1.045, duration: 0.1, ease: "power2.out" }, 5.55);
+      tl.to("#cal", { scale: 1, duration: 0.22, ease: "elastic.out(1, 0.5)" }, 5.65);
+      tl.from("#s2-line", { y: 60, opacity: 0, duration: 0.5, ease: "power3.out" }, 5.6);
+      // exit: slide left — horizontal current into S3
+      tl.to("#s2 .stage", { x: -220, opacity: 0, duration: 0.45, ease: "power3.in" }, 6.55);
+      tl.set("#s2 .stage", { opacity: 0 }, 7.0);
+
+      /* ---------- S3 (7–11): enters from right, continuing the leftward current ---------- */
+      tl.from("#s3 .stage", { x: 220, opacity: 0, duration: 0.55, ease: "power3.out" }, 7.0);
+      tl.from("#s3-brand", { y: 40, opacity: 0, duration: 0.5, ease: "power3.out" }, 7.15);
+      tl.from("#s3-msg", { y: 60, opacity: 0, duration: 0.6, ease: "power3.out" }, 7.35);
+      // single performing pulse on "raskt." — synced accent, then stillness
+      tl.fromTo("#s3-fast", { scale: 1 }, { scale: 1.12, duration: 0.18, ease: "power2.out" }, 8.15);
+      tl.to("#s3-fast", { scale: 1, duration: 0.35, ease: "elastic.out(1.2, 0.5)" }, 8.33);
+      tl.from("#s3-pulse", { y: 50, opacity: 0, duration: 0.5, ease: "power3.out" }, 8.6);
+      // exit: scale-down recede (Z-current) into S4's arrival
+      tl.to("#s3 .stage", { scale: 0.92, opacity: 0, duration: 0.45, ease: "power3.in" }, 10.55);
+      tl.set("#s3 .stage", { opacity: 0 }, 11.0);
+
+      /* ---------- S4 (11–14.5): waterfall entry — beats cascade, varied vectors ---------- */
+      tl.from("#s4-title", { opacity: 0, y: 30, duration: 0.45, ease: "power3.out" }, 11.05);
+      tl.from("#beat-1", { x: -260, opacity: 0, duration: 0.55, ease: "power4.out" }, 11.25);
+      tl.from("#beat-2", { x: 260, opacity: 0, duration: 0.55, ease: "power4.out" }, 12.35);
+      tl.from("#beat-3", { scale: 0.6, opacity: 0, duration: 0.5, ease: "back.out(1.6)" }, 13.45);
+      // stillness-before-cut, then the scene and decor recede into dark
+      tl.to("#s4-inner", { opacity: 0, duration: 0.28, ease: "power2.in" }, 14.22);
+      tl.to("#decor-inner", { opacity: 0, duration: 0.28, ease: "power2.in" }, 14.22);
+      tl.set("#s4-inner", { opacity: 0 }, 14.5);
+      tl.set("#decor-inner", { opacity: 0 }, 14.5);
+
+      /* ---------- S5 (14.5–17.5): end card resolves and holds ---------- */
+      tl.from("#s5-wm", { y: 60, opacity: 0, duration: 0.6, ease: "power3.out" }, 14.62);
+      tl.from("#s5-rule", { scaleX: 0, duration: 0.45, ease: "power3.out" }, 15.0);
+      tl.from("#s5-cta", { y: 40, opacity: 0, duration: 0.5, ease: "power3.out" }, 15.25);
+      tl.from("#s5-url", { opacity: 0, duration: 0.5, ease: "power2.out" }, 15.6);
+
+      tl.seek(0);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

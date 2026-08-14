@@ -1,0 +1,1296 @@
+{
+  "batch": "2026-08",
+  "generated_at": "2026-08-06T11:48:43.814622+00:00",
+  "assets": [
+    {
+      "file": "reels/AVIDA_5vaner.mp4",
+      "engine": "local-engine",
+      "api_ref": "lokal render (Pillow+FFmpeg)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "reel-9x16",
+      "tema": "hjernehelse-vaner",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "reels/AVIDA_blodsukker.mp4",
+      "engine": "local-engine",
+      "api_ref": "lokal render (Pillow+FFmpeg)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "reel-9x16",
+      "tema": "blodsukker",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "reels/HF_A1-hjernetake.mp4",
+      "engine": "hyperframes",
+      "api_ref": "lokal render (npx hyperframes render)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "reel-9x16",
+      "tema": "hjernetake",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "reels/HF_B3-parorende.mp4",
+      "engine": "hyperframes",
+      "api_ref": "lokal render (npx hyperframes render)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "reel-9x16",
+      "tema": "parorende-hukommelse",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "reels/HF_C1-sykmelding-hjemmefra.mp4",
+      "engine": "hyperframes",
+      "api_ref": "lokal render (npx hyperframes render)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "reel-9x16",
+      "tema": "sykmelding-digital",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "reels/HF_D3-sovnloshet.mp4",
+      "engine": "hyperframes",
+      "api_ref": "lokal render (npx hyperframes render)",
+      "timestamp": "2026-08-07T09:40:38.727395+00:00",
+      "format_id": "reel-9x16",
+      "tema": "sovnloshet",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "reels/HF_E2-spesialist-uten-ventetid.mp4",
+      "engine": "hyperframes",
+      "api_ref": "lokal render (npx hyperframes render)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "reel-9x16",
+      "tema": "spesialist-ventetid",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "reels/HF_E5-bli-tatt-pa-alvor.mp4",
+      "engine": "hyperframes",
+      "api_ref": "lokal render (npx hyperframes render)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "reel-9x16",
+      "tema": "bli-tatt-pa-alvor",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "reels/R_livsstil.mp4",
+      "engine": "local-engine",
+      "api_ref": "lokal render (Pillow+FFmpeg)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "reel-9x16",
+      "tema": "livsstil",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "reels/R_resept.mp4",
+      "engine": "local-engine",
+      "api_ref": "lokal render (Pillow+FFmpeg)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "reel-9x16",
+      "tema": "digital-resept",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "reels/R_telehelse.mp4",
+      "engine": "local-engine",
+      "api_ref": "lokal render (Pillow+FFmpeg)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "reel-9x16",
+      "tema": "telehelse",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "reels/R_tremor.mp4",
+      "engine": "local-engine",
+      "api_ref": "lokal render (Pillow+FFmpeg)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "reel-9x16",
+      "tema": "tremor",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "reels/R_vaksine.mp4",
+      "engine": "local-engine",
+      "api_ref": "lokal render (Pillow+FFmpeg)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "reel-9x16",
+      "tema": "reisevaksine",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "karuseller/K01-migrene/S1.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:20.430045+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K01-migrene"
+    },
+    {
+      "file": "karuseller/K01-migrene/S2.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:20.466045+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K01-migrene"
+    },
+    {
+      "file": "karuseller/K01-migrene/S3.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:20.498045+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K01-migrene"
+    },
+    {
+      "file": "karuseller/K01-migrene/S4.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:20.538045+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K01-migrene"
+    },
+    {
+      "file": "karuseller/K01-migrene/S5.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:20.570045+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K01-migrene"
+    },
+    {
+      "file": "karuseller/K01-migrene/S6.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:20.594045+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K01-migrene"
+    },
+    {
+      "file": "karuseller/K02-blodsukker/S1.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:20.630045+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K02-blodsukker"
+    },
+    {
+      "file": "karuseller/K02-blodsukker/S2.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:20.658046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K02-blodsukker"
+    },
+    {
+      "file": "karuseller/K02-blodsukker/S3.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:20.690046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K02-blodsukker"
+    },
+    {
+      "file": "karuseller/K02-blodsukker/S4.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:20.730046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K02-blodsukker"
+    },
+    {
+      "file": "karuseller/K02-blodsukker/S5.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:20.762045+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K02-blodsukker"
+    },
+    {
+      "file": "karuseller/K02-blodsukker/S6.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:20.794045+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K02-blodsukker"
+    },
+    {
+      "file": "karuseller/K03-digital-resept/S1.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:20.830045+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K03-digital-resept"
+    },
+    {
+      "file": "karuseller/K03-digital-resept/S2.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:20.862046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K03-digital-resept"
+    },
+    {
+      "file": "karuseller/K03-digital-resept/S3.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:20.894046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K03-digital-resept"
+    },
+    {
+      "file": "karuseller/K03-digital-resept/S4.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:21.394046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K03-digital-resept"
+    },
+    {
+      "file": "karuseller/K03-digital-resept/S5.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:21.430046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K03-digital-resept"
+    },
+    {
+      "file": "karuseller/K03-digital-resept/S6.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:21.458045+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K03-digital-resept"
+    },
+    {
+      "file": "karuseller/K04-telehelse-5/S1.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:21.498045+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K04-telehelse-5"
+    },
+    {
+      "file": "karuseller/K04-telehelse-5/S2.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:21.530046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K04-telehelse-5"
+    },
+    {
+      "file": "karuseller/K04-telehelse-5/S3.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:21.562046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K04-telehelse-5"
+    },
+    {
+      "file": "karuseller/K04-telehelse-5/S4.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:21.910046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K04-telehelse-5"
+    },
+    {
+      "file": "karuseller/K04-telehelse-5/S5.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:21.950046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K04-telehelse-5"
+    },
+    {
+      "file": "karuseller/K04-telehelse-5/S6.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:21.978045+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K04-telehelse-5"
+    },
+    {
+      "file": "karuseller/K05-sovn/S1.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:22.018046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K05-sovn"
+    },
+    {
+      "file": "karuseller/K05-sovn/S2.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:22.050045+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K05-sovn"
+    },
+    {
+      "file": "karuseller/K05-sovn/S3.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:22.082046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K05-sovn"
+    },
+    {
+      "file": "karuseller/K05-sovn/S4.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:22.122046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K05-sovn"
+    },
+    {
+      "file": "karuseller/K05-sovn/S5.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:22.154046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K05-sovn"
+    },
+    {
+      "file": "karuseller/K05-sovn/S6.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:22.182045+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K05-sovn"
+    },
+    {
+      "file": "karuseller/K06-kosthold/S1.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:22.222046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K06-kosthold"
+    },
+    {
+      "file": "karuseller/K06-kosthold/S2.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:22.258046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K06-kosthold"
+    },
+    {
+      "file": "karuseller/K06-kosthold/S3.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:22.286046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K06-kosthold"
+    },
+    {
+      "file": "karuseller/K06-kosthold/S4.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:22.322046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K06-kosthold"
+    },
+    {
+      "file": "karuseller/K06-kosthold/S5.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:22.354046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K06-kosthold"
+    },
+    {
+      "file": "karuseller/K06-kosthold/S6.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:22.382046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K06-kosthold"
+    },
+    {
+      "file": "karuseller/K07-nevro-konsultasjon/S1.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:22.418046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K07-nevro-konsultasjon"
+    },
+    {
+      "file": "karuseller/K07-nevro-konsultasjon/S2.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:22.450046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K07-nevro-konsultasjon"
+    },
+    {
+      "file": "karuseller/K07-nevro-konsultasjon/S3.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:22.478046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K07-nevro-konsultasjon"
+    },
+    {
+      "file": "karuseller/K07-nevro-konsultasjon/S4.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:22.930046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K07-nevro-konsultasjon"
+    },
+    {
+      "file": "karuseller/K07-nevro-konsultasjon/S5.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:22.966046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K07-nevro-konsultasjon"
+    },
+    {
+      "file": "karuseller/K07-nevro-konsultasjon/S6.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:22.998046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K07-nevro-konsultasjon"
+    },
+    {
+      "file": "karuseller/K08-vaksiner-voksne/S1.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.034046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K08-vaksiner-voksne"
+    },
+    {
+      "file": "karuseller/K08-vaksiner-voksne/S2.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.070046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K08-vaksiner-voksne"
+    },
+    {
+      "file": "karuseller/K08-vaksiner-voksne/S3.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.098046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K08-vaksiner-voksne"
+    },
+    {
+      "file": "karuseller/K08-vaksiner-voksne/S4.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.434046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K08-vaksiner-voksne"
+    },
+    {
+      "file": "karuseller/K08-vaksiner-voksne/S5.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.474046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K08-vaksiner-voksne"
+    },
+    {
+      "file": "karuseller/K08-vaksiner-voksne/S6.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.502046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K08-vaksiner-voksne"
+    },
+    {
+      "file": "karuseller/K09-faq-video/S1.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.542046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K09-faq-video"
+    },
+    {
+      "file": "karuseller/K09-faq-video/S2.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.578046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K09-faq-video"
+    },
+    {
+      "file": "karuseller/K09-faq-video/S3.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.606046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K09-faq-video"
+    },
+    {
+      "file": "karuseller/K09-faq-video/S4.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.646046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K09-faq-video"
+    },
+    {
+      "file": "karuseller/K09-faq-video/S5.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.682046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K09-faq-video"
+    },
+    {
+      "file": "karuseller/K09-faq-video/S6.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.710046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K09-faq-video"
+    },
+    {
+      "file": "karuseller/K10-5-tegn/S1.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.750046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K10-5-tegn"
+    },
+    {
+      "file": "karuseller/K10-5-tegn/S2.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.782046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K10-5-tegn"
+    },
+    {
+      "file": "karuseller/K10-5-tegn/S3.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.810046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K10-5-tegn"
+    },
+    {
+      "file": "karuseller/K10-5-tegn/S4.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.842046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K10-5-tegn"
+    },
+    {
+      "file": "karuseller/K10-5-tegn/S5.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.882046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K10-5-tegn"
+    },
+    {
+      "file": "karuseller/K10-5-tegn/S6.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.906046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K10-5-tegn"
+    },
+    {
+      "file": "karuseller/K11-migrene-strategi/S1.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.938046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K11-migrene-strategi"
+    },
+    {
+      "file": "karuseller/K11-migrene-strategi/S2.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.966046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K11-migrene-strategi"
+    },
+    {
+      "file": "karuseller/K11-migrene-strategi/S3.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:23.998046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K11-migrene-strategi"
+    },
+    {
+      "file": "karuseller/K11-migrene-strategi/S4.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.030046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K11-migrene-strategi"
+    },
+    {
+      "file": "karuseller/K11-migrene-strategi/S5.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.058046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K11-migrene-strategi"
+    },
+    {
+      "file": "karuseller/K11-migrene-strategi/S6.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.082046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K11-migrene-strategi"
+    },
+    {
+      "file": "karuseller/K12-aldring/S1.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.118046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K12-aldring"
+    },
+    {
+      "file": "karuseller/K12-aldring/S2.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.146046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K12-aldring"
+    },
+    {
+      "file": "karuseller/K12-aldring/S3.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.170046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K12-aldring"
+    },
+    {
+      "file": "karuseller/K12-aldring/S4.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.202046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K12-aldring"
+    },
+    {
+      "file": "karuseller/K12-aldring/S5.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.230046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K12-aldring"
+    },
+    {
+      "file": "karuseller/K12-aldring/S6.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.254046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K12-aldring"
+    },
+    {
+      "file": "karuseller/K13-august-rutine/S1.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.290046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K13-august-rutine"
+    },
+    {
+      "file": "karuseller/K13-august-rutine/S2.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.318046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K13-august-rutine"
+    },
+    {
+      "file": "karuseller/K13-august-rutine/S3.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.342046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K13-august-rutine"
+    },
+    {
+      "file": "karuseller/K13-august-rutine/S4.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.670046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K13-august-rutine"
+    },
+    {
+      "file": "karuseller/K13-august-rutine/S5.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.698046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K13-august-rutine"
+    },
+    {
+      "file": "karuseller/K13-august-rutine/S6.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.722046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K13-august-rutine"
+    },
+    {
+      "file": "karuseller/K14-skolestart/S1.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.754046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K14-skolestart"
+    },
+    {
+      "file": "karuseller/K14-skolestart/S2.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.782046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K14-skolestart"
+    },
+    {
+      "file": "karuseller/K14-skolestart/S3.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.806046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K14-skolestart"
+    },
+    {
+      "file": "karuseller/K14-skolestart/S4.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.838046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K14-skolestart"
+    },
+    {
+      "file": "karuseller/K14-skolestart/S5.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.882046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K14-skolestart"
+    },
+    {
+      "file": "karuseller/K14-skolestart/S6.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.910046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K14-skolestart"
+    },
+    {
+      "file": "karuseller/K15-hostsjekk/S1.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.946046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K15-hostsjekk"
+    },
+    {
+      "file": "karuseller/K15-hostsjekk/S2.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:24.982046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K15-hostsjekk"
+    },
+    {
+      "file": "karuseller/K15-hostsjekk/S3.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:25.010046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K15-hostsjekk"
+    },
+    {
+      "file": "karuseller/K15-hostsjekk/S4.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:25.050046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K15-hostsjekk"
+    },
+    {
+      "file": "karuseller/K15-hostsjekk/S5.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:25.082046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K15-hostsjekk"
+    },
+    {
+      "file": "karuseller/K15-hostsjekk/S6.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:25.110046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K15-hostsjekk"
+    },
+    {
+      "file": "karuseller/K16-hjernetake-ferie/S1.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:25.146046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K16-hjernetake-ferie"
+    },
+    {
+      "file": "karuseller/K16-hjernetake-ferie/S2.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:25.178046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K16-hjernetake-ferie"
+    },
+    {
+      "file": "karuseller/K16-hjernetake-ferie/S3.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:25.206046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K16-hjernetake-ferie"
+    },
+    {
+      "file": "karuseller/K16-hjernetake-ferie/S4.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:25.246046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K16-hjernetake-ferie"
+    },
+    {
+      "file": "karuseller/K16-hjernetake-ferie/S5.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:25.282046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K16-hjernetake-ferie"
+    },
+    {
+      "file": "karuseller/K16-hjernetake-ferie/S6.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:25.310046+00:00",
+      "format_id": "karusell-4x5",
+      "tema": "K16-hjernetake-ferie"
+    },
+    {
+      "file": "stories-stills/ST01-velkommen-august.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:57.150048+00:00",
+      "format_id": "story-9x16",
+      "tema": "ST01-velkommen-august"
+    },
+    {
+      "file": "stories-stills/ST02-hostsjekk.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:57.206048+00:00",
+      "format_id": "story-9x16",
+      "tema": "ST02-hostsjekk"
+    },
+    {
+      "file": "stories-stills/ST03-sovnrutine.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:57.262048+00:00",
+      "format_id": "story-9x16",
+      "tema": "ST03-sovnrutine"
+    },
+    {
+      "file": "stories-stills/ST04-migrene-stat.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:57.314048+00:00",
+      "format_id": "story-9x16",
+      "tema": "ST04-migrene-stat"
+    },
+    {
+      "file": "stories-stills/ST05-vaksinestatus.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:57.370048+00:00",
+      "format_id": "story-9x16",
+      "tema": "ST05-vaksinestatus"
+    },
+    {
+      "file": "stories-stills/ST06-sitat.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:57.422048+00:00",
+      "format_id": "story-9x16",
+      "tema": "ST06-sitat"
+    },
+    {
+      "file": "stories-stills/ST07-blodtrykk.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:57.474048+00:00",
+      "format_id": "story-9x16",
+      "tema": "ST07-blodtrykk"
+    },
+    {
+      "file": "stories-stills/ST08-telehelse.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:57.526048+00:00",
+      "format_id": "story-9x16",
+      "tema": "ST08-telehelse"
+    },
+    {
+      "file": "stories-stills/ST09-tremor.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:57.574048+00:00",
+      "format_id": "story-9x16",
+      "tema": "ST09-tremor"
+    },
+    {
+      "file": "stories-stills/ST10-book-avslutt.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-05T17:31:57.622048+00:00",
+      "format_id": "story-9x16",
+      "tema": "ST10-book-avslutt"
+    },
+    {
+      "file": "stories-stills/ST11-naering-hjernen.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-06T11:23:56.652914+00:00",
+      "format_id": "story-9x16",
+      "tema": "ST11-naering-hjernen"
+    },
+    {
+      "file": "stories-stills/ST12-reisevaksine.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-06T11:23:25.148915+00:00",
+      "format_id": "story-9x16",
+      "tema": "ST12-reisevaksine"
+    },
+    {
+      "file": "stories-stills/ST13-video-norge.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-06T11:23:25.236915+00:00",
+      "format_id": "story-9x16",
+      "tema": "ST13-video-norge"
+    },
+    {
+      "file": "stories-stills/ST14-utbrent-batteri.png",
+      "engine": "local-engine",
+      "api_ref": "lokal designmotor (Pillow)",
+      "timestamp": "2026-08-06T11:23:25.320915+00:00",
+      "format_id": "story-9x16",
+      "tema": "ST14-utbrent-batteri"
+    },
+    {
+      "file": "story-motion/SM01-ny-start.mp4",
+      "engine": "local-engine",
+      "api_ref": "lokal render (Pillow+FFmpeg)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "story-motion-9x16",
+      "tema": "SM01-ny-start",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
+    },
+    {
+      "file": "story-motion/SM02-hodepine-ferie.mp4",
+      "engine": "local-engine",
+      "api_ref": "lokal render (Pillow+FFmpeg)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "story-motion-9x16",
+      "tema": "SM02-hodepine-ferie",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
+    },
+    {
+      "file": "story-motion/SM03-hostsjekk.mp4",
+      "engine": "local-engine",
+      "api_ref": "lokal render (Pillow+FFmpeg)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "story-motion-9x16",
+      "tema": "SM03-hostsjekk",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
+    },
+    {
+      "file": "story-motion/SM04-sovn.mp4",
+      "engine": "local-engine",
+      "api_ref": "lokal render (Pillow+FFmpeg)",
+      "timestamp": "2026-08-07T09:40:38.727487+00:00",
+      "format_id": "story-motion-9x16",
+      "tema": "SM04-sovn",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
+    },
+    {
+      "file": "story-motion/SM05-resept.mp4",
+      "engine": "local-engine",
+      "api_ref": "lokal render (Pillow+FFmpeg)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "story-motion-9x16",
+      "tema": "SM05-resept",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
+    },
+    {
+      "file": "story-motion/SM06-migrene.mp4",
+      "engine": "local-engine",
+      "api_ref": "lokal render (Pillow+FFmpeg)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "story-motion-9x16",
+      "tema": "SM06-migrene",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
+    },
+    {
+      "file": "story-motion/SM07-tremor.mp4",
+      "engine": "local-engine",
+      "api_ref": "lokal render (Pillow+FFmpeg)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "story-motion-9x16",
+      "tema": "SM07-tremor",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
+    },
+    {
+      "file": "story-motion/SM08-du-velger.mp4",
+      "engine": "local-engine",
+      "api_ref": "lokal render (Pillow+FFmpeg)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "story-motion-9x16",
+      "tema": "SM08-du-velger",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
+    },
+    {
+      "file": "story-motion/SM09-stress.mp4",
+      "engine": "local-engine",
+      "api_ref": "lokal render (Pillow+FFmpeg)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "story-motion-9x16",
+      "tema": "SM09-stress",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
+    },
+    {
+      "file": "story-motion/SM10-august-cta.mp4",
+      "engine": "local-engine",
+      "api_ref": "lokal render (Pillow+FFmpeg)",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "story-motion-9x16",
+      "tema": "SM10-august-cta",
+      "audio": "musikk (ElevenLabs Music, energisk/beroligende)"
+    },
+    {
+      "file": "reels/KLING_hjernen.mp4",
+      "engine": "kling",
+      "api_ref": "https://v3b.fal.media/files/b/0aa55cb2/BmjvaNvcw9n74BGqUiZsy_output.mp4 + https://v3b.fal.media/files/b/0aa54e70/vfrakI9bcbvYOVm-W5mUa_output.mp4",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "reel-9x16",
+      "tema": "anatomi-hjernehelse",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "reels/KLING_signal.mp4",
+      "engine": "kling",
+      "api_ref": "https://v3b.fal.media/files/b/0aa54e9a/veEHP8VgJsLi4lmOa_SVX_output.mp4 + https://v3b.fal.media/files/b/0aa54eae/Jckp0sfs1r1PXwt4ej0rW_output.mp4",
+      "timestamp": "2026-08-07T09:39:18.921046+00:00",
+      "format_id": "reel-9x16",
+      "tema": "kropps-signal",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_AVATAR_velkommen.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "2gUjkebdbwxURBcoyAXW",
+      "timestamp": "2026-08-07T09:24:10.766809+00:00",
+      "format_id": "vo-mp3",
+      "tema": "klinikk-velkomst",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_AVATAR_videotime.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "H8vrOVD2LvV6oVb8o0By",
+      "timestamp": "2026-08-07T09:24:11.908350+00:00",
+      "format_id": "vo-mp3",
+      "tema": "videotime-forklaring",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_AVIDA_5vaner.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "9kU4aiu5XL6Y1Ynd6xjE",
+      "timestamp": "2026-08-07T09:23:55.223253+00:00",
+      "format_id": "vo-mp3",
+      "tema": "hjernehelse-vaner",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_AVIDA_blodsukker.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "nUWwBA8EkhP6fvJYz5rM",
+      "timestamp": "2026-08-07T09:23:56.660488+00:00",
+      "format_id": "vo-mp3",
+      "tema": "blodsukker",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_HF_A1-hjernetake.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "ZkAO1D2x6bZzkodOH0lE",
+      "timestamp": "2026-08-07T09:23:58.047045+00:00",
+      "format_id": "vo-mp3",
+      "tema": "hjernetake",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_HF_B3-parorende.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "5PVJuaQokAEAkKOWN6r3",
+      "timestamp": "2026-08-07T09:23:59.249679+00:00",
+      "format_id": "vo-mp3",
+      "tema": "parorende-omsorg",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_HF_C1-sykmelding-hjemmefra.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "onCS9DS2mtOYghTE7LRS",
+      "timestamp": "2026-08-07T09:23:50.346240+00:00",
+      "format_id": "vo-mp3",
+      "tema": "sykmelding-digital",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_HF_D3-sovnloshet.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "9wn4F1DYk7z6KNBZn6Wp",
+      "timestamp": "2026-08-07T09:24:00.672467+00:00",
+      "format_id": "vo-mp3",
+      "tema": "sovnloshet",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_HF_E2-spesialist-uten-ventetid.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "pZV6Nlupssw9SBay8SkY",
+      "timestamp": "2026-08-07T09:24:01.848725+00:00",
+      "format_id": "vo-mp3",
+      "tema": "spesialist-tilgjengelighet",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_HF_E5-bli-tatt-pa-alvor.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "2P3akWmkt59dTPDi7Fl2",
+      "timestamp": "2026-08-07T09:24:03.124427+00:00",
+      "format_id": "vo-mp3",
+      "tema": "bli-tatt-pa-alvor",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_KLING_hjernen.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "1c1NWPVSDwzLYlKmLsjg",
+      "timestamp": "2026-08-07T09:24:07.912483+00:00",
+      "format_id": "vo-mp3",
+      "tema": "anatomi-hjernehelse",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_KLING_signal.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "wbQo31TWRnZJVJ7giGoz",
+      "timestamp": "2026-08-07T09:24:09.168605+00:00",
+      "format_id": "vo-mp3",
+      "tema": "kropps-signal",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_R_livsstil.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "l5tQQ934SOBHSMtQkeTz",
+      "timestamp": "2026-08-07T09:23:49.139914+00:00",
+      "format_id": "vo-mp3",
+      "tema": "livsstil",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_R_resept.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "kg4vMThvYxy2BpeFNPHI",
+      "timestamp": "2026-08-07T09:24:05.038073+00:00",
+      "format_id": "vo-mp3",
+      "tema": "digital-resept",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_R_telehelse.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "ewkjStwET6u9KxsppeER",
+      "timestamp": "2026-08-07T09:23:51.899859+00:00",
+      "format_id": "vo-mp3",
+      "tema": "telehelse",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_R_tremor.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "hh4ML6QuGgnm3IqGpp8T",
+      "timestamp": "2026-08-07T09:23:53.552418+00:00",
+      "format_id": "vo-mp3",
+      "tema": "tremor-signal",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "vo/VO_R_vaksine.mp3",
+      "engine": "elevenlabs",
+      "api_ref": "m1kBj6J31cDG9sk71H5f",
+      "timestamp": "2026-08-07T09:24:06.323444+00:00",
+      "format_id": "vo-mp3",
+      "tema": "reisevaksine",
+      "vo_voice_id": "C1c7CqjK4oN7wzaohHfr"
+    },
+    {
+      "file": "canva/CANVA_hjernen-alvor.png",
+      "engine": "canva",
+      "api_ref": "https://www.canva.com/d/gWv_WtfZfjwFa3C",
+      "timestamp": "2026-08-07T09:36:55.435905+00:00",
+      "format_id": "instagram-post-4x5",
+      "tema": "hjernehelse"
+    },
+    {
+      "file": "canva/CANVA_hostsjekk.png",
+      "engine": "canva",
+      "api_ref": "https://www.canva.com/d/gWv_WtfZfjwFa3C",
+      "timestamp": "2026-08-07T09:36:55.147390+00:00",
+      "format_id": "instagram-post-4x5",
+      "tema": "hostsjekk-kampanje"
+    },
+    {
+      "file": "canva/CANVA_sovn.png",
+      "engine": "canva",
+      "api_ref": "https://www.canva.com/d/gWv_WtfZfjwFa3C",
+      "timestamp": "2026-08-07T09:36:55.754033+00:00",
+      "format_id": "instagram-post-4x5",
+      "tema": "sovn-hjernehelse"
+    },
+    {
+      "file": "canva/CANVA_videotime.png",
+      "engine": "canva",
+      "api_ref": "https://www.canva.com/d/gWv_WtfZfjwFa3C",
+      "timestamp": "2026-08-07T09:36:56.055704+00:00",
+      "format_id": "instagram-post-4x5",
+      "tema": "telehelse"
+    }
+  ]
+}
